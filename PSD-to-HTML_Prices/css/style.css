@@ -1,0 +1,371 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+.Rectangle{
+    background-color: #525252;
+    /* width: 1560px;
+    height: 64px; */
+}
+
+
+a {
+    color: aliceblue !important;
+    /* margin-left: 2%; */
+} 
+
+.navbar-nav > li{
+    margin-left:10px;
+    margin-right:10px;
+  }
+
+.border{
+    border-radius: 20px;
+    background-color: #29626D;
+    width: 111px;
+    height: 40px;
+}
+
+.br1{
+  width: 83px;
+}
+
+.br2{
+  width: 161px; 
+}
+
+.img-1{
+    overflow: hidden; 
+    background-size: cover;
+    background-position: center;
+}
+
+.line{
+    width: 4%;
+    margin-left: 44.5%;
+    /* padding-right: -21px; */
+    margin-right: -25px;
+}
+
+.line-1{
+    width: 4%;
+    margin-left: 5px;
+    /* padding-right: -21px; */
+    margin-right: -25px;
+}
+
+.star{
+    margin-left: 2%;
+}
+
+.pr{
+    width: 35%;
+    height: 10%;
+    margin-left: 32%;
+}
+
+.logo{
+    width: 5%;
+    height: 10%;
+    margin-bottom: 2%;
+    /* background-color: #646464; */
+}
+
+.email{
+    font-family: Roboto;
+      font-size: 14px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      /* line-height: 2.29; */
+      letter-spacing: normal;
+      text-align: left;
+      color: #565656;
+      border: 1px solid #565656;
+      border-radius: 20px;
+      background-color: #f4f5f8;
+}
+
+.Submit{
+    border: 1px solid #FFFFFF;
+    border-radius: 20px;
+    background-color: #ff7b6d;
+  
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.50;
+  letter-spacing: normal;
+  /* padding-left: 48%;
+  padding-right: 48%;
+  padding-top: 20%;
+  padding-bottom: 20%;
+  margin-bottom: 30% !important; */
+  /* text-align: left; */
+  color: white;
+}
+
+.text{
+    text-decoration: none;
+    font-family: Roboto;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 2.14;
+  letter-spacing: normal;
+  text-align: left;
+  color: #f1f1f1;
+    /* padding-right: 72%; */
+    /* margin-right: -22%; */
+}
+
+.pr-header{
+    background-color: 
+    #1d7a8c;
+    /* width: 100%; */
+    /* height: 25% !important; */
+    padding-bottom: 5%;
+    padding-top: 5%;
+    font-family: Roboto;
+  font-size: 28px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.86;
+  letter-spacing: normal;
+  text-align: center;
+  color: white;
+}
+
+.text-1{
+    /* width: 16.8% !important;
+    height: 11.8% !important; */
+    font-size: 30px;
+    font-family: Roboto;
+  /* font-size: 30px; */
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.8;
+  letter-spacing: normal;
+  text-align: center;
+  color: #646464;
+  margin-left: 1%;
+  /* margin-top: 100% !important; */
+}
+
+.check{
+    margin-left: 29%;
+    padding-right: 2%;
+
+    /* margin-bottom: 3%; */
+}
+
+.text-2{
+    font-family: Roboto;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #646464;
+}
+.line-3{
+    margin-left: 5% !important;
+    padding-left: 55%;
+}
+
+/* .imgs{
+    margin-left: 10%;
+} */
+
+.Ellipse-667 {
+    width: 108px;
+    height: 108px;
+    /* margin: 39px 103px 17px 175px; */
+    padding: 30px 35px 30px 36px;
+    border: solid 1px #b0c9ce;
+    border-radius: 50px;
+    background-image: linear-gradient(to top, #e5e4e2);
+  }
+
+  .icons{
+      margin-left: 8%;
+  }
+
+  .text-3{
+    /* width: 107px;
+    height: 12px; */
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.38;
+    letter-spacing: normal;
+    /* text-align: center; */
+    color: #646464;
+  }
+
+  .text-4{
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.44;
+    letter-spacing: normal;
+    /* text-align: center; */
+    color: #1d7a8c;
+  }
+  
+
+  .inc{
+      width: 78%;
+      margin-left: 14%;
+  }
+
+  .acc{
+      margin-right: 3%;
+  }
+
+  .bd{
+
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.2;
+    letter-spacing: normal;
+    /* text-align: center; */
+    color: greyish-brown;
+  }
+
+  .text-5{
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2.25;
+    letter-spacing: normal;
+    text-align: left;
+    color: greyish-brown;
+  
+  }
+
+  .why-card{
+      margin-left: 8%;
+  }
+
+  .why{
+      border: white;
+      width: 70%;
+      /* margin-left: 15%; */
+  }
+
+  .text-6{
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.2;
+    letter-spacing: normal;
+    text-align: right;
+    color: #646464;
+  }
+
+  .text-7{
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: normal;
+    text-align: right;
+    color: #646464;
+  }
+
+  .news{
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.22;
+    letter-spacing: normal;
+    text-align: left;
+    color: #353548;
+  }
+
+  .up{
+      padding-right: 30%;
+      /* -ms-flex-align: start; */
+      margin-left: 6%;
+  } 
+
+  .email2{
+    padding-right: 29%;
+  }
+
+  .foot{
+      width: 10%;
+  }
+
+  /* .fb{
+      margin-left: 450%;
+      margin-top: -50%;
+  } */
+
+  .foot1{
+    /* width: 10%; */
+    padding-top: 2%;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2.14;
+    letter-spacing: normal;
+    /* text-align: left; */
+    color: #f1f1f1;
+    /* margin-left: 2%;
+    padding-right: -25%; */
+  }
+
+  .last-text{
+    font-family: Roboto;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.71;
+  letter-spacing: normal;
+  /* text-align: left; */
+  text-decoration: none;
+  color: cool-grey !important;
+}
+
+@media screen and (max-width: 961px){
+  .email2{
+    padding-right: 22%;
+  }
+
+  .up{
+    padding-right: 20%;
+  }
+}
+  

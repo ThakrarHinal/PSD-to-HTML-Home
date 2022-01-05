@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto&family=Work+Sans&display=swap" rel="stylesheet">
+
+    <title>Service Provider -> Service History</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light Rectangle sticky-top ">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"><img class="img" src="images/logo-small.png" alt=""></a>
+          <button class="navbar-toggler" type="button" onclick="responsive_menu()" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link border br3 text-center" aria-current="page" href="#">Book now</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Prices & services</a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link" href="#">Warranty</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+              </li>
+              <li class="nav-item">
+                  <div class="vl"></div>
+              </li>
+              <li class="nav-item">
+                <button type="button" class="btn position-relative nav-link">
+                        <img src="images/notification.png" alt="">
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                      2
+                      <span class="visually-hidden">unread messages</span>
+                    </span>
+                  </button>
+              </li>
+             
+              <li class="nav-item">
+                <div class="vl"></div>
+            </li>
+              
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <img src="images/Contact.png" alt="">
+                </a>         
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+            </ul>
+           
+            
+
+            
+          </div>
+        </div>
+      </nav>
+
+      <div class="wlc box">
+          <h2 class="text-center wlc-wrd">Welcome, <b>Gaurang!</b> </h2>
+      </div>
+
+
+    
+
+      <div class="sh">Service History</div>
+      <div class="ex"><button class="btn ex1 border">Export</button></div>
+        <div class="container-fluid ver-nav navbar-collapse navbar navbar-nav">
+              <ul class="list1" id="menu_small">
+                <li class="nav-item"><a class="item nav-tabs" href="#home">Dashboard</a></li>
+                <li class="nav-item"><a class="item nav-tabs" href="#news">Service History</a></li>
+                <li class="nav-item"><a class="item active nav-tabs" href="#contact">Service Schedule</a></li>
+                <li class="nav-item"><a class="item nav-tabs" href="#about">Favourite Pros </a></li>
+                <li class="nav-item"><a class="item nav-tabs" href="#about">Invoices</a></li>
+                <li class="nav-item"><a class="item nav-tabs" href="#about">Notifications</a></li>
+              </ul>
+          </div>
+          
+    
+    
+          <table class="table tb table-responsive">
+            <thead class="table-light">
+              <tr>
+                <td  >Service Details <img src="images/data.png" alt=""> </td>
+                <td>Service Provider<img src="images/data.png" alt=""> </td>
+                <td>Payment  <img src="images/data.png" alt="">  </td>
+                <td>Status <img src="images/data.png" alt=""> </td>
+                <td>Rate SP</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div> <img src="images/calendar.png" alt=""> 31/03/2018 </div>
+                  <div>12:00 - 18:00</div>
+                </td>
+                <td> <span><img class="img1" src="images/hat.png" alt=""></span> 
+                  <span class="txt" >  Lyum Watson</span> 
+                  <div class="txt1"><img src="images/y-star.png" alt=""> <img src="images/y-star.png" alt=""> <img src="images/y-star.png" alt=""> <img src="images/y-star.png" alt=""> <img src="images/star2.png" alt="">  4 </div></td>
+                  <td class="txt2">
+                  €63
+                </td>
+                <td><button class="border gbtn" >Completed</button></td>
+                <td><button class="btn btn1 border">Rate SP</button></td>
+              </tr>
+              <tr>
+                <td>
+                  <div> <img src="images/calendar.png" alt=""> 15/03/2018 </div>
+                  <div>12:00 - 18:00</div>
+                </td>
+                <td> <span><img class="img1" src="images/hat.png" alt=""></span> <span class="txt" >  Lyum Watson</span> 
+                  <div class="txt1"> <img src="images/y-star.png" alt=""> <img src="images/y-star.png" alt=""> <img src="images/y-star.png" alt=""> <img src="images/y-star.png" alt=""> <img src="images/star2.png" alt=""> 4 </div></td>
+                  <td class="txt2">
+                  €63
+                </td>
+                <td><button class="border gbtn" >Completed</button></td>
+                <td><button class="btn btn1 border">Rate SP</button></td>
+              </tr>
+              <tr>
+                <td>
+                  <div> <img src="images/calendar.png" alt=""> 10/03/2018 </div>
+                  <div>12:00 - 18:00</div>
+                </td>
+                <td> <span><img class="img1" src="images/hat.png" alt=""></span> <span class="txt" >  Lyum Watson</span> 
+                  <div class="txt1"><img src="images/y-star.png" alt=""><img src="images/y-star.png" alt=""><img src="images/y-star.png" alt=""><img src="images/y-star.png" alt=""><img src="images/star2.png" alt=""> 4 </div></td>
+                  <td class="txt2">                  €63
+                </td>
+                <td><button class="border gbtn" >Completed</button></td>
+                <td><button class="btn btn1 border">Rate SP</button></td>
+              </tr>
+              <tr>
+                <td>
+                  <div> <img src="images/calendar.png" alt=""> 28/02/2018 </div>
+                  <div>12:00 - 18:00</div>
+                </td>
+                <td> <span><img class="img1" src="images/hat.png" alt=""></span> <span class="txt" >  Lyum Watson</span> 
+                  <div class="txt1"><img src="images/y-star.png" alt=""><img src="images/y-star.png" alt=""><img src="images/y-star.png" alt=""><img src="images/y-star.png" alt=""><img src="images/star2.png" alt=""> 4 </div></td>
+                  <td class="txt2">
+                  €63
+                </td>
+                <td><button class="border pbtn" >Cancelled</button></td>
+                <td><button class="btn btn1 border">Rate SP</button></td>
+              </tr>
+              <tr>
+                <td>
+                  <div> <img src="images/calendar.png" alt=""> 15/02/2018 </div>
+                  <div>12:00 - 18:00</div>
+                </td>
+                <td> <span><img class="img1" src="images/hat.png" alt=""></span> <span class="txt" >  Lyum Watson</span> 
+                  <div class="txt1"><img src="images/y-star.png" alt=""><img src="images/y-star.png" alt=""><img src="images/y-star.png" alt=""><img src="images/y-star.png" alt=""><img src="images/star2.png" alt=""> 4 </div></td>
+                  <td class="txt2">
+                  €63
+                </td>
+                <td><button class="border gbtn" >Completed</button></td>
+                <td><button class="btn btn1 border">Rate SP</button></td>
+              </tr>
+              <tr>
+                <td>
+                  <div> <img src="images/calendar.png" alt=""> 11/02/2018 </div>
+                  <div>12:00 - 18:00</div>
+                </td>
+                <td> <span><img class="img1" src="images/hat.png" alt=""></span> <span class="txt" >  Lyum Watson</span> 
+                  <div class="txt1"><img src="images/y-star.png" alt=""><img src="images/y-star.png" alt=""><img src="images/y-star.png" alt=""><img src="images/y-star.png" alt=""><img src="images/star2.png" alt=""> 4 </div></td>
+                  <td class="txt2">
+                  €63
+                </td>
+                <td><button class="border pbtn" >Cancelled</button></td>
+                <td><button class="btn btn1 border">Rate SP</button></td>
+              </tr>
+              <tr>
+                <td>
+                  <div> <img src="images/calendar.png" alt=""> 31/01/2018 </div>
+                  <div>12:00 - 18:00</div>
+                </td>
+                <td> <span><img class="img1" src="images/hat.png" alt=""></span> <span class="txt" >  Lyum Watson</span> 
+                  <div class="txt1"><img src="images/y-star.png" alt=""><img src="images/y-star.png" alt=""><img src="images/y-star.png" alt=""><img src="images/y-star.png" alt=""><img src="images/star2.png" alt=""> 4 </div></td>
+                  <td class="txt2">
+                  €63
+                </td>
+                <td><button class="border gbtn" >Completed</button></td>
+                <td><button class="btn btn1 border">Rate SP</button></td>
+              </tr>
+              <tr>
+                <td>
+                  <div> <img src="images/calendar.png" alt=""> 19/01/2018 </div>
+                  <div>12:00 - 18:00</div>
+                </td>
+                <td> <span><img class="img1" src="images/hat.png" alt=""></span> <span class="txt" >  Lyum Watson</span> 
+                  <div class="txt1"><img src="images/y-star.png" alt=""><img src="images/y-star.png" alt=""><img src="images/y-star.png" alt=""><img src="images/y-star.png" alt=""><img src="images/star2.png" alt=""> 4 </div></td>
+                  <td class="txt2">
+                  €63
+                </td>
+                <td><button class="border gbtn" >Completed</button></td>
+                <td><button class="btn btn1 border">Rate SP</button></td>
+              </tr>
+              <tr>
+                <td>
+                  <div> <img src="images/calendar.png" alt=""> 05/01/2018 </div>
+                  <div>12:00 - 18:00</div>
+                </td>
+                <td> <span><img class="img1" src="images/hat.png" alt=""></span> <span class="txt" >  Lyum Watson</span> 
+                  <div class="txt1"><img src="images/y-star.png" alt=""><img src="images/y-star.png" alt=""><img src="images/y-star.png" alt=""><img src="images/y-star.png" alt=""><img src="images/star2.png" alt=""> 4 </div></td>
+                  <td class="txt2">
+                  €63
+                </td>
+                <td><button class="border pbtn" >Cancelled</button></td>
+                <td><button class="btn btn1 border">Rate SP</button></td>
+              </tr>
+              <tr>
+                <td>
+                  <div> <img src="images/calendar.png" alt=""> 01/01/2018 </div>
+                  <div>12:00 - 18:00</div>
+                </td>
+                <td> <span><img class="img1" src="images/hat.png" alt=""></span> <span class="txt" >  Lyum Watson</span> 
+                <div class="txt1"><img src="images/y-star.png" alt=""><img src="images/y-star.png" alt=""><img src="images/y-star.png" alt=""><img src="images/y-star.png" alt=""><img src="images/star2.png" alt=""> 4 </div></td>
+                <td class="txt2">
+                  €63
+                </td>
+                <td><button class="border pbtn" >Cancelled</button></td>
+                <td><button class="btn btn1 border">Rate SP</button></td>
+              </tr>
+            </tbody>
+           
+           
+    
+          </table>
+
+          
+          <form class="form1" action="">
+            <span>show</span>
+            <select name="show" id="">
+            <option value="10">10</option>
+          </select>
+          <span>entries</span>
+          <span>total records:55</span>
+        </form>
+        <nav aria-label="Page navigation example">
+  <ul class="pagination page1">
+    <li class="page-item"><a class="page-link pn1 pn" href="#">&lt;</a></li>
+    <li class="page-item "><a class="page-link pn" href="#">&laquo;</a></li>
+    <li class="page-item "><a class="page-link pn link1" href="#">1</a></li>
+    <li class="page-item"><a class="page-link pn" href="#">2</a></li>
+    <li class="page-item"><a class="page-link pn" href="#">3</a></li>
+    <li class="page-item"><a class="page-link pn" href="#">4</a></li>
+    <li class="page-item">
+      <a class="page-link pn" href="#">&raquo;</a>
+    </li>
+    <li class="page-item"><a class="page-link pn pn2" href="#">&gt;</a></li>
+  </ul>
+</nav>
+  
+        </div>
+
+        
+        <section class="f1">
+          <div class=" my-5">
+
+            <footer class=" text-center text-white" style="background-color: #111111;">
+            <!-- Grid container -->
+            <div class="container p-3 pb-0">
+              <!-- Section: Social media -->
+              <section class="mb-4">
+                <span class="foot"> <img src="images/footer.png" alt=""></span>
+                <span class="foot1">HOME</span>
+                <span class="foot1">ABOUT</span>
+                <span class="foot1">TESTIMONIALS</span>
+                <span class="foot1">FAQS</span>
+                <span class="foot1">INSURANCE POLICY</span>
+                <span class="foot1">IMPRESSUM</span>
+                <span class="fb"> <img src="images/FB.png" alt=""></span>
+                <span> <img src="images/insta (1).png" alt=""></span>
+                
+                
+          
+              
+              </section>
+              <!-- Section: Social media -->
+            </div>
+  
+            <hr class="hr1">
+            <!-- Grid container -->
+          
+            <!-- Copyright -->
+            <div class="text-center p-3 l-txt" style="background-color: #111111;">
+              ©2018 Helperland. 
+              <a class="text-white l-txt">All rights reserved. Terms and Conditions | Privacy Policy</a>
+            </div>
+            <!-- Copyright -->
+          </footer>
+            
+          </div>
+  
+        </section>
+
+      
+
+
+     
+           
+      <script src="index.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    
+  </body>
+</html>

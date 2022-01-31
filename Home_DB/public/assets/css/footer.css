@@ -1,0 +1,191 @@
+/*.news{
+    margin-bottom: 1%;
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.22;
+    letter-spacing: normal;
+    color: #353548;
+  }
+
+  .email{
+    
+    padding-right:  22px;
+
+  
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #565656;
+    border: 1px solid #565656;
+    border-radius: 20px;
+    background-color: #f4f5f8;
+}
+
+.Submit{
+    border: 1px solid #FFFFFF;
+    border-radius: 20px;
+    background-color: #ff7b6d;
+  
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.50;
+  letter-spacing: normal;
+  padding-left: 48%;
+  padding-right: 48%;
+  padding-top: 20%;
+  padding-bottom: 20%;
+  margin-bottom: 30% !important;
+  color: white;
+}
+
+.color-me-1{
+    color: #FFFFFF !important;
+}
+
+
+.text-2{
+    margin-left: 16%;
+    
+}
+
+.text-3{
+    padding-right: 2%;
+    text-decoration: none;
+  
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 2.14;
+  letter-spacing: normal;
+  color: #f1f1f1;
+  }
+
+  .fb{
+    margin-top: 1%;
+    margin-left: 13%;
+    padding-right: 1%;
+}
+
+.insta{
+    margin-top: 1%;
+}
+*/
+
+news{
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.22;
+    letter-spacing: normal;
+    text-align: left;
+    color: #353548;
+    margin-top: 4%;
+  }
+  
+  footer{
+    margin-bottom: -5%;
+  }
+  
+  .fb{
+    padding-left: 13%;
+    padding-right: 1%;
+  }
+  
+  .hr1{
+    width: 85%;
+    margin-left: 7%;
+  }
+  
+  .submit1{
+    width: 163px;
+    height: 46px;
+    border-radius: 23px;
+    background-color: #1d7a8c;
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.6;
+    letter-spacing: normal;
+    margin-left: 88%;
+    margin-bottom: 10%;
+    color: white;
+  }
+  
+  .l-txt{
+    text-decoration: none;
+    color: grey !important;
+  }
+
+  .ab-us{
+    margin-top: 2%;
+    font-family: Roboto;
+  font-size: 36px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.67;
+  letter-spacing: normal;
+  text-align: center;
+  color: #4f4f4f;
+
+  }
+
+  .o-stry{
+    margin-top: 4%;
+    font-family: Roboto;
+  font-size: 36px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.67;
+  letter-spacing: normal;
+  text-align: center;
+  color: #4f4f4f;
+
+  }
+
+  .pr1{
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: var(--brownish-grey);
+  }
+
+@media(max-width:999px){
+.mb-4{
+  display: grid;
+}
+
+.foot{
+  margin: unset;
+  padding: unset;
+  width: unset;
+}
+
+.fb{
+  padding: unset;
+  margin-bottom: 1%;
+}
+
+
+}

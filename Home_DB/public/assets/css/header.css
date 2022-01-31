@@ -1,0 +1,39 @@
+.Rectangle{
+    background-color: #525252;
+  
+}
+
+
+a {
+    color: aliceblue !important;
+} 
+
+.navbar-nav > li{
+    margin-left:10px;
+    margin-right:10px;
+  }
+
+.br3{
+    border-radius: 20px;
+    background-color: #29626D;
+    width: 111px;
+    height: 40px;
+}
+
+.br{
+    border-radius: 20px;
+    width: 161px;
+    height: 40px;
+}
+
+.br1{
+  width: 83px;
+  border-radius: 20px;
+  background-color: #29626D;
+}
+
+.br2{
+  width: 161px; 
+  border-radius: 20px;
+  background-color: #29626D;
+} 

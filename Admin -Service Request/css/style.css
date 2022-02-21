@@ -1,0 +1,272 @@
+.Rectangle{
+    background-color: #1fb6ff;
+  
+}
+
+.help{
+    color: aliceblue;
+}
+
+.active{
+    color: aliceblue !important;
+}
+
+
+body{
+    overflow-x: hidden;
+    background: #f2f4f5;
+    font-family: 'Roboto', sans-serif;
+font-family: 'Work Sans', sans-serif;
+color: #646464;
+}
+
+.ver-nav{
+    width: 273px;
+    margin: 0 20px 0 0;
+    padding: 18px 0 358px 1px;
+    box-shadow: 2px 0 5.5px 0.5px rgba(0, 0, 0, 0.1);
+    height: 1012px;
+    background-color: white;
+    display: inline-block;
+}
+
+.list1 {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    height: 400px;
+  }
+
+  .img1{
+    padding: 8px 4px;
+    border: solid 1px #aaa;
+    border-radius: 25px;
+    background-color: white;
+  }
+
+  .item {
+    display: block;
+    color: #646464;
+    padding: 12px 16px;
+    text-decoration: none;
+  }
+
+  .test:after {
+    content: '\2807';
+    font-size: 20px;
+    margin-left: 12%;
+    }
+
+    
+
+  .UM{
+      margin-left: 20%;
+      margin-top: -65%;
+      position:static;
+  }
+  
+  .btn1{
+      margin-right: 2%;
+      background-color: #1fb6ff;
+      color:aliceblue;
+  }
+
+  .btn2:active{
+      background-color: #F4F4F4;
+  }
+
+  .pbtn{
+    background-color: #ff6b6b;
+    color: white;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  
+  .gbtn{
+    background-color: #67b644;
+    color: white;
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+
+  .new-btn{
+      background-color: #f2bb37;
+      color: white;
+  }
+  .tb{
+      width: 78%;
+      height: 730px;
+      border: solid 1px #e1e1e1;
+      display:inline-table;
+      background-color: white;
+      margin-left: 20%;
+  }
+
+   .page1{
+      margin-top: -2.5%;
+      margin-right: 1%;
+  } 
+
+  .pn{
+      color: black;
+  }
+
+  .pn:active{
+      background-color: #646464;
+      color: white;
+  }
+
+  .form-border{
+      background-color: white;
+      width: 78%;
+      padding-top: 1%;
+      padding-bottom: 1%;
+      padding-left: 1%;
+      border: solid 1px #e1e1e1;
+      margin-top: 1%;
+      margin-bottom: 1%;
+      margin-left: 20%;
+  }
+
+  
+  footer{
+      margin-top: 1%;
+      margin-left: 20%;
+      color: #A2A6A8;
+  }
+
+  .form-border1{
+    background-color: white;
+    width: 78%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 1%;
+    border: solid 1px #e1e1e1;
+    margin-top: -1%;
+    margin-left: 20%;
+}
+
+.search{
+    background-color: #1fb6ff;
+    color: white;
+}
+
+.clear{
+    background-color: white;
+}
+
+.btn3{
+    background-color: #67B644;
+    color: white;
+}
+
+.dropdowns{
+    list-style: none;
+    text-decoration: none;
+}
+
+.col-sm-2{
+    width: 13.5%;
+}
+
+#startdate,#endDate {
+ 
+    background:  url("../images/admin-calendar-blue.png") no-repeat 12px;
+    padding-left: 40px; 
+    background-color: #ffffff;   
+  }
+
+@media(max-width: 990px){
+    .ver-nav{
+        margin-left: -6%;
+        width: 5.2%;
+        background-color: black;
+        height: 2px;
+        margin-top: -3.2%;
+      }
+    
+      .list1{
+        opacity: 0;
+        visibility: hidden;
+        display: flex;
+      }
+
+      .item{
+        display: block;
+        color: black;
+        border: hidden !important;
+        text-decoration: none !important;
+      }
+
+    .list1responsive{
+        background-color: white;
+        margin-top: 4%;
+        margin-left: 66%;
+        width: 631.5%;
+        list-style: none;
+        text-decoration: none !important;
+      }
+
+
+      .tb{
+        width: 64%;
+       text-align: center; 
+       margin-top: 24%;
+        margin-left: 18%;
+        height: 10%;
+     }
+
+      table, thead, tbody, th, td, tr { 
+        display: block; 
+    }
+    
+    
+    tr { border: 1px solid #ccc; }
+    
+    td { 
+      border: none;
+      position: relative;
+      padding-left: 50%; 
+    }
+    
+    .form-border{
+        width: 81%;
+        margin-bottom: -18%;
+        margin-left: 11%;
+        margin-top: 2%;
+    }
+
+    .UM{
+        margin-top: -26%;
+        margin-left: 13%;
+    }
+
+    .btn1{
+        margin-right: 10%;
+    }
+    
+    .form-border1{
+        width: 29%;
+        padding-left: 6%;
+        margin-left: 38%;
+    }
+
+    .page1{
+        margin-top: 5.5%;
+        margin-right: 8%;
+        
+    }
+
+    footer{
+        margin-left: 38%;
+    }
+
+    .form-check{
+        padding-left: 0%;
+    }
+
+ form{
+     display: block;
+ }
+}
+

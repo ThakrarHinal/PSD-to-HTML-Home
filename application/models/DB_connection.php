@@ -50,9 +50,11 @@ class DB_connection extends database{
                     $First_name = $row->First_name;
                     $Last_name = $row->Last_name;
                     $dbemail = $row->Email;
+                    $simp = $row->status;
                     $mobile = $row->Mobile;
+                    $minid = $row->typeId;
                     $_SESSION['typeId'] = $row->typeId;
-                    if (password_verify($password, $dbPassword)) {
+                    if (($minid == 0 || $minid == 2) && password_verify($password, $dbPassword)) {
                         // code...
                         if ($this->Query("SELECT * FROM useraddress WHERE Userid = '$userId'")) {
                    
@@ -74,15 +76,23 @@ class DB_connection extends database{
                                         
                                     }
 
-                                    if ($this->Query("SELECT * FROM servicerequest left outer JOIN User on User.Userid = servicerequest.Serviceproviderid left outer join useraddress on useraddress.Userid = servicerequest.Serviceproviderid WHERE servicerequest.Status = 'Booked' and servicerequest.Serviceproviderid = $userId")) {
-                                        // code...
-                                        $_SESSION['serviceid2'] = $this->fetchall();
+                                    //     if ($this->Query("select * from servicerequest where Status = 'Booked';")) {
+                                    //     // code...
+                                    //     $_SESSION['services'] = $this->fetchall();
                                         
                                         
-                                    }
+                                    // }
 
-                                    if ($this->Query("SELECT user.Userid, user.First_name, user.Last_name, 
-                                        sum(Serviceid) as total, favouriteandblocked.isfavourite, favouriteandblocked.isblockd, servicerequest.UserId from user left outer JOIN servicerequest on servicerequest.Serviceproviderid = user.Userid  left outer join favouriteandblocked on favouriteandblocked.Targetuserid = user.Userid WHERE servicerequest.UserId = $userId group by user.Userid")) {
+
+                                    // if ($this->Query("SELECT * FROM servicerequest left outer JOIN User on User.Userid = servicerequest.Serviceproviderid left outer join useraddress on useraddress.Userid = servicerequest.Serviceproviderid WHERE servicerequest.Status = 'Booked' and servicerequest.Serviceproviderid = $userId")) {
+                                    //     // code...
+                                    //     $_SESSION['serviceid2'] = $this->fetchall();
+                                        
+                                        
+                                    // }
+
+                                    if ($this->Query("SELECT user.Userid, rating.ratings, user.First_name, user.Last_name, 
+                                        sum(Serviceid) as total, favouriteandblocked.isfavourite, favouriteandblocked.isblockd, servicerequest.UserId from user left outer join rating on rating.ratingto = user.Userid left outer JOIN servicerequest on servicerequest.Serviceproviderid = user.Userid  left outer join favouriteandblocked on favouriteandblocked.Targetuserid = user.Userid WHERE servicerequest.UserId = $userId group by user.Userid")) {
                                         // code...;
 
                                         $_SESSION['favid'] = $this->fetchall();
@@ -102,7 +112,7 @@ class DB_connection extends database{
                                     }
 
 
-                                    if ($this->Query("SELECT * FROM servicerequest left outer JOIN User on User.Userid = servicerequest.Serviceproviderid WHERE (servicerequest.Status = 'completed' OR servicerequest.Status = 'Cancelled') and servicerequest.UserId = $userId")) {
+                                    if ($this->Query("SELECT * FROM servicerequest left outer JOIN User on User.Userid = servicerequest.Serviceproviderid right outer join rating on rating.Ratingto = servicerequest.Serviceproviderid WHERE (servicerequest.Status = 'completed' OR servicerequest.Status = 'Cancelled') and servicerequest.UserId = $userId")) {
                                         // code...
                                         
                                         $_SESSION['servicehistory'] = $this->fetchall();
@@ -112,7 +122,74 @@ class DB_connection extends database{
 
                                      
 
-                                    if ($this->Query("SELECT * FROM servicerequest left outer JOIN User on User.Userid = servicerequest.Serviceproviderid left outer join useraddress on useraddress.Userid = servicerequest.Serviceproviderid WHERE servicerequest.Status = 'completed' and servicerequest.Serviceproviderid = $userId")) {
+                                    // if ($this->Query("SELECT * FROM servicerequest left outer JOIN User on User.Userid = servicerequest.Serviceproviderid left outer join useraddress on useraddress.Userid = servicerequest.Serviceproviderid WHERE servicerequest.Status = 'completed' and servicerequest.Serviceproviderid = $userId")) {
+                                    //     // code...
+                                        
+                                    //     $_SESSION['servicehistory2'] = $this->fetchall();
+                                        
+                                        
+                                    // }
+
+                                    //  if ($this->Query("SELECT servicerequest.UserId, servicerequest.Serviceproviderid, favouriteandblocked.isfavourite, favouriteandblocked.isblockd, user.First_name, user.Last_name from servicerequest left outer join User on User.Userid = servicerequest.UserId left outer join favouriteandblocked on favouriteandblocked.Userid = servicerequest.Serviceproviderid where Serviceproviderid = $userId group by user.Userid")) {
+                                    //     // code...;
+
+                                    //     $_SESSION['userlist'] = $this->fetchall();
+                                        
+                                        
+                                    // }
+
+                                    // if ($this->Query("SELECT user.First_name, user.Last_name, rating.Ratingfrom, rating.Ratingto, rating.ratings, servicerequest.ServiceStartDate from user join rating on user.Userid = rating.Ratingfrom join servicerequest on servicerequest.UserId = user.UserId  where rating.Ratingto = $userId group by user.Userid;")) {
+                                    //     // code...;
+
+                                    //     $_SESSION['userRating'] = $this->fetchall();
+                                        
+                                        
+                                    // }
+
+
+                                    if ($this->Query("SELECT u2.First_name as srname, u2.Last_name as srlname, useraddress.AddressLine1, useraddress.AddressLine2, rating.ratings, user.First_name, user.Last_name, servicerequest.ServiceStartDate, servicerequest.Status, useraddress.PostalCode, useraddress.City, useraddress.AddressId, servicerequest.ServiceRequestId from servicerequest left outer join user u2 on u2.Userid = servicerequest.Serviceproviderid join user on user.Userid = servicerequest.UserId join useraddress on useraddress.Userid = user.Userid left outer join rating on rating.Ratingto = servicerequest.Serviceproviderid group by servicerequest.ServiceRequestId")) {
+                                        // code...;
+
+                                        $_SESSION['sr77'] = $this->fetchall();
+                                        
+                                        
+                                    }
+
+                                    if ($this->Query("SELECT user.First_name, user.Last_name, user.typeId, user.status, user.Userid, useraddress.PostalCode, useraddress.Mobile FROM user left outer join useraddress on useraddress.Userid = user.Userid group by user.Userid")) {
+                                        // code...;
+
+                                        $_SESSION['userdetails'] = $this->fetchall();
+                                        
+                                        
+                                    }
+
+
+
+
+                        return ['status' => 'ok', 'data' => $userId, 'pass' => $dbPassword, 'name' => $First_name, 'lname' => $Last_name, 'mobile' => $mobile,  $_SESSION['typeId'], $_SESSION['row'], 'email' => $dbemail, $_SESSION['typeid'], $_SESSION['servicehistory'], $_SESSION['serviceid'], $_SESSION['userdetails'], $_SESSION['sr77'], $_SESSION['favid'],  $_SESSION['favid2']];
+
+                         
+                    }
+
+                    if ($minid == 1 && $simp == 'Active' && password_verify($password, $dbPassword)) {
+                        // code...
+
+                        if ($this->Query("SELECT * FROM servicerequest left outer JOIN User on User.Userid = servicerequest.Serviceproviderid left outer join useraddress on useraddress.Userid = servicerequest.Serviceproviderid WHERE servicerequest.Status = 'Booked' and servicerequest.Serviceproviderid = $userId")) {
+                                        // code...
+                                        $_SESSION['serviceid2'] = $this->fetchall();
+                                        
+                                        
+                                    }
+
+                                     if ($this->Query("select * from servicerequest where Status = 'Booked';")) {
+                                        // code...
+                                        $_SESSION['services'] = $this->fetchall();
+                                        
+                                        
+                                    }
+
+
+                                     if ($this->Query("SELECT * FROM servicerequest left outer JOIN User on User.Userid = servicerequest.Serviceproviderid left outer join useraddress on useraddress.Userid = servicerequest.Serviceproviderid WHERE servicerequest.Status = 'completed' and servicerequest.Serviceproviderid = $userId")) {
                                         // code...
                                         
                                         $_SESSION['servicehistory2'] = $this->fetchall();
@@ -120,7 +197,16 @@ class DB_connection extends database{
                                         
                                     }
 
-                                     if ($this->Query("SELECT servicerequest.UserId, servicerequest.Serviceproviderid, favouriteandblocked.isfavourite, favouriteandblocked.isblockd, user.First_name, user.Last_name from servicerequest left outer join User on User.Userid = servicerequest.UserId left outer join favouriteandblocked on favouriteandblocked.Userid = servicerequest.Serviceproviderid where Serviceproviderid = $userId")) {
+                                    if ($this->Query("SELECT user.First_name, user.Last_name, rating.Ratingfrom, rating.Ratingto, rating.ratings, servicerequest.ServiceStartDate from user join rating on user.Userid = rating.Ratingfrom join servicerequest on servicerequest.UserId = user.UserId  where rating.Ratingto = $userId group by user.Userid;")) {
+                                        // code...;
+
+                                        $_SESSION['userRating'] = $this->fetchall();
+                                        
+                                        
+                                    }
+
+
+                                     if ($this->Query("SELECT servicerequest.UserId, servicerequest.Serviceproviderid, favouriteandblocked.isfavourite, favouriteandblocked.isblockd, user.First_name, user.Last_name from servicerequest left outer join User on User.Userid = servicerequest.UserId left outer join favouriteandblocked on favouriteandblocked.Userid = servicerequest.Serviceproviderid where Serviceproviderid = $userId group by user.Userid")) {
                                         // code...;
 
                                         $_SESSION['userlist'] = $this->fetchall();
@@ -129,16 +215,16 @@ class DB_connection extends database{
                                     }
 
 
-
-
-                        return ['status' => 'ok', 'data' => $userId, 'pass' => $dbPassword, 'name' => $First_name, 'lname' => $Last_name, 'mobile' => $mobile,  $_SESSION['typeId'], $_SESSION['row'], 'email' => $dbemail, $_SESSION['typeid'], $_SESSION['servicehistory'], $_SESSION['serviceid'], $_SESSION['serviceid2'], $_SESSION['favid'],  $_SESSION['servicehistory2'], $_SESSION['favid2'], $_SESSION['ratings2'], $_SESSION['userlist']];
-
-                         
+                        return ['status' => 'ok', 'data' => $userId, 'pass' => $dbPassword, 'name' => $First_name, 'lname' => $Last_name, 'mobile' => $mobile, $_SESSION['serviceid2'], $_SESSION['services'], $_SESSION['userlist'], $_SESSION['servicehistory2'],  $_SESSION['userRating'], $_SESSION['userlist'], 'email' => $dbemail];
                     }
+
+
                     else{
                         return ['status' => 'passwordNotMatch'];
                     }
+
                 }
+
                 else{
                     return ['status' => 'emailNotFound'];
                 }
@@ -146,8 +232,8 @@ class DB_connection extends database{
         }
 
 
-        function Reset($new_pass ,$token){
-            if ($this->Query("UPDATE User SET Password=$new_pass WHERE token = ?", [$token])) {
+        function Reset($new_pass1 ,$token){
+            if ($this->Query("UPDATE User SET Password='$new_pass1' WHERE token = ?", [$token])) {
                 // code...
                 return true;
             }
@@ -226,7 +312,7 @@ class DB_connection extends database{
 
 
             public function complete($result, $id){
-                if ($this->Query("INSERT INTO servicerequest(UserId, ExtraServices, ServiceStartDate, Zipcode, ServiceHourlyRate, ServiceHours, Cooments, PaymentRefNo, HasPets, Addid, Serviceproviderid) VALUES(?,?,?,?,?,?,?,?,?,?,?)", $result)) {
+                if ($this->Query("INSERT INTO servicerequest(UserId, ExtraServices, ServiceStartDate, Zipcode, ServiceHourlyRate, ServiceHours, Cooments, PaymentRefNo, HasPets, Addid, Serviceproviderid, Status) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)", $result)) {
 
                     if ($id == 0) {
                         // code...
@@ -317,9 +403,9 @@ class DB_connection extends database{
 
 
 
-                public function rating45($serviceid1, $ratingfrom, $ratingto, $ratings, $comment, $ontime, $friendly, $quality){
+                public function rating45($serviceid1, $ratingfrom, $helook, $ratings, $comment, $ontime, $friendly, $quality){
                     // echo "fine";
-                    if ($this->Query("INSERT INTO Rating(Servicerequestid, Ratingfrom, Ratingto, Ratings, Comments, Ratingdate, Ontimearraival, Friendly, Qualityofservice) VALUES($serviceid1, $ratingfrom, $ratingto, $ratings, '$comment', NOW(), $ontime, $friendly, $quality)")) {
+                    if ($this->Query("INSERT INTO Rating(Servicerequestid, Ratingfrom, Ratingto, Ratings, Comments, Ratingdate, Ontimearraival, Friendly, Qualityofservice) VALUES($serviceid1, $ratingfrom, $helook, $ratings, '$comment', NOW(), $ontime, $friendly, $quality)")) {
                         // code...
                         return true;
                     }
@@ -431,28 +517,29 @@ class DB_connection extends database{
 
 
                  public function deleteadd($Addid3){
-                    // echo $Addid3;
+                    echo $Addid3;
                     if ($this->Query("DELETE FROM useraddress WHERE AddressId = $Addid3 ")) {
                         // code...
                         echo "hidifsd";
                         return true;
                     }
                     else{
+                        echo "skdjhfkdjdfdsfd";
                         return false;
                     }
                 }
 
 
                 public function passchange($oldpass, $newpass, $confirmpass, $dbpass, $changeid){
-                    if ($this->Query("SELECT Password FROM User WHERE Userid = $changeid and Password = '$oldpass'")) {
+                    if ($this->Query("UPDATE user set Password = '$newpass' where Userid = $changeid ")) {
                         // code...
                         // $row = $this->fetch();
                         // $pass3 = $row->Password; 
-                        // password_verify($oldpass, $Pass3);
-                        if ($this->rowCount() > 0) {
+                        // if(password_verify($oldpass, $Pass3)){
+                        // if ($this->rowCount() > 0) {
                             // code...
                             return true;
-                        }
+                        // }
                         
                     }
                     else{
@@ -548,19 +635,19 @@ class DB_connection extends database{
 
 
 
-                public function blockonly2($useridblc, $spidblc){
-                    if ($this->Query("SELECT * FROM favouriteandblocked WHERE Targetuserid = $useridblc")) {
+                public function blockonly2($user, $target){
+                    if ($this->Query("SELECT * FROM favouriteandblocked WHERE Targetuserid = $target")) {
                         // code...
                         if ($this->rowCount() > 0) {
                             // code...
-                            if ($this->Query("UPDATE favouriteandblocked set isblockd = 1 WHERE Targetuserid = $useridblc")) {
+                            if ($this->Query("UPDATE favouriteandblocked set isblockd = 1 WHERE Targetuserid = $user")) {
                                 // code...
                                 return true;
                             }
                             
                         }
                         else{
-                            if($this->Query("INSERT INTO favouriteandblocked(Userid, Targetuserid, isfavourite, isblockd) VALUES($spidblc, $useridblc, 0, 1)")){
+                            if($this->Query("INSERT INTO favouriteandblocked(Userid, Targetuserid, isfavourite, isblockd) VALUES($user, $target, 0, 1)")){
                                 return true;
                             }
                             
@@ -569,6 +656,19 @@ class DB_connection extends database{
                     }
                     else{
                         // echo "ok";
+                        return false;
+                    }
+                }
+
+
+
+
+                public function unblockonly($user, $target){
+                    if ($this->Query("UPDATE favouriteandblocked set isblockd = 0 WHERE Targetuserid = $target")) {
+                        // code...
+                        return true;
+                    }
+                    else{
                         return false;
                     }
                 }
@@ -584,15 +684,112 @@ class DB_connection extends database{
                         return false;
                     }
                 }
+
+
+
+                public function acceptsr($userid, $serviceid, $stime){
+                    if ($this->Query("SELECT Status FROM servicerequest WHERE ServiceRequestId = $serviceid")) {
+                        // code...
+                        $row = $this->fetch();
+                        $accept1 = $row->Status;
+                       
+                        
+                        if ($accept1 == 'Booked') {
+                        //     // code...
+
+                             if ($this->Query("SELECT timediff(max(endTime), '$stime') as helo from servicerequest WHERE Status = 'Booked' and Serviceproviderid = $userid")) {
+                            // code...
+                            
+                            $row55 = $this->fetch();
+                            $imp = $row55->helo;
+                        
+                            if ($imp >= 1) {
+                                // code...
+                                echo $imp;
+                                if ($this->Query("UPDATE servicerequest SET Status = 'Accepted', Serviceproviderid = $userid WHERE ServiceRequestId = $serviceid")) {
+                        //         // code...
+                                return true;
+                            }
+
+
+                        // }
+                            }
+
+                            else{
+                                return false;
+                            }
+
+                        }     
+
+                        
+                    }
+
+
+                    elseif ($accept1 == 'Accepted') {
+                        //     // code...
+                            // echo "already accepted";
+                            return false;
+                        }
+                        // return[true, "status" => $accept];
+
+
+                    // else{
+                    //     return false;
+                    // }
+                }
             
             
+        }
+
+
+        public function editsr($Addid, $srid, $dateTime, $street, $house_number, $Postalcode, $city){
+            if ($this->Query("UPDATE servicerequest, useraddress set servicerequest.ServiceStartDate = '$dateTime', useraddress.AddressLine1 = '$street', useraddress.AddressLine2 = $house_number, useraddress.City = '$city', useraddress.PostalCode = $Postalcode where servicerequest.ServiceRequestId = $srid and useraddress.AddressId = $Addid")) {
+                // code...
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+
+
+
+        public function editstatus($changeid, $changes){
+            if ($changes == 'inactive') {
+                // code...
+                // echo $changes;
+                // echo "hy";
+                // return true;
+                if ($this->Query("UPDATE user set status = 'Active' WHERE Userid = $changeid")) {
+                    // code...
+                    return true;
+                }
+                // return true;
+
+            }
+            if ($changes == 'Active') {
+                // code...
+                if ($this->Query("UPDATE user set status = 'inactive' WHERE Userid = $changeid")) {
+                    // code...
+                    return true;
+                }
+                // echo $changes;
+                // echo "hi";
+                // return true;
+            }
+            else{
+                return false;
+            }
+            
+            // echo "kdfkjdf";
+            // echo $changes;
         }
 
 
 
 
 
-// }
+}
 // }
 // }
 

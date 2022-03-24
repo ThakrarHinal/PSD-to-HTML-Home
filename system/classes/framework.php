@@ -1,6 +1,6 @@
 <?php
 
-error_reporting(0);
+// error_reporting(0);
 class framework{
 	public function view($viewName, $data = []){
 		if (file_exists("../application/views/" . $viewName . ".php")) {

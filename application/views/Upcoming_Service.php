@@ -1,54 +1,65 @@
 
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="http://localhost/Home_DB/assets/css/Upcoming_Serive.css">
-    <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
-
-     <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.js"></script>
-     <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="http://localhost/Home_DB/assets/css/Service_History.css">    <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+    <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.js"></script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Work+Sans&display=swap" rel="stylesheet">
 
-    <title>Service Provider -> Upcoming Service</title>
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-light Rectangle sticky-top ">
+
+
+    <link rel="stylesheet" href="http://localhost/Home_DB/assets/css/table.css">
+      <link rel="stylesheet" href="http://localhost/Home_DB/assets/css/imp.css">
+    <script src="http://localhost/Home_DB/assets/js/index1.js"></script>
+    <script src="http://localhost/Home_DB/assets/js/index.js"></script>
+    <!-- <link rel="stylesheet" href="https://code.jquery.com/jquery-3.5.1.js"> -->
+    <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"> -->
+    <script src="http://localhost/Home_DB/assets/js/imp2.js"></script>
+    <script src="http://localhost/Home_DB/assets/js/imp3.js"></script>
+    <script src="http://localhost/Home_DB/assets/js/imp4.js"></script>
+    <script src="http://localhost/Home_DB/assets/js/imp5.js"></script>
+</head>
+<body>
+
+
+ <nav class="navbar navbar-expand-lg navbar-light Rectangle sticky-top ">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#"><img class="img" src="http://localhost/Home_DB/public/assets/images/UpcomingServices/logo-small.png" alt=""></a>
-          <button class="navbar-toggler" onclick="responsive_menu()" id="iconbar" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <a class="navbar-brand" href="<?php echo BASEURL; ?>/functions/Home"><img class="img" src="http://localhost/Home_DB/public/assets/images/serviceHistory/logo-small.png" alt=""></a>
+          <button class="navbar-toggler" type="button" onclick="responsive_menu()" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" href="#">Prices & services</a>
+                <a class="nav-link border br3 text-center" aria-current="page" href="<?php echo BASEURL; ?>/functions/demo">Book now</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="<?php echo BASEURL; ?>/functions/Prices">Prices & services</a>
               </li>
               
               <li class="nav-item">
                 <a class="nav-link" href="#">Warranty</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Blog</a>
+                <a class="nav-link" href="<?php echo BASEURL; ?>/functions/Home#blog">Blog</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Contact</a>
+                <a class="nav-link" href="<?php echo BASEURL; ?>/functions/Contact">Contact</a>
               </li>
               <li class="nav-item">
                   <div class="vl"></div>
               </li>
               <li class="nav-item">
                 <button type="button" class="btn position-relative nav-link">
-                        <img src="http://localhost/Home_DB/public/assets/images/UpcomingServices/notification.png" alt="">
+                        <img src="http://localhost/Home_DB/public/assets/images/serviceHistory/notification.png" alt="">
                     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                       2
                       <span class="visually-hidden">unread messages</span>
@@ -62,16 +73,15 @@
               
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <img src="http://localhost/Home_DB/public/assets/images/UpcomingServices/Contact.png" alt="">
+                  <img src="http://localhost/Home_DB/public/assets/images/serviceHistory/Contact.png" alt="">
                 </a>         
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <div class="nav nav-pills " id="v-pills-tab" role="tablist">
-                     <div class="nav-link" id="v-pills-helo-tab" data-bs-toggle="pill" data-bs-target="#v-pills-helo" type="button" role="tab" aria-controls="v-pills-helo" aria-selected="false">My Settings</div>
+                  <li><a class="dropdown-item" href="#">welcome&nbsp<b><?php echo $this->getSession('First_name');?></b></a></li>
+                  <!-- <li><a class="dropdown-item" href="#">my settings</a></li> -->
+                   <div class="nav nav-pills " id="v-pills-tab" role="tablist">
+                     <div class="nav-link" id="v-pills-helo-tab" data-bs-toggle="pill" data-bs-target="#v-pills-helo" type="button" role="tab" aria-controls="v-pills-helo" aria-selected="false">&nbsp&nbspmy settings</div>
                    </div>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  <li><a class="dropdown-item" href="<?php echo BASEURL; ?>/functions/logout">log out</a></li>
                 </ul>
               </li>
             </ul>
@@ -83,26 +93,14 @@
         </div>
       </nav>
 
-      <div class="wlc box">
-          <h2 class="text-center wlc-wrd">Welcome, <b><?php echo $this->getSession('First_name');?></b> </h2>
+
+       <div class="wlc box">
+          <h2 class="text-center wlc-wrd">Welcome,<b><?php echo $this->getSession('First_name');?><input type="hidden" id="useid" name="useid" value="<?php echo $this->getSession('Userid');?>"></b> </h2>
       </div>
 
 
-        
-      
 
-        
-         
-          
-    
-  
-          
-        </div>
-
-
-
-
-        <div class="container sh1">
+       <div class="container sh1">
         <div class="align-items-start hy">
             <div class="row float-start">
             <div class="container-fluid ver-nav navbar navbar-collapse navbar-nav">
@@ -118,150 +116,135 @@
             </div>
         </div>
     </div>
-  </div>
-       
-           
-        
-            
-    <!-- <p><?php print_r($_SESSION['serviceid']); ?></p>   -->
-      
-
-    <!-- <div class="tab-content" id="pills-tabContent">
-      <div class="tab-pane fade" id="pills-helo" role="tabpanel" aria-labelledby="pills-helo-tab"><h2>heloooo</h2></div>
-    </div> -->
 
 
-<div class="tab-content row tb-content" id="v-pills-tabContent">
+  <div class="tab-content row tb-content" id="v-pills-tabContent">
 
-                        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                                            <div class="sh">
-                                                Service History
+    <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+
+        <div class="sh">
+                                                Current Service Requests
                                                 <button class="btn float-end ex ex1 border">Export</button>
                                               </div> 
-                                              <div class="table-2 row float-end">
-                                                <table id="imp" class="table table-responsive">
-                                                  <thead class="table-light">
+
+    <table id="example" class="display float-end" style="width:100%">
+        <thead>
+            <tr>
+                <th>Service Id <img src="images/data.png" alt=""></th>
+                <th>Service Date<img src="images/data.png" alt=""> </th>
+                <th>Service Provider<img src="images/data.png" alt=""> </th>
+                <th>Payment<img src="images/data.png" alt=""></th>
+                <th>Actions</th>
+                <!-- <th>Salary</th> -->
+            </tr>
+        </thead>
+        <tbody>
+         <!-- <h2><?php echo $_SESSION['helo66']; ?></h2> -->
+         <!-- <h2 id="imp77">ok</h2> -->
+         <h2 id="ok2"></h2>
+             <p><?php foreach($_SESSION['services'] as  $values): ?></p>
                                                     <tr>
-                                                      <td  >Service Id <img src="images/data.png" alt=""> </td>
-                                                      <td>Service Date<img src="images/data.png" alt=""> </td>
-                                                      <td>Service Provider<img src="images/data.png" alt="">  </td>
-                                                      <td>Payment<img src="images/data.png" alt=""> </td>
-                                                      <td>Actions</td>
+                                                      <form action="<?php echo BASEURL; ?>/functions/accept" method="post">
+                                                      <td>
+                                                        <div>1</div>
+                                                        <input type="" value="<?php echo $values->ServiceRequestId;?>" name="serviceid">
+                                                        <input type="" value="<?php echo $values->Status;?>" id="statusid" name="status">
+                                                        <input type="" value="<?php echo $this->getSession('Userid');?>" name="username">
+                                                        <input type="" value="<?php $dateArray = explode(" ", $values->ServiceStartDate); print_r($dateArray[1]);?>" name="stime">
+                                                      </td>
+                                                      <td>
+                                                        <div> <img src="http://localhost/Home_DB/public/assets/images/upcomingServices/cal.png" alt="">&nbsp<?php $dateArray = explode(" ", $values->ServiceStartDate); print_r($dateArray[0]);?></div>
+                                                        <div><img src="http://localhost/Home_DB/public/assets/images/upcomingServices/time.png" alt="">&nbsp<?php $dateArray = explode(" ", $values->ServiceStartDate); print_r($dateArray[1]);?></div>
+                                                      </td>
+                                                      <td>
+                                                      
+                                                        <span><img class="img1" src="http://localhost/Home_DB/public/assets/images/serviceHistory/hat.png" alt=""></span> 
+                                                        <span class="txt" >  Lyum Watson</span> 
+                                                        <div class="txt1"><?php echo $values->First_name;?>&nbsp<?php echo $values->Last_name;?><img src="images/y-star.png" alt=""> <img src="images/y-star.png" alt=""> <img src="images/y-star.png" alt=""> <img src="images/y-star.png" alt=""> <img src="images/star2.png" alt=""> </div>
+                                                      </td>
+                                                        <td class="txt2">
+                                                        <?php echo $values->TotalCost;?>&nbsp€
+                                                      </td>
+                                                      <td class="justify-content-center">
+                                                        <button class="btn btn1 border" id="acceptbtn" name="acceptbtn">Accept</button>
+                                                        <!-- <button type="submit" name="login" data-bs-toggle="modal" data-bs-target="#modal1<?php echo $values->ServiceRequestId;?>" id="login" class="btn btn2 border">cancel</button> -->
+                                                      </td>
+                                                      </form>
                                                     </tr>
-                                                  </thead>
-                                               <tbody>
-                                                 
-                                               </tbody>
-                                                  <tr>
-                <td>323443</td>
-                <td><img src="http://localhost/Home_DB/public/assets/images/UpcomingServices/cal.png" alt="">09/04/2018</div>
-                <div> <img src="http://localhost/Home_DB/public/assets/images/UpcomingServices/time.png" alt=""> 12:00 - 18:00</div></td>
-                <td>
-                  <div>David Bough</div>
-                  <div> <img src="http://localhost/Home_DB/public/assets/images/UpcomingServices/home.png" alt=""> Musterstrabe 5,12345 Bonn</div>
-                </td>
-                <td>05 km</td>
-                <td><button class="btn btn1 border">Cancel</button></td>
-              </tr>
-              <tr>
-                <td>323444</td>
-                <td><img src="http://localhost/Home_DB/public/assets/images/UpcomingServices/cal.png" alt="">09/04/2018</div>
-                <div> <img src="http://localhost/Home_DB/public/assets/images/UpcomingServices/time.png" alt=""> 12:00 - 18:00</div></td>
-                <td>
-                  <div>David Bough</div>
-                  <div> <img src="http://localhost/Home_DB/public/assets/images/UpcomingServices/home.png" alt=""> Musterstrabe 5,12345 Bonn</div>
-                </td>
-                <td>15 km</td>
-                <td><button class="btn btn1 border">Cancel</button></td>
-              </tr>
-                                                 
-                                          
-                                                </table>
-                                        
-                                                <form class="form1" action="">
-                                                  <span>show</span>
-                                                  <select name="show" id="">
-                                                  <option value="10">10</option>
-                                                </select>
-                                                <span>entries</span>
-                                                <span>total records:55</span>
-                                              </form>
-                                        
-
-                                              <nav aria-label="Page navigation example">
-                                        <ul class="pagination page1">
-                                          <li class="page-item"><a class="page-link pn1 pn" href="#">&lt;</a></li>
-                                          <li class="page-item "><a class="page-link pn" href="#">&laquo;</a></li>
-                                          <li class="page-item "><a class="page-link pn link1" href="#">1</a></li>
-                                          <li class="page-item"><a class="page-link pn" href="#">2</a></li>
-                                          <li class="page-item"><a class="page-link pn" href="#">3</a></li>
-                                          <li class="page-item"><a class="page-link pn" href="#">4</a></li>
-                                          <li class="page-item">
-                                            <a class="page-link pn" href="#">&raquo;</a>
-                                          </li>
-                                          <li class="page-item"><a class="page-link pn pn2" href="#">&gt;</a></li>
-                                        </ul>
-                                        </nav>
-                                        
-                                              </div>
-                                          </div>
 
 
-                                          <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-                                            <div class="sh">
-                                                Service History
-                                                <button class="btn float-end ex ex1 border">Export</button>
-                                              </div> 
-                                              <div class="row float-end sh2 table-2">
-                                                <table class="table table-responsive">
-                                                  <thead class="table-light">
-                                                    <tr>
-                                                      <td  >Service Details <img src="images/data.png" alt=""> </td>
-                                                      <td>Service Provider<img src="images/data.png" alt=""> </td>
-                                                      <td>Payment  <img src="images/data.png" alt="">  </td>
-                                                      <td>Status <img src="images/data.png" alt=""> </td>
-                                                      <td>Rate SP</td>
-                                                    </tr>
-                                                  </thead>
-                                                  <tbody>
-                                                    <p><?php foreach($_SESSION['serviceid2'] as  $values): ?></p>
-                                                  <tr >
-                                                    
-                                                    
-
-                                                <td>323444</td>
-                                               
-                                                <td><img src="http://localhost/Home_DB/public/assets/images/UpcomingServices/cal.png" alt=""><?php $dateArray = explode(" ", $values->ServiceStartDate); print_r($dateArray[0]);?></div>
-                                                <div> <img src="http://localhost/Home_DB/public/assets/images/UpcomingServices/time.png" alt=""><?php $dateArray = explode(" ", $values->ServiceStartDate); print_r($dateArray[1]);?></div></td>
-                                                <td>
-                                                  <div><?php echo $values->First_name;?>&nbsp<?php echo $values->Last_name;?></div>
-                                                  <div> <img src="http://localhost/Home_DB/public/assets/images/UpcomingServices/home.png" alt=""><?php echo $values->AddressLine1;?>&nbsp<?php echo $values->AddressLine2;?><?php echo $values->City;?>&nbsp<?php echo $values->State;?><?php echo $values->PostalCode;?></div>
-                                                </td>
-                                                <td><?php echo $values->TotalCost;?>&nbsp€</td>
-                                                <p><?php date_default_timezone_set('Asia/Kolkata'); $date =  date('Y-m-d'); $time = date('h:i:s'); $dateArray = explode(" ", $values->ServiceStartDate); $dateArray2 = $dateArray[0]; ?></p>
-                                                <?php if ($values->endTime < $time AND $dateArray2 < $date): ?>
-                                                <td><button id="completesr"  class="btn btn1 border">Complete</button></td>
-                                                 <?php endif; ?>
-                                                 <td><button id="" data-bs-toggle="modal" data-bs-target="#modal12<?php echo $values->ServiceRequestId;?>" type="button" class="btn btn1 border">Cancel</button></td>
-                                              </tr>
-
-
-                                                  <div class="modal fade" id="modal12<?php echo $values->ServiceRequestId;?>" tabindex="-1" aria-labelledby="modalcontainer" aria-hidden="true">
+                                                     <div class="modal fade" id="modalcontainer<?php echo $values->ServiceRequestId;?>" tabindex="-1" aria-labelledby="modalcontainer" aria-hidden="true">
                                                         <div class="modal-dialog modal-dialog-centered">
                                                         <div class="modal-content justify-content-center">
                                                          <div class="modal-header">
-                                                           <p class="modal-title"><b>Cancel Service Request</b></p>
+                                                           <p class="modal-title"><b>Service Details</b></p>
                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                          </div>
                                                          <div class="modal-body">
-                                                          <form action="" id="important" method="POST">
+                                                          <form action="<?php echo BASEURL; ?>/functions/accept54654" method="POST">
                                                             <div class="col-md-10">
-                                                              <input type="" name="srid" id="srid" value="<?php echo $values->ServiceRequestId;?>">
-                                                              
-                                                              <!-- <h2><?php echo $values->ServiceStartDate;?></h2> -->
-                                                              
+                                                                   
+                                                                    <small><b><?php $dateArray = explode(" ", $values->ServiceStartDate); print_r($dateArray[0]);?>&nbsp<?php print_r($dateArray[1]);?>-<?php echo $values->endTime; ?></b></small><br>
+                                                                    <small>Duration:<?php echo $values->ServiceHours;?>&nbspHrs</small>
+
+                                                                </div>
+                                                                <hr class="line2">
+                                                                <!-- <br> -->
+                                                                <div class="col-md-10">
+                                                                    <small>Service Id: <?php echo $values->ServiceRequestId;?></small><br>
+                                                                    <small>Extras: <?php echo $values->ExtraServices;?></small><br>
+                                                                    <small class="txt2" >Net Amount: <?php echo $values->TotalCost;?> €</small>
+                                                                </div>
+                                                                <hr class="line2">
+
+                                                                 <div class="col-md-10">
+                                                                    <small>Service AAddress: <?php echo $values->ServiceRequestId;?></small><br>
+                                                                    <small>Phone: <?php echo $values->Mobile;?></small><br>
+                                                                    <small>Email: <?php echo $values->Email;?></small>
+                                                                </div>
+                                                                <hr class="line2">
                                                                 <div>
-                                                                  <button id="cancelsr555"  type="button" onclick="cancelsr1()" class="btn btn1 border">Cancel</button>
+                                                                   <button type="submit" name="login" id="login" class="btn btn1 border">Accept</button>
+                                                                   <!-- <button type="submit" name="login" id="login" class="btn btn2 border">cancel</button> -->
+                                                                 </div>
+                                                             
+                                                          </form>
+                                                           </div>
+                                                       <!--  <div class="modal-footer">
+                                                           
+                                                             <div class="text-center">
+                                                                  
+                                                                </div>
+                                                         </div> -->
+                                                        </div>
+                                                        </div>
+                                                        </div>
+
+
+                                                            <div class="modal fade" id="modal<?php echo $values->ServiceRequestId;?>" tabindex="-1" aria-labelledby="modalcontainer" aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-centered">
+                                                        <div class="modal-content new justify-content-center">
+                                                         <div class="modal-header">
+                                                           <p class="modal-title"><b>Reschedule Service Request</b></p>
+                                                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                         </div>
+                                                         <div class="modal-body">
+                                                          <form action="<?php echo BASEURL; ?>/functions/reschedule" method="POST">
+                                                            <div class="col-md-10">
+                                                               <input type="hidden" name="cancelid1" value="<?php echo $values->ServiceRequestId;?>">
+                                                               <input type="hidden" name="proid1" value="<?php echo $values->Serviceproviderid;?>">
+                                                               <p>Select New Date & Time</p>
+                                                                    <input type="date" id="date1" value="<?php $dateArray = explode(" ", $values->ServiceStartDate); print_r($dateArray[0]);?>" name="date1" placeholder="date">
+                                                                    <select class="form-select-sm op" id="time" name="time1"
+                                                                        aria-label="Default select example">
+                                                                        <option selected value="<?php $dateArray = explode(" ", $values->ServiceStartDate); print_r($dateArray[1]);?>"></option>
+                                                                        <option value="4">04:00:00</option>
+                                                                        <option value="5">05:00:00</option>
+                                                                        <option value="6">06:00:00</option>
+                                                                    </select>
+                                                                </div><br>
+                                                                <div>
+                                                                   <button type="submit" name="reschedule" id="login" class="btn ohk btn1 border">Reschadule</button>
                                                                  </div>
                                                              
                                                           </form>
@@ -275,261 +258,377 @@
                                                         </div>
                                                         </div>
                                                         </div> 
-                                               <p><?php endforeach; ?></p>
-             
-                                                  </tbody>
+
+
+                                                            <div class="modal fade" id="modal1<?php echo $values->ServiceRequestId;?>" tabindex="-1" aria-labelledby="modalcontainer" aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-centered">
+                                                        <div class="modal-content justify-content-center">
+                                                         <div class="modal-header">
+                                                           <p class="modal-title"><b>Cancel Service Request</b></p>
+                                                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                         </div>
+                                                         <div class="modal-body">
+                                                          <form action="<?php echo BASEURL; ?>/functions/Cancel1" method="POST">
+                                                            <div class="col-md-10">
+                                                              <input type="hidden" name="cancelid" value="<?php echo $values->ServiceRequestId;?>">
+                                                              <input type="hidden" name="cancelproid" value="<?php echo $values->Serviceproviderid;?>">
+                                                              <!-- <h2><?php echo $values->ServiceStartDate;?></h2> -->
+                                                              <p>Why you want to cancel tha service request?</p>
+                                                                    <textarea rows="5" cols="30"></textarea>
+
+                                                                </div><br>
+                                                                <div>
+                                                                   <button type="submit" name="Cancel1" id="login" class="btn ohk btn1 border">Cancel now</button>
+                                                                 </div>
+                                                             
+                                                          </form>
+                                                           </div>
+                                                       <!--  <div class="modal-footer">
+                                                           
+                                                             <div class="text-center">
+                                                                  
+                                                                </div>
+                                                         </div> -->
+                                                        </div>
+                                                        </div>
+                                                        </div> 
+
+
+                                                     <p><?php endforeach; ?></p>
+        
+        </tbody>
+      
+    </table>
+</div>
+
+
+<div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+
+   
+    <div class="sh">
+                                                Service History
+                                                <button class="btn float-end ex ex1 border">Export</button>
+                                              </div>
+
+
+                                               <table id="example1" class="display float-end" style="width:100%">
+
+                                                <thead>
+            <tr>
+                <th>Service Details<img src="images/data.png" alt=""></th>
+                <th>Service Date<img src="images/data.png" alt=""> </th>
+                <th>Service Provider<img src="images/data.png" alt=""> </th>
+                <th>Payment<img src="images/data.png" alt=""></th>
+                <th>Rate SP</th>
+                <!-- <th>Salary</th> -->
+            </tr>
+        </thead>
+        <tbody>
+             <p><?php foreach($_SESSION['serviceid2'] as  $values): ?></p>
+                                                     <!-- <p><?php $hi =  $values->ServiceRequestId; ?></p> -->
+                                                         <tr data-bs-toggle="modal" data-bs-target="#modalcontainer22<?php echo $values->ServiceRequestId;?>">
+                                                          <td>323443</td>
+                                                      <td>
+                                                        <div> <img src="http://localhost/Home_DB/public/assets/images/upcomingServices/cal.png" alt=""> <?php $dateArray = explode(" ", $values->ServiceStartDate); print_r($dateArray[0]);?></div>
+                                                        <div><img src="http://localhost/Home_DB/public/assets/images/upcomingServices/time.png"> <?php $dateArray = explode(" ", $values->ServiceStartDate); print_r($dateArray[1]);?></div>
+                                                      </td>
+                                                      <td>
+                                                        <span class="txt" ><?php echo $values->First_name;?><?php echo $values->Last_name;?></span> 
+                                                       <div> <img src="http://localhost/Home_DB/public/assets/images/UpcomingServices/home.png" alt=""> <?php echo $values->AddressLine1;?>&nbsp<?php echo $values->AddressLine2;?><?php echo $values->City;?>&nbsp<?php echo $values->State;?><?php echo $values->PostalCode;?></div>
+                                                    </td>
+                                                        <td class="txt2">
+                                                        €<?php echo $values->TotalCost;?>
+                                                      </td>
+                                                     <!--  <td><button class="border gbtn comp<?php echo $values->Status;?> status1"  ><?php echo $values->Status;?></button></td> -->
+                                                      <!-- <p id="color1"></p> -->
+                                                      <p><?php date_default_timezone_set('Asia/Kolkata'); $date =  date('Y-m-d'); $time = date('h:i:s'); $dateArray = explode(" ", $values->ServiceStartDate); $dateArray2 = $dateArray[0]; ?></p>
+                                                      <td>
+                                                        <?php if ($values->endTime < $time AND $dateArray2 < $date): ?>
+                                                         <span><button id="completesr" data-bs-toggle="modal" data-bs-target="#compelete<?php echo $values->ServiceRequestId;?>" class="btn btn1 border">Complete</button></span> 
+                                                          <?php endif; ?>
+                                                        <span><button id="" data-bs-toggle="modal" data-bs-target="#modal12<?php echo $values->ServiceRequestId;?>" type="button" class="btn btn1 border">Cancel</button></span>
+                                                      </td>
+                                                    </tr>
+
                                                  
+                                                     <div class="modal fade"  id="modal12<?php echo $values->ServiceRequestId;?>" tabindex="-1" aria-labelledby="modalcontainer" aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-centered">
+                                                        <div class="modal-content justify-content-center">
+                                                         <div class="modal-header">
+                                                           <p class="modal-title"><b>Cancel Service Request</b></p>
+                                                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                         </div>
+                                                         <div class="modal-body">
+                                                          <form action="<?php echo BASEURL; ?>/functions/chancelsr" id="important" method="POST">
+                                                            <div class="col-md-10">
+                                                              <input type="" name="srid" id="srid" value="<?php echo $values->ServiceRequestId;?>">
+                                                              
+                                                              <!-- <h2><?php echo $values->ServiceStartDate;?></h2> -->
+                                                              
+                                                                <div>
+                                                                  <button id="cancelsr555"  type="submit" class="btn btn1 border">Cancel</button>
+                                                                 </div>
+                                                             </div>
+                                                          </form>
+                                                           </div>
+                                                       <!--  <div class="modal-footer">
+                                                           
+                                                             <div class="text-center">
+                                                                  
+                                                                </div>
+                                                         </div> -->
+                                                        </div>
+                                                        </div>
+                                                        </div> 
+
+
+                                                         <div class="modal fade" data-backdrop="false" id="compelete<?php echo $values->ServiceRequestId;?>" tabindex="-1" aria-labelledby="modalcontainer" aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-centered">
+                                                        <div class="modal-content justify-content-center">
+                                                         <div class="modal-header">
+                                                           <p class="modal-title"><b>Cancel Service Request</b></p>
+                                                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                         </div>
+                                                         <div class="modal-body">
+                                                          <form action="<?php echo BASEURL; ?>/functions/Cancel1" method="POST">
+                                                            <div class="col-md-10">
+                                                              <input type="hidden" name="cancelid" value="<?php echo $values->ServiceRequestId;?>">
+                                                              <input type="hidden" name="cancelproid" value="<?php echo $values->Serviceproviderid;?>">
+                                                              <!-- <h2><?php echo $values->ServiceStartDate;?></h2> -->
+                                                              <p>Why you want to cancel tha service request?</p>
+                                                                    <textarea rows="5" cols="30"></textarea>
+
+                                                                </div><br>
+                                                                <div>
+                                                                   <button type="submit" name="Cancel1" id="login" class="btn ohk btn1 border">Cancel now</button>
+                                                                 </div>
+                                                             
+                                                          </form>
+                                                           </div>
+                                                       <!--  <div class="modal-footer">
+                                                           
+                                                             <div class="text-center">
+                                                                  
+                                                                </div>
+                                                         </div> -->
+                                                        </div>
+                                                        </div>
+                                                        </div> 
+
+
+
+
+                                                     <p><?php endforeach; ?></p>
+
+
+                          </tbody>
+    </table>
+
+    </div>
+
+    <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+
+   
+    <div class="sh">
+                                                Service History
+                                                <button class="btn float-end ex ex1 border">Export</button>
+                                              </div>
+
+
+                                               <table id="example2" class="display float-end" style="width:100%">
+
+                                                <thead>
+            <tr>
+                <th>Service Details<img src="images/data.png" alt=""></th>
+                <th>Service Date<img src="images/data.png" alt=""> </th>
+                <th>Service Provider<img src="images/data.png" alt=""> </th>
+               
+            </tr>
+        </thead>
+        <tbody>
+             <p><?php foreach($_SESSION['servicehistory2'] as  $values): ?></p>
+                                                     <!-- <p><?php $hi =  $values->ServiceRequestId; ?></p> -->
+                                                         <tr data-bs-toggle="modal" data-bs-target="#modalcontainer22<?php echo $values->ServiceRequestId;?>">
+                                                            <td>323443</td>
+                                                      <td>
+                                                        <div> <img src="http://localhost/Home_DB/public/assets/images/upcomingServices/cal.png" alt=""> <?php $dateArray = explode(" ", $values->ServiceStartDate); print_r($dateArray[0]);?></div>
+                                                        <div><img src="http://localhost/Home_DB/public/assets/images/upcomingServices/time.png"> <?php $dateArray = explode(" ", $values->ServiceStartDate); print_r($dateArray[1]);?></div>
+                                                      </td>
+                                                      <td> 
+                                                        <span class="txt" >   &nbsp&nbsp&nbsp<?php echo $values->First_name;?><?php echo $values->Last_name;?></span> 
+                                                        <div> <img src="http://localhost/Home_DB/public/assets/images/UpcomingServices/home.png" alt=""> <?php echo $values->AddressLine1;?>&nbsp<?php echo $values->AddressLine2;?><?php echo $values->City;?>&nbsp<?php echo $values->State;?><?php echo $values->PostalCode;?></div>
+                                                    </td>
+                                                     <!--    <td class="txt2">
+                                                        €<?php echo $values->TotalCost;?>
+                                                      </td> -->
+                                                      <!-- <td><button class="border gbtn comp<?php echo $values->Status;?> status1"  ><?php echo $values->Status;?></button></td> -->
+                                                      <p id="color1"></p>
+                                                      <!-- <td><button data-bs-toggle="modal"  data-bs-target="#shistory<?php echo $hi;?>" class="btn btn1 border">Rate SP</button></td> -->
+                                                    </tr>
+
                                                  
-                                          
-                                                </table>
+
+
+
+
+
+                                                     <p><?php endforeach; ?></p>
+
+
+                          </tbody>
+    </table>
+
+    </div>
+
+
+      <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+
+    <div class="sh">
+                                                Service History
+                                                <button class="btn float-end ex ex1 border">Export</button>
+                                              </div>
+
+
+                                               <table id="example3" class="display float-end" style="width:100%">
+
+                                                <thead>
+            <tr>
+                <th>Service Details<img src="images/data.png" alt=""></th>
+                <th>Service Date<img src="images/data.png" alt=""> </th>
+                <th>Service Provider<img src="images/data.png" alt=""> </th>
+                <!-- <th>Payment<img src="images/data.png" alt=""></th> -->
+                <!-- <th>Rate SP</th> -->
+                <!-- <th>Salary</th> -->
+            </tr>
+        </thead>
+        <tbody>
+             <p><?php foreach($_SESSION['userRating'] as  $values): ?></p>
+                                                     <!-- <p><?php $hi =  $values->ServiceRequestId; ?></p> -->
+                                                         <tr data-bs-toggle="modal" data-bs-target="#modalcontainer22<?php echo $values->ServiceRequestId;?>">
+                                                      <td>
+                                                        <div> <img src="http://localhost/Home_DB/public/assets/images/upcomingServices/cal.png" alt=""> <?php $dateArray = explode(" ", $values->ServiceStartDate); print_r($dateArray[0]);?></div>
+                                                        <div><img src="http://localhost/Home_DB/public/assets/images/upcomingServices/time.png"> <?php $dateArray = explode(" ", $values->ServiceStartDate); print_r($dateArray[1]);?></div>
+                                                      </td>
+                                                      <td> <span><img class="img1" src="http://localhost/Home_DB/public/assets/images/serviceHistory/hat.png" alt=""></span> 
+                                                        <span class="txt" ><?php echo $values->First_name;?><?php echo $values->Last_name;?></span> 
+                                                        <div class="txt1">
+                                                         
+                                                          <div class="star-ratings">
+                                                                    <div class="fill-ratings" style="width: <?php echo $values->ratings; ?>% !important;">
+                                                                      <span class="star5">★★★★★</span>
+                                                                    </div>
+                                                                    <div class="empty-ratings">
+                                                                      <span class="star5">★★★★★</span>
+                                                                    </div>
+                                                                  </div>
+                                                                <span><?php echo $values->ratings/10; ?></span>  
+                                                      </div>
+                                                    </td>
+                                                    <td>55</td>
+                                                     <!--    <td class="txt2">
+                                                        €<?php echo $values->TotalCost;?>
+                                                      </td> -->
+                                                      <!-- <td><button class="border gbtn comp<?php echo $values->Status;?> status1"  ><?php echo $values->Status;?></button></td>
+                                                      <p id="color1"></p>
+                                                      <td><button data-bs-toggle="modal"  data-bs-target="#shistory<?php echo $hi;?>" class="btn btn1 border">Rate SP</button></td> -->
+                                                    </tr>
+
+                                                 
+
+
+
+
+
+                                                     <p><?php endforeach; ?></p>
+
+
+                          </tbody>
+    </table>
+
+    </div>
+
+
+     <div class="tab-pane fade" id="v-pills-messages2" role="tabpanel" aria-labelledby="v-pills-messages2-tab">
+    
+           <table id="" class="display float-end" style="width:100%"> 
+        <tbody>
+                                               
+                      <div class=" icons spu first-row dp1">
+                                    <div >
+                                                    <p><?php foreach($_SESSION['userlist'] as  $values): ?></p>
+                                                     
+                                                    <form action="<?php echo BASEURL; ?>/functions/blockonly" id="okdok" method="POST">
+
+                                                       <span class="col-sm-2 float-start card text-center">
+
+                                            <div class="col-auto card-body">
+                                               <input type="hidden" value="<?php echo $values->UserId;?>" name="useridblc">
+                                                <span>
+                                                    <div >
+                                                    <img class="img1"
+                                                        src="http://localhost/Home_DB/public/assets/images/book-service/forma-1-copy-19.png"
+                                                        alt="">
                                                 </div>
-                                        
-                                                <form class="form1" action="">
-                                                  <span>show</span>
-                                                  <select name="show" id="">
-                                                  <option value="10">10</option>
-                                                </select>
-                                                <span>entries</span>
-                                                <span>total records:55</span>
-                                              </form>
-                                              <nav aria-label="Page navigation example">
-                                        <ul class="pagination page1">
-                                          <li class="page-item"><a class="page-link pn1 pn" href="#">&lt;</a></li>
-                                          <li class="page-item "><a class="page-link pn" href="#">&laquo;</a></li>
-                                          <li class="page-item "><a class="page-link pn link1" href="#">1</a></li>
-                                          <li class="page-item"><a class="page-link pn" href="#">2</a></li>
-                                          <li class="page-item"><a class="page-link pn" href="#">3</a></li>
-                                          <li class="page-item"><a class="page-link pn" href="#">4</a></li>
-                                          <li class="page-item">
-                                            <a class="page-link pn" href="#">&raquo;</a>
-                                          </li>
-                                          <li class="page-item"><a class="page-link pn pn2" href="#">&gt;</a></li>
-                                        </ul>
-                                        </nav>
-                                        
-                                              </div>
-                                          <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-                                            <div class="sh">
-                                                Service History
-                                                <button class="btn float-end ex ex1 border">Export</button>
-                                              </div> 
-                                              <div class="row float-end sh2">
-                                                <table class="table table-responsive">
-                                                  <thead class="table-light">
-                                                    <tr>
-                                                      <td  >Service Details <img src="images/data.png" alt=""> </td>
-                                                      <td>Service Provider<img src="images/data.png" alt=""> </td>
-                                                      <td>Payment  <img src="images/data.png" alt="">  </td>
-                                                      <!-- td>Status <img src="images/data.png" alt=""> </td>
-                                                      <td>Rate SP</td> -->
-                                                    </tr>
-                                                  </thead>
-                                                  <tbody>
-                                                     <p><?php foreach($_SESSION['servicehistory2'] as  $values): ?></p>
-                                                    <tr>
-                <td>323443</td>
-                <td><img src="http://localhost/Home_DB/public/assets/images/UpcomingServices/cal.png" alt=""><?php $dateArray = explode(" ", $values->ServiceStartDate); print_r($dateArray[0]);?></div>
-                <div> <img src="http://localhost/Home_DB/public/assets/images/UpcomingServices/time.png" alt=""><?php $dateArray = explode(" ", $values->ServiceStartDate); print_r($dateArray[1]);?></div></td>
-                <td>
-                  <div><?php echo $values->First_name;?>&nbsp<?php echo $values->Last_name;?></div>
-                  <div> <img src="http://localhost/Home_DB/public/assets/images/UpcomingServices/home.png" alt=""> <?php echo $values->AddressLine1;?>&nbsp<?php echo $values->AddressLine2;?><?php echo $values->City;?>&nbsp<?php echo $values->State;?><?php echo $values->PostalCode;?></div>
-                </td>
-                
-              </tr>
-              
-               <p><?php endforeach; ?></p>
-                                                    
+                                                </span>
+                                                </div>
 
-                                                  </tbody>
-                                                 
-                                                 
-                                          
-                                                </table>
+
+                                                
+                                                <div class="div1">
+                                            <?php echo $values->First_name;?>&nbsp<?php echo $values->Last_name;?>
+                                        </div>
+
                                         
-                                                <form class="form1" action="">
-                                                  <span>show</span>
-                                                  <select name="show" id="">
-                                                  <option value="10">10</option>
-                                                </select>
-                                                <span>entries</span>
-                                                <span>total records:55</span>
-                                              </form>
-                                              <nav aria-label="Page navigation example">
-                                        <ul class="pagination page1">
-                                          <li class="page-item"><a class="page-link pn1 pn" href="#">&lt;</a></li>
-                                          <li class="page-item "><a class="page-link pn" href="#">&laquo;</a></li>
-                                          <li class="page-item "><a class="page-link pn link1" href="#">1</a></li>
-                                          <li class="page-item"><a class="page-link pn" href="#">2</a></li>
-                                          <li class="page-item"><a class="page-link pn" href="#">3</a></li>
-                                          <li class="page-item"><a class="page-link pn" href="#">4</a></li>
-                                          <li class="page-item">
-                                            <a class="page-link pn" href="#">&raquo;</a>
-                                          </li>
-                                          <li class="page-item"><a class="page-link pn pn2" href="#">&gt;</a></li>
-                                        </ul>
-                                        </nav>
-                                        
-                                              </div>
-                                          <!-- </div> -->
-                                          </div>
-                                          <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-                                            <div class="sh">
-                                                Service History
-                                                <button class="btn float-end ex ex1 border">Export</button>
-                                              </div> 
-                                              <div class="row float-end sh2">
-                                                <table class="table table-responsive">
-                                                  <thead class="table-light">
-                                                    <tr>
-                                                      <td  >Service Details <img src="images/data.png" alt=""> </td>
-                                                      <td>Service Provider<img src="images/data.png" alt=""> </td>
-                                                      <td>Payment  <img src="images/data.png" alt="">  </td>
-                                                      <td>Status <img src="images/data.png" alt=""> </td>
-                                                      <td>Rate SP</td>
-                                                    </tr>
-                                                  </thead>
-                                                  <tbody>
-                                            
-                                                     <p><?php foreach($_SESSION['userlist'] as  $values): ?></p> 
-                                                     <form method="post" action="<?php echo BASEURL; ?>/functions/blockonly">
-                                                    <tr>
-                                                      <td>
-                                                        <!-- <div> <img src="images/calendar.png" alt=""> <?php echo $values->UserId;?> </div> -->
-                                                        <input type="" value="<?php echo $values->UserId;?>" name="useridblc">
-                                                        <div><?php echo $values->First_name;?>&nbsp<?php echo $values->Last_name;?></div>
-                                                      </td>
-                                                    
-                                                      <!-- <td><div><?php echo $values->Serviceproviderid;?></div></td> -->
-                                                      <td><input type="" name="spidblc" value="<?php echo $values->Serviceproviderid;?>"></td>
+                                                                 <input type="hidden" name="spidblc" value="<?php echo $values->Serviceproviderid;?>">
+<!--  -->
+                                        <!-- <input type="hidden" name="targetid" id="targetid" value="<?php echo $values->Userid;?>"> -->
+                                                        <!-- <input type="hidden" name="userid" id="userid" value="<?php echo $values->UserId;?>"> -->
+                                                        <div class="call1">
                                                       <?php if (!$values->isblockd == 1): ?>
-                                                      <td><button class="border gbtn" type="submit" name="block" >Block</button></td>
+                                                        <span>
+                                                      <button class="border gbtn ohk5 selectsp1" type="submit" name="block" >Block</button>
+                                                    </span>
                                                       <?php endif; ?>
                                                       <?php if ($values->isblockd == 1): ?>
-                                                      <td><button class="border gbtn" type="submit" name="unblock" >unBlock</button></td>
+                                                        <span>
+                                                      <button class="border gbtn ohk5 selectsp1 " type="submit" name="unblock" >unBlock</button>
+                                                    </span>
                                                       <?php endif; ?>
-                                                      
-                                                    </tr>
-                                                    </form>
-                                                   <p><?php endforeach; ?></p>   
-                                                  </tbody>
-                                                 
-                                                 
-                                          
-                                                </table>
-                                        
-                                                <form class="form1" action="">
-                                                  <span>show</span>
-                                                  <select name="show" id="">
-                                                  <option value="10">10</option>
-                                                </select>
-                                                <span>entries</span>
-                                                <span>total records:55</span>
-                                              </form>
-                                              <nav aria-label="Page navigation example">
-                                        <ul class="pagination page1">
-                                          <li class="page-item"><a class="page-link pn1 pn" href="#">&lt;</a></li>
-                                          <li class="page-item "><a class="page-link pn" href="#">&laquo;</a></li>
-                                          <li class="page-item "><a class="page-link pn link1" href="#">1</a></li>
-                                          <li class="page-item"><a class="page-link pn" href="#">2</a></li>
-                                          <li class="page-item"><a class="page-link pn" href="#">3</a></li>
-                                          <li class="page-item"><a class="page-link pn" href="#">4</a></li>
-                                          <li class="page-item">
-                                            <a class="page-link pn" href="#">&raquo;</a>
-                                          </li>
-                                          <li class="page-item"><a class="page-link pn pn2" href="#">&gt;</a></li>
-                                        </ul>
-                                        </nav>
-                                        
-                                              </div>
-                                          </div>
+                                                     </div>
+                                       
+                                </span>
 
-
-
-                                          
-                                                 <div class="tab-pane fade" id="v-pills-messages2" role="tabpanel" aria-labelledby="v-pills-messages2-tab">
-                                            <div class="sh">
-                                                Service History
-                                                <button class="btn float-end ex ex1 border">Export</button>
-                                              </div> 
-                                              <div class="row float-end sh2">
-                                                <table class="table table-responsive">
-                                                  <thead class="table-light">
-                                                    <!-- <h2>Hinal</h2> -->
-                                                    <tr>
-                                                      <td  >Service Details <img src="images/data.png" alt=""> </td>
-                                                      <td>Service Provider<img src="images/data.png" alt=""> </td>
-                                                      <td>Payment  <img src="images/data.png" alt="">  </td>
-                                                      <!-- td>Status <img src="images/data.png" alt=""> </td>
-                                                      <td>Rate SP</td> -->
-                                                    </tr>
-                                                  </thead>
-                                                  <tbody>
-                                                    <p><?php foreach($_SESSION['favid'] as  $values): ?></p>
-                                                    <form action="" id="blockunblock" method="POST">
                                                       <tr>
-                                                      <td>
-                                                        <div><?php echo $values->total . ' total cleaning';?></div>
-                                                        <div><?php echo $values->First_name;?></div>
-                                                        <!-- <div><?php echo $values->isfavourite;?></div> -->
-                                                        <!-- <div></div> -->
-                                                        <input type="hidden" name="targetid" id="targetid" value="<?php echo $values->Userid;?>">
-                                                        <input type="hidden" name="userid" id="userid" value="<?php echo $values->UserId;?>">
-                                                      </td>
-                                                      <?php if (!$values->isblockd == 1): ?>
-                                                      <td><button class="border gbtn" type="submit" name="block" >Block</button></td>
-                                                      <?php endif; ?>
-                                                      <?php if ($values->isblockd == 1): ?>
-                                                      <td><button class="border gbtn" type="submit" name="unblock" >unBlock</button></td>
-                                                      <?php endif; ?>
-                                                      <?php if (!$values->isfavourite == 1): ?>
-                                                      <td><button type="submit" name="fav" class="btn btn1 border">Favourite</button></td>
-                                                       <?php endif; ?>
-                                                       <?php if ($values->isfavourite == 1): ?>
-                                                      <td><button type="submit" name="unfav" class="btn btn1 border">UnFavourite</button></td>
-                                                      <?php endif; ?>
+                                                     
                                                     </tr>
                                                     
                                                     </form>
                                                     <p><?php endforeach; ?></p>
                                                     
-
-                                                  </tbody>
-                                                 
-                                                 
+                                                     </div>
                                           
-                                                </table>
-                                        
-                                                <form class="form1" action="">
-                                                  <span>show</span>
-                                                  <select name="show" id="">
-                                                  <option value="10">10</option>
-                                                </select>
-                                                <span>entries</span>
-                                                <span>total records:55</span>
-                                              </form>
-                                              <nav aria-label="Page navigation example">
-                                        <ul class="pagination page1">
-                                          <li class="page-item"><a class="page-link pn1 pn" href="#">&lt;</a></li>
-                                          <li class="page-item "><a class="page-link pn" href="#">&laquo;</a></li>
-                                          <li class="page-item "><a class="page-link pn link1" href="#">1</a></li>
-                                          <li class="page-item"><a class="page-link pn" href="#">2</a></li>
-                                          <li class="page-item"><a class="page-link pn" href="#">3</a></li>
-                                          <li class="page-item"><a class="page-link pn" href="#">4</a></li>
-                                          <li class="page-item">
-                                            <a class="page-link pn" href="#">&raquo;</a>
-                                          </li>
-                                          <li class="page-item"><a class="page-link pn pn2" href="#">&gt;</a></li>
-                                        </ul>
-                                        </nav>
-                                        
-                                              </div>
-                                          <!-- </div> -->
                                           </div>
 
+
+
+
+
+                                                         
+
+
+                                                    
+        
+        </tbody>
+      
+    </table>
+    </div>
+
+    
                                            <div class="tab-pane fade" id="v-pills-helo" role="tabpanel" aria-labelledby="v-pills-helo-tab">
                                             
                                                   
-                                                    <div class="container main">
+                                       
+                                                  <div class="container main">
                                                         <div>
                                                             <div class="col-auto">
                                                                 <div class="container mt-3">
@@ -643,29 +742,84 @@
                                                                                             <div class="form-check">
           <label class="form-check-label" id="imp12">
             <input class="form-check-input radio-inline" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-            Option one</label>
-            <label class="form-check-label imp12">
+            Male</label>
+            <label class="form-check-label imp12 imp100">
             <input class="form-check-input radio-inline" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-            Option two</label>
-            <label class="form-check-label disabled imp12">
+            Female</label>
+            <label class="form-check-label disabled imp12 imp100">
             <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled>
-            Option three</label>
+            Rather not to say</label>
         </div>
                                                                                         </div>
 
                                                                                         <div class="col-lg-10">
                                                                                             <label for="" class="form-control-label">Gender</label>
-                                                                                            <div class="form-check">
+                                                                                           <!--  <div class="form-check">
           <label class="form-check-label" id="imp12">
             <input class="form-check-input radio-inline" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
             Option one</label>
-            <label class="form-check-label imp12">
+            <label class="form-check-label imp12 imp100">
             <input class="form-check-input radio-inline" type="radio" name="gridRadios" id="gridRadios2" value="option2">
             Option two</label>
-            <label class="form-check-label disabled imp12">
+            <label class="form-check-label disabled imp12 imp100">
             <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled>
             Option three</label>
-        </div>
+        </div> -->
+          <div class=" justify-content-center icons first-row dp1">
+                            <div class="row justify-content-center">
+                                <div class="col-sm-2">
+                                    <li class="list1"><input name="extras[]" type="radio"
+                                            value="http://localhost/Home_DB/public/assets/images/book-service/1.png"
+                                            class="Ellipse-667 avtar" id="cb1" />
+                                        <label for="cb1" class="lb1"><img id="img1" 
+                                                class="img-responsive imgs"
+                                                src="http://localhost/Home_DB/public/assets/images/book-service/1.png" /></label>
+                                        <div class="text-3">Inside cabinets</div>
+                                    </li>
+                                </div>
+                                <div class="col-sm-2">
+                                    <li class="list1"><input type="radio"
+                                            value="Inside fridge" name="extras[]"
+                                            class="Ellipse-667 avtar" id="cb2" />
+                                        <label for="cb2" class="lb1"><img id="img2"
+                                                class="img-responsive imgs"
+                                                src="http://localhost/Home_DB/public/assets/images/book-service/2.png" /></label>
+                                        <div name="extras[]" class="text-3">Inside fridge</div>
+                                    </li>
+                                </div>
+
+                                <div class="col-sm-2">
+                                    <li class="list1"><input type="radio" value="Inside oven"
+                                            name="extras[]" class="Ellipse-667 avtar"
+                                            id="cb3" />
+                                        <label for="cb3" class="lb1"><img id="img3"
+                                                class="img-responsive imgs"
+                                                src="http://localhost/Home_DB/public/assets/images/book-service/3.png" /></label>
+                                        <div class="text-3">Inside oven</div>
+                                    </li>
+                                </div>
+                                <div class="col-sm-2">
+                                    <li class="list1"><input type="radio"
+                                            value="Laundry wash & dry" name="extras[]"
+                                            class="Ellipse-667 avtar" id="cb4" />
+                                        <label for="cb4" class="lb1"><img id="img4"
+                                                class="img-responsive imgs"
+                                                src="http://localhost/Home_DB/public/assets/images/book-service/4.png" /></label>
+                                        <div class="text-3">Laundry wash & dry</div>
+                                    </li>
+                                </div>
+                                <div class="col-sm-2">
+                                    <li class="list1"><input type="radio" name="extras[]"
+                                            class="Ellipse-667 avtar" id="cb5"
+                                            value="Interior windows" />
+                                        <label for="cb5" class="lb1"><img id="img5"
+                                                class="img-responsive imgs"
+                                                src="http://localhost/Home_DB/public/assets/images/book-service/5.png" /></label>
+                                        <div class="text-3">Interior windows</div>
+                                    </li>
+                                </div>
+                            </div>
+                        </div>
                                                                                         </div>
 
 
@@ -739,8 +893,8 @@
                                                                                         <form class="row g-3" method="post" id="continue">
                                                                                 
                                                                                        <div>
-                                                                                        <input type="" id="dbpass" value="<?php echo $this->getSession('dbpass');?>" name="dbpass">
-                                                                                        <input type="" id="changeid" name="changeid" value="<?php echo $this->getSession('Userid');?>">
+                                                                                        <input type="hidden" id="dbpass" value="<?php echo $this->getSession('dbpass');?>" name="dbpass">
+                                                                                        <input type="hidden" id="changeid" name="changeid" value="<?php echo $this->getSession('Userid');?>">
                                                                                            <div>
                                                                                             <label for="">Old password</label>
                                                                                           </div>
@@ -782,11 +936,45 @@
                                     </div>
                                   </div>
 
-
+    
 </div>
 
-        
-        <section class="f1">
+    <script>
+        $(document).ready(function() {
+    $('#example').DataTable( {
+        "order": [[ 3, "desc" ]],
+         dom: 'Bfrtip',
+        buttons: [
+            'excel'
+        ],
+    } );
+     $('#example1').DataTable( {
+        "order": [[ 3, "desc" ]],
+         dom: 'Bfrtip',
+        buttons: [
+            'excel'
+        ],
+    } );
+     $('#example2').DataTable( {
+        "order": [[ 2, "desc" ]],
+         dom: 'Bfrtip',
+        buttons: [
+            'excel'
+        ],
+    } );
+
+      $('#example3').DataTable( {
+        "order": [[ 2, "desc" ]],
+         dom: 'Bfrtip',
+        buttons: [
+            'excel'
+        ],  
+    } );
+} );
+    </script>
+
+
+     <section class="f1">
           <div class=" my-5">
 
             <footer class=" text-center text-white" style="background-color: #111111;">
@@ -794,15 +982,15 @@
             <div class="container p-3 pb-0">
               <!-- Section: Social media -->
               <section class="mb-4">
-                <span class="foot"> <img src="http://localhost/Home_DB/public/assets/images/UpcomingServices/footer.png" alt=""></span>
+                <span class="foot"> <img src="http://localhost/Home_DB/public/assets/images/serviceHistory/footer.png" alt=""></span>
                 <span class="foot1">HOME</span>
                 <span class="foot1">ABOUT</span>
                 <span class="foot1">TESTIMONIALS</span>
                 <span class="foot1">FAQS</span>
                 <span class="foot1">INSURANCE POLICY</span>
                 <span class="foot1">IMPRESSUM</span>
-                <span class="fb"> <img src="http://localhost/Home_DB/public/assets/images/UpcomingServices/FB.png" alt=""></span>
-                <span> <img src="http://localhost/Home_DB/public/assets/images/UpcomingServices/insta (1).png" alt=""></span>
+                <span class="fb"> <img src="http://localhost/Home_DB/public/assets/images/serviceHistory/FB.png" alt=""></span>
+                <span> <img src="http://localhost/Home_DB/assets/images/serviceHistory/insta (1).png" alt=""></span>
                 
                 
           
@@ -828,16 +1016,14 @@
 
       
 
-
-     
-           
-      <script src="http://localhost/Home_DB/assets/js/Upcomingservice.js"></script>
-
-
+      <script src="http://localhost/Home_DB/assets/js/demo.js"></script>
+        <script src="http://localhost/Home_DB/assets/js/Upcomingservice.js"></script>
+      
      <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" crossorigin="anonymous"></script>
-    
+
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     
-  </body>
+</body>
 </html>

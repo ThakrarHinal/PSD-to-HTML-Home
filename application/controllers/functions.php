@@ -12,6 +12,17 @@ class functions extends framework
                $this->view('Prices');
     }
 
+   
+    public function admin(){
+
+               $this->view('admin');
+    }
+
+    public function admin2(){
+
+               $this->view('admin2');
+    }
+
     public function Contact(){
 
                $this->view('Contact');
@@ -218,7 +229,7 @@ class functions extends framework
                     // $providerid = $_POST["proid"];
                     $userData = [
                     'email'      => $this->input('email'),
-                    'password'   => password_hash($this->input('password'), PASSWORD_DEFAULT) ,
+                    'password'   => $this->input('password'), 
                     // 'remember-me' => $this->input('remember-me'),
                     'emailError' => '',
                  ];
@@ -239,6 +250,7 @@ class functions extends framework
                  elseif ($result['status'] === 'ok'){
                     $this->setSession('Userid', $result['data']);
                     $this->setSession('First_name', $result['name']);
+                    $this->setSession('Last_name', $result['lname']);
                     // $this->setSession('typeId', $result['typeId']);
                     $this->setSession('Email', $result['email']);
                     $this->setSession('lname', $result['lname']);
@@ -347,7 +359,8 @@ class functions extends framework
                                   $myModel = $this->model('DB_connection');
                                 if ($new_pass == $con_pass) {
                                     // code...
-                                    if($myModel->Reset($new_pass, $token)){
+                                    $new_pass1 = password_hash($new_pass, PASSWORD_DEFAULT);
+                                    if($myModel->Reset($new_pass1, $token)){
                                     // $this->setSession("passUpdate", "password updated");
                                         $data = ["status" => "Success", "Message" => "password updated"];
                                   }
@@ -486,11 +499,12 @@ class functions extends framework
                                 $has = 1;
                                 $demo = 100;
                                 $id = $_POST['radio_val'];
+                                $status = 'Booked';
 
 
 
                                 $myModel = $this->model('DB_connection');
-                                $result = [$userid, $extra, $serviceStart, $postalCode, $demo, $hrs, $cmt, $card, $has, $helo, $id];
+                                $result = [$userid, $extra, $serviceStart, $postalCode, $demo, $hrs, $cmt, $card, $has, $helo, $id, $status];
                                 if($myModel->complete($result, $id)){
                                     // echo $id;
                                     // echo "hello its done";
@@ -747,17 +761,17 @@ class functions extends framework
 
 
                          public function Rate(){
-                        header('Content-Type: application/json; charset=utf-8');
-                         $data = ["status" => "Error", "Message" => "Please enter code"];
+                        // header('Content-Type: application/json; charset=utf-8');
+                        //  $data = ["status" => "Error", "Message" => "Please enter code"];
                         
                          // echo "oku";
                             $serviceid1 = $_POST['serviceid1'];
-                            $ratingto = $_POST['ratingtosp'];
+                            $helook = $_POST['helook'];
                             $ratingfrom = $_POST['ratingfrom'];
                             $comment = $_POST['commentsp'];
-                            $ontime = $_POST['ontime'];
-                            $friendly = $_POST['friendly'];
-                            $quality = $_POST['quality'];
+                            $ontime = $_POST['rating'];
+                            $friendly = $_POST['rating1'];
+                            $quality = $_POST['rating2'];
                             $ratings = round(((($ontime + $friendly + $quality)/3)*100)/10, 2);
 
                            // echo $ratings;
@@ -766,18 +780,20 @@ class functions extends framework
                                 // code...
                                 // echo "jijioijoij";
                                 $myModel = $this->model('DB_connection');
-                                if($myModel->rating45($serviceid1, $ratingfrom, $ratingto, $ratings, $comment, $ontime, $friendly, $quality)){
-                                    // echo "lklklkl";
-                                    $data = ["status" => "Success", "Message" => "matched", "date2" => $serviceid1, "ex5" => $ratingto, "data7" => $ratingfrom, "var1" => $comment, "var2" => $ontime, "var3" => $friendly, "var4" => $quality, "var5" => $ratings];
+                                if($myModel->rating45($serviceid1, $ratingfrom, $helook, $ratings, $comment, $ontime, $friendly, $quality)){
+                                    // echo $ratingfrom;
+                                    header('location: http://localhost/Home_DB/functions/Service_History#v-pills-profile');
+                                    // $data = ["status" => "Success", "Message" => "matched", "date2" => $serviceid1, "ex5" => $helook, "data7" => $ratingfrom, "var1" => $comment, "var2" => $ontime, "var3" => $friendly, "var4" => $quality, "var5" => $ratings];
                                 }
 
                                 
                             }
                             else{
-                                $data = ["status" => "Error", "Message" => "not matched"];
+                                echo "ndjfn";
+                                // $data = ["status" => "Error", "Message" => "not matched"];
                             }
 
-                             echo json_encode($data);
+                             // echo json_encode($data);
                         }
 
 
@@ -787,8 +803,9 @@ class functions extends framework
 
                         public function favunfav(){
                             // echo "fgh";
-                         header('Content-Type: application/json; charset=utf-8');
-                         $data = ["status" => "Error", "Message" => "Please enter code"];
+                            // $this->view('Service_History');
+                         // header('Content-Type: application/json; charset=utf-8');
+                         // $data = ["status" => "Error", "Message" => "Please enter code"];
                             if (isset($_POST['fav'])) {
                                 // code...
                                 $target = $_POST['targetid'];
@@ -796,7 +813,9 @@ class functions extends framework
                                 $myModel = $this->model('DB_connection');
                                 if ($myModel->fav($user, $target)) {
                                     // code...
-                                    echo "fav";
+                                    // echo "fav";
+                                     header('location: http://localhost/Home_DB/functions/Service_History#v-pills-messages');
+                                    // return view('Service_History');
                                 }
                                 else{
                                     echo "unfav";
@@ -811,7 +830,8 @@ class functions extends framework
                                $myModel = $this->model('DB_connection');
                                 if ($myModel->unfav($user, $target)) {
                                     // code...
-                                    echo "fav1";
+                                    // echo "fav1";
+                                     header('location: http://localhost/Home_DB/functions/Service_History#v-pills-messages');
                                 } 
                                 else{
                                     echo "unfav";
@@ -826,7 +846,8 @@ class functions extends framework
                                $myModel = $this->model('DB_connection');
                                 if ($myModel->block($user, $target)) {
                                     // code...
-                                    echo "block";
+                                    // echo "block";
+                                     header('location: http://localhost/Home_DB/functions/Service_History#v-pills-messages');
                                 } 
                                 else{
                                     echo "notblock";
@@ -841,12 +862,14 @@ class functions extends framework
                                $myModel = $this->model('DB_connection');
                                 if ($myModel->unblock($user, $target)) {
                                     // code...
-                                    echo "block1";
+                                    // echo "block1";
+                                     header('location: http://localhost/Home_DB/functions/Service_History#v-pills-messages');
                                 } 
                                 else{
                                     echo "unblock1";
                                 }
                             }
+                           
                         }
 
 
@@ -888,8 +911,8 @@ class functions extends framework
 
 
                          public function addupdate(){
-                        header('Content-Type: application/json; charset=utf-8');
-                         $data = ["status" => "Error", "Message" => "Please enter code"];
+                        // header('Content-Type: application/json; charset=utf-8');
+                        //  $data = ["status" => "Error", "Message" => "Please enter code"];
                         
                            
 
@@ -909,7 +932,9 @@ class functions extends framework
                                 $myModel = $this->model('DB_connection');
                                 if($myModel->updateadd($street2, $Pc2, $HN2, $city2, $mobile2, $Userid2, $Addid2)){
 
-                                      $data = ["status" => "Success", "Message" => "matched"];
+                                      // $data = ["status" => "Success", "Message" => "matched"];
+                                    // echo "ok";
+                                     header('location: http://localhost/Home_DB/functions/Service_History#v-pills-helo');
                                 }
                             
                                   
@@ -918,23 +943,24 @@ class functions extends framework
                                 
                             }
                             else{
-                                $data = ["status" => "Error", "Message" => "not matched"];
+                                // $data = ["status" => "Error", "Message" => "not matched"];
+                                echo "no";
                             }
 
-                             echo json_encode($data);
+                             // echo json_encode($data);
                         }
 
 
 
                         public function adddelete(){
-                        header('Content-Type: application/json; charset=utf-8');
-                         $data = ["status" => "Error", "Message" => "Please enter code"];
+                        // header('Content-Type: application/json; charset=utf-8');
+                        //  $data = ["status" => "Error", "Message" => "Please enter code"];
                         
                            
 
                             // if ($_POST['Addid3']) {
                                 // code...
-
+                            echo "sdjhfhjgd";
                                  
                                     $Addid3 = $_POST['Addid3'];
                                     // $email = $this->getSession('Email');
@@ -943,7 +969,8 @@ class functions extends framework
                                 $myModel = $this->model('DB_connection');
                                 if($myModel->deleteadd($Addid3)){
 
-                                      $data = ["status" => "Success", "Message" => "matched"];
+                                      // $data = ["status" => "Success", "Message" => "matched"];
+                                    echo "done2";
                                 }
                             
                                   
@@ -952,10 +979,11 @@ class functions extends framework
                                 
                             // }
                             else{
-                                $data = ["status" => "Error", "Message" => "not matched"];
+                                // $data = ["status" => "Error", "Message" => "not matched"];
+                                echo "dond ondf";
                             }
 
-                             echo json_encode($data);
+                             // echo json_encode($data);
                         }
 
 
@@ -971,19 +999,25 @@ class functions extends framework
                                 // echo "hello";
                                  
                                  
-                                    $oldpass = password_hash($_POST['oldpass'], PASSWORD_DEFAULT) ;
-                                    $newpass = $_POST['newpass'];
+                                    $oldpass = $_POST['oldpass'];
+                                    $newpass = password_hash($_POST['newpass'], PASSWORD_DEFAULT);
                                     $confirmpass = $_POST['confirmpass'];
                                     $dbpass = $_POST['dbpass'];
                                     $changeid = $_POST['changeid'];
 
 
                                     // echo $oldpass;
-                                $myModel = $this->model('DB_connection');
-                                if($myModel->passchange($oldpass, $newpass, $confirmpass, $dbpass, $changeid)){
+                                    $myModel = $this->model('DB_connection');
+                                    if(password_verify($oldpass, $dbpass)){
+                                        if($myModel->passchange($oldpass, $newpass, $confirmpass, $dbpass, $changeid)){
 
                                       $data = ["status" => "Success", "Message" => "matched"];
                                 }
+
+                                       // $data = ["status" => "Success", "Message" => "matched"]; 
+                                    }
+                                // 
+                                // 
                             
                                   
                                 
@@ -1110,19 +1144,53 @@ class functions extends framework
 
                         public function blockonly(){
                             echo "hi";
-                            if ($_POST['block']) {
-                                // code...
-                                $useridblc = $_POST['useridblc'];
-                                $spidblc = $_POST['spidblc'];
-                                echo $useridblc;
+                            // if ($_POST['block']) {
+                            //     // code...
+                            //     $useridblc = $_POST['useridblc'];
+                            //     $spidblc = $_POST['spidblc'];
+                            //     echo $useridblc;
 
-                                $myModel = $this->model('DB_connection');
-                                if ($myModel->blockonly2($useridblc, $spidblc)) {
+                            //     $myModel = $this->model('DB_connection');
+                            //     if ($myModel->blockonly2($useridblc, $spidblc)) {
+                            //         // code...
+                            //         echo "Success";
+                            //     }
+                            //     else{
+                            //         echo "fail";
+                            //     }
+                            // }
+
+
+
+                                 if (isset($_POST['block'])) {
+                                // code...
+                                echo "gi";
+                                $target = $_POST['useridblc'];
+                                $user = $_POST['spidblc'];
+                               $myModel = $this->model('DB_connection');
+                                if ($myModel->blockonly2($user, $target)) {
                                     // code...
-                                    echo "Success";
-                                }
+                                    echo "block";
+                                     // header('location: http://localhost/Home_DB/functions/Service_History#v-pills-messages2');
+                                } 
                                 else{
-                                    echo "fail";
+                                    echo "notblock";
+                                }
+                            }
+
+
+                            if (isset($_POST['unblock'])) {
+                                // code...
+                                $target = $_POST['useridblc'];
+                                $user = $_POST['spidblc'];
+                               $myModel = $this->model('DB_connection');
+                                if ($myModel->unblockonly($user, $target)) {
+                                    // code...
+                                    echo "block1";
+                                     // header('location: http://localhost/Home_DB/functions/Service_History#v-pills-messages');
+                                } 
+                                else{
+                                    echo "unblock1";
                                 }
                             }
                         }
@@ -1162,6 +1230,92 @@ class functions extends framework
                         
                         }
 
+
+
+                        public function accept(){
+                            // $this->view('Upcoming_Service');
+                            if (isset($_POST['acceptbtn'])) {
+                                // code...
+                                $userid = $_POST['username'];
+                                $serviceid = $_POST['serviceid'];
+                                $stime = $_POST['stime'];
+
+                                $myModel = $this->model('DB_connection');
+                                if ($myModel->acceptsr($userid, $serviceid, $stime)) {
+                                    // code...
+                                    // echo s
+                                    // print_r($_SESSION['row']);
+                                    echo "ok";
+                                    // header('location: http://localhost/Home_DB/functions/Upcoming_Service');
+                                }
+                                else{
+                                    echo "nok";
+                                    // print_r($_SESSION['row1']);
+                                    // echo '<script>$("#ok2").html(\'<div class="alert alert-success">\' + \'helo\'  + "</div>"); $(\'#ok2\').show()</script>';
+                                    // function nok(){};
+                                    // header('location: http://localhost/Home_DB/functions/Upcoming_Service/#v-pills-home');
+                                }
+                            }
+                        }
+
+
+
+                        public function editall(){
+                            if (isset($_POST['Editsr'])) {
+                                // code...
+                                $Addid = $_POST['Addid'];
+                                $srid = $_POST['srid'];
+                                $date = $_POST['date'];
+                                $time = $_POST['time'];
+                                $dateTime = $date.' '.$time;
+                                $street = $_POST['street'];
+                                $house_number = $_POST['house_number'];
+                                $Postalcode = $_POST['Postalcode'];
+                                $city = $_POST['city2'];
+
+                                $myModel = $this->model('DB_connection');
+                                if ($myModel->editsr($Addid, $srid, $dateTime, $street, $house_number, $Postalcode, $city)) {
+                                    // code...
+                                    echo "done";
+                                }
+
+                                else{
+                                    echo "ndone";
+                                }
+                            }
+                        }
+
+
+                        // public function show1(){
+                        //     $this->view('Service_History');
+                        //     $myModel = $this->model('DB_connection');
+                        //     // 
+                        //     $id77 =  $this->getSession('Userid');
+                        //     $myModel->getData($id77);
+                        //     // echo "hyyy";
+                        //     // echo "hi";
+                        // }
+
+
+                        public function changestatus(){
+                            echo "dkfjnkjgh";
+                            if ($_POST['changes']) {
+                                // code...
+                                $changeid = $_POST['changeuser'];
+                                $changes = $_POST['changes'];
+
+                                $myModel = $this->model('DB_connection');
+                                if ($myModel->editstatus($changeid, $changes)) {
+                                    // code...
+                                    echo "done";
+                                }
+                                else{
+                                    echo "not done";
+                                }
+                                // echo $changeid;
+                                // echo $changes;
+                            }
+                        }
 
 
 

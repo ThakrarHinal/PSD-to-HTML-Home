@@ -64,6 +64,9 @@ $("#userlogin").on("submit", function(e){
                     if (data.typeid == 1) {
                     	$(location).attr('href','http://localhost/Home_DB/functions/Upcoming_Service');
                     }
+                    if (data.typeid == 2) {
+                      $(location).attr('href','http://localhost/Home_DB/functions/admin');
+                    }
                     
                 }else{
                     // alert('failer');

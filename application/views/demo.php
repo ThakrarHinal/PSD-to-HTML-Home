@@ -135,7 +135,7 @@
                                     alt="">Schedule & Plan</a>
                         </li>
                         <li class="nav-item li-1 " id="tab3">
-                            <a class="nav-link border disabled" data-bs-toggle="pill" href="#menu2"><img
+                            <a class="nav-link border" data-bs-toggle="pill" href="#menu2"><img
                                     src="http://localhost/Home_DB/public/assets/images/book-service/Details.png"
                                     alt="">Your Details</a>
                         </li>

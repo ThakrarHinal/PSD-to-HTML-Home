@@ -8,6 +8,19 @@
     padding: 0;
 }
 
+element.style {
+    background-color: #111111;
+    /*height: -129% !important;*/
+    /*position: absolute !important;*/
+    width: 100% !important;
+}
+
+footer {
+    /* margin-bottom: -66% !important; */
+    /* margin-top: 19% !important; */
+    margin-top: 130em !important;
+}
+
 body{
     font-family: 'Roboto', sans-serif !important;
 font-family: 'Work Sans', sans-serif !important;

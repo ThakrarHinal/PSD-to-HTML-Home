@@ -8,6 +8,37 @@ $('#v-pills-home-tab').click(function(){
 });
 
 
+// $(document).ready(function(){
+//   $('imp77').hide();
+// });
+
+
+// var mimp = [];
+
+$('.avtar').click(function(){
+  var hi =  $(this).val();
+  var hi1 = $(this).attr('src');
+  alert(hi1);
+  alert(hi);
+ });
+
+$('#acceptbtn').click(function(){
+  // e.preventDefault();
+  var status = $('#statusid').val();
+  if (status == "Accepted") {
+      alert(status);
+  }
+  else{
+    alert('helo');
+  }
+  // $('imp77').html('done');
+
+  // $('imp77').show();
+});
+
+
+
+
 
 function responsive_menu(){
     var e = document.getElementById('menu_small');
@@ -136,3 +167,16 @@ $("#updateprofile22").on("submit", function(){
   return false;
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+

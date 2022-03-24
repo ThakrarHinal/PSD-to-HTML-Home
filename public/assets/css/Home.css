@@ -9,6 +9,11 @@
    }
 
 
+.navbar-expand-xl .navbar-nav .dropdown-menu {
+    /*position: absolute;*/
+    margin-left: -150%;
+  }
+
 
     #left {
       float: left;

@@ -1,9 +1,103 @@
 
+$(document).ready(function(){
+    $('.dt-button span').html('Export'); 
+    
+});
+
+// if (window.location.href == 'http://localhost/Home_DB/functions/Service_History') {
+//    $(location).attr('href','http://localhost/Home_DB/functions/show1');
+// }
+
+
+
+var ohk2 = []; 
+var ohk1 = [];
+var ohk = [];
+$('.st').click(function(){
+  // var jk = $('.st');
+  $('.st').each(function() {
+          if ($(this).is(":checked")) {
+          ohk.push($(this).val());
+                        // alert("Done");
+      }
+
+});
+ ohk = ohk.toString();
+ // $('#value5').val(ohk);
+ // var r = ohk +'pt';
+ alert(ohk);
+ // $('.fill-ratings').width(r);
+ 
+});
+
+
+
+
+
+$('.star').click(function(){
+  // var jk = $('.st');
+  $('.star').each(function() {
+          if ($(this).is(":checked")) {
+          ohk1.push($(this).val());
+                        // alert("Done");
+      }
+
+});
+ ohk1 = ohk1.toString();
+ 
+ alert(ohk1);
+ // $('.fill-ratings').width(r);
+
+});
+
+$('.star1').click(function(){
+  // var jk = $('.st');
+  $('.star1').each(function() {
+          if ($(this).is(":checked")) {
+          ohk2.push($(this).val());
+                        // alert("Done");
+      }
+
+});
+ ohk2 = ohk2.toString();
+ // $('.value5').val(ohk);
+ alert(ohk2);
+ var r = ((((+ohk) + (+ohk1) + (+ohk2))/3)*100)/10 + 'pt';
+ alert(r);
+ $('.fill-ratings').width(r);
+
+});
+
+if (window.location.href == 'http://localhost/Home_DB/functions/Service_History#v-pills-profile') {
+  $("#v-pills-home").removeClass("show active");
+  // $("#v-pills-home").removeClass("active");
+   $("#v-pills-profile").addClass("show active");
+   // $("#v-pills-messages").addClass("active");
+}
+
+
+if (window.location.href == 'http://localhost/Home_DB/functions/Service_History#v-pills-helo') {
+  $("#v-pills-home").removeClass("show active");
+  // $("#v-pills-home").removeClass("active");
+  // 
+   $("#v-pills-helo").addClass("show active");
+   // $("#menu11").addClass("active");
+   // $("#v-pills-messages").addClass("active");
+}
+
+
+if (window.location.href == 'http://localhost/Home_DB/functions/Service_History#v-pills-messages') {
+  $("#v-pills-home").removeClass("show active");
+  // $("#v-pills-home").removeClass("active");
+   $("#v-pills-messages").addClass("show active");
+   // $("#v-pills-messages").addClass("active");
+}
+
 
 $(window).on('load', function(){
 //   var useid = $('#useid').val();
 //   alert(useid);
-alert('hkj');
+// alert('hkj');
     $.ajax({
     type: 'post',
     url: 'http://localhost/Home_DB/functions/show',
@@ -28,12 +122,7 @@ alert('hkj');
       if(data.status == "Success"){
 //                     alert(data.id);
                     console.log('suc');
-//                     // $('a[href="#menu2"]').tab("show");
-//                     // $('#value5').val(data.var5);
-//                      // var o = $('#value5').val();
-//                       // var r = o +'pt';
-//                        // $('.fill-ratings').width(r);
-//                     // localStorage.setItem("data", JSON.stringify(data));
+//                   
                     
                 }else{
                     // alert('failer');
@@ -100,12 +189,13 @@ $('#v-pills-home-tab').click(function(){
 
 $(document).ready(function () {
       
-     
+
 
       var color = [];
       $('.status1').each(function(){
         
         $('.compcompleted').css('background-color', 'red');
+        $('.compCancelled').css('background-color', 'orange');
       
       });
 
@@ -437,8 +527,9 @@ $("#schedule").on("submit", function(){
 });
 
 
-$("#Add-form").on("submit", function(){
+$("#Add-form").on('submit', function(){
    //Code: Action (like ajax...)
+   // e.preventDefault();
    var street = $('#street').val();
    var HN = $('#HN').val();
    var Pc = $('#Pc').val();
@@ -510,155 +601,168 @@ $('#ok').click(function(){
 });
 
 
-function myFunction(){
-  alert('helo');
-  alert('helo');
-   var serviceid1 = $('#serviceid1').val();
-   var ratingto = $('#ratingto').val();
-   var ratingfrom = $('#ratingfrom').val();
-   var comment = $('#comment').val();
-   // var cmt = $('#cmt').val();
-    var ontime = [];
-                $('.st').each(function() {
-                    if ($(this).is(":checked")) {
-                        ontime.push($(this).val());
-                    }
-                });
-                ontime = ontime.toString();
-   var friendly = [];
-                $('.star').each(function() {
-                    if ($(this).is(":checked")) {
-                        friendly.push($(this).val());
-                    }
-                });
-                friendly = friendly.toString();
-    var quality = [];
-                $('.star1').each(function() {
-                    if ($(this).is(":checked")) {
-                        quality.push($(this).val());
-                    }
-                });
-                quality = quality.toString();
+// function myFunction(){
+//   alert('helo');
+//   // alert('helo');
+//   // var ohk1 = [];
+//   // $('#helook').each(function(){
+    
+//   //     ohk1.push($(this).val());
+    
+//   // });
+//   // ohk1 = ohk1.toString();
+//   // ohk2 = "<?php echo '$values->ServiceRequestId';?>";
+//   // console.log(ohk2);
+//   // alert(ohk2);
+//   // console.log(ohk1);
+//    var serviceid1 = $('#serviceid1').val();
+//    var ratingto = $('#ratingtosp').val();
+//    var helook = $('#helook').val();
+//    var ratingfrom = $('#ratingfrom').val();
+//    var comment = $('#commentsp').val();
+//    // var cmt = $('#cmt').val();
+//     var ontime = [];
+//                 $('.st').each(function() {
+//                     if ($(this).is(":checked")) {
+//                         ontime.push($(this).val());
+//                     }
+//                 });
+//                 ontime = ontime.toString();
+//    var friendly = [];
+//                 $('.star').each(function() {
+//                     if ($(this).is(":checked")) {
+//                         friendly.push($(this).val());
+//                     }
+//                 });
+//                 friendly = friendly.toString();
+//     var quality = [];
+//                 $('.star1').each(function() {
+//                     if ($(this).is(":checked")) {
+//                         quality.push($(this).val());
+//                     }
+//                 });
+//                 quality = quality.toString();
+//                 alert(helook);
 
-  $.ajax({
-    type: 'post',
-    url: 'http://localhost/Home_DB/functions/Rate',
-    // headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-    data: {
-      check: true,
-      serviceid1: serviceid1,
-      ratingto: ratingto,
-      ratingfrom: ratingfrom,
-      comment: comment,
-      ontime: ontime,
-      friendly: friendly,
-      quality: quality,
+//   $.ajax({
+//     type: 'post',
+//     url: 'http://localhost/Home_DB/functions/Rate',
+//     // headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+//     data: {
+//       check: true,
+//       serviceid1: serviceid1,
+//       helook: helook,
+//       ratingfrom: ratingfrom,
+//       comment: comment,
+//       ontime: ontime,
+//       friendly: friendly,
+//       quality: quality,
 
-    },
-    dataType: 'json',
-    // alert("hello");
-    cache: false,
-    success: function(data){
-      console.log(data.Message);
-      if(data.status == "Success"){
-                    // alert('success');
-                    console.log('suc');
-                    // $('a[href="#menu2"]').tab("show");
-                    $('#value5').val(data.var5);
-                     var o = $('#value5').val();
-                      var r = o +'pt';
-                       $('.fill-ratings').width(r);
-                    localStorage.setItem("data", JSON.stringify(data));
+//     },
+//     dataType: 'json',
+//     // alert("hello");
+//     cache: false,
+//     success: function(data){
+//       console.log(data.Message);
+//       if(data.status == "Success"){
+//                     // alert('success');
+//                     console.log('suc');
+//                     // $('a[href="#menu2"]').tab("show");
+//                     $('#value5').val(data.var5);
+//                      var o = $('#value5').val();
+//                       var r = o +'pt';
+//                        $('.fill-ratings').width(r);
+//                     localStorage.setItem("data", JSON.stringify(data));
                     
-                }else{
-                    // alert('failer');
-                    console.log(data.Message);
-                }
-    },
-     error: function(XMLHttpRequest, textStatus, errorThrown) { 
-        console.log("Status: " + textStatus); console.log("Error: " + errorThrown); 
-    }   
+//                 }else{
+//                     // alert('failer');
+//                     console.log(data.Message);
+//                 }
+//     },
+//      error: function(XMLHttpRequest, textStatus, errorThrown) { 
+//         console.log("Status: " + textStatus); console.log("Error: " + errorThrown); 
+//     }   
    
    
- });
+//  });
 
-  return false;
-};
+//   return false;
+// };
 
-function ok(){
-  alert('heyy');
-  var serviceid1 = $('#serviceid1').val();
-   var ratingtosp = $('#ratingtosp').val();
-   var ratingfrom = $('#ratingfrom').val();
-   var commentsp = $('#commentsp').val();
-   // var cmt = $('#cmt').val();
-    var ontime = [];
-                $('.st').each(function() {
-                    if ($(this).is(":checked")) {
-                        ontime.push($(this).val());
-                    }
-                });
-                ontime = ontime.toString();
-   var friendly = [];
-                $('.star').each(function() {
-                    if ($(this).is(":checked")) {
-                        friendly.push($(this).val());
-                    }
-                });
-                friendly = friendly.toString();
-    var quality = [];
-                $('.star1').each(function() {
-                    if ($(this).is(":checked")) {
-                        quality.push($(this).val());
-                    }
-                });
-                quality = quality.toString();
-                alert(ratingtosp);
+// function ok(){
+//   alert('heyy');
+//   var serviceid1 = $('#serviceid1').val();
+//    var ratingtosp = $('#ratingtosp').val();
+//    var ratingfrom = $('#ratingfrom').val();
+//    var commentsp = $('#commentsp').val();
+//    // var cmt = $('#cmt').val();
+//     var ontime = [];
+//                 $('.st').each(function() {
+//                     if ($(this).is(":checked")) {
+//                         ontime.push($(this).val());
+//                     }
+//                 });
+//                 ontime = ontime.toString();
+//    var friendly = [];
+//                 $('.star').each(function() {
+//                     if ($(this).is(":checked")) {
+//                         friendly.push($(this).val());
+//                     }
+//                 });
+//                 friendly = friendly.toString();
+//     var quality = [];
+//                 $('.star1').each(function() {
+//                     if ($(this).is(":checked")) {
+//                         quality.push($(this).val());
+//                     }
+//                 });
+//                 quality = quality.toString();
+//                 alert(ratingtosp);
 
-  $.ajax({
-    type: 'post',
-    url: 'http://localhost/Home_DB/functions/Rate',
-    // headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-    data: {
-      check: true,
-      serviceid1: serviceid1,
-      ratingtosp: ratingtosp,
-      ratingfrom: ratingfrom,
-      commentsp: commentsp,
-      ontime: ontime,
-      friendly: friendly,
-      quality: quality,
+//   $.ajax({
+//     type: 'post',
+//     url: 'http://localhost/Home_DB/functions/Rate',
+//     // headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+//     data: {
+//       check: true,
+//       serviceid1: serviceid1,
+//       ratingtosp: ratingtosp,
+//       ratingfrom: ratingfrom,
+//       commentsp: commentsp,
+//       ontime: ontime,
+//       friendly: friendly,
+//       quality: quality,
 
-    },
-    dataType: 'json',
-    // alert("hello");
-    cache: false,
-    success: function(data){
-      console.log(data.Message);
-      if(data.status == "Success"){
-                    // alert('success');
-                    console.log('suc');
-                    // $('a[href="#menu2"]').tab("show");
-                    $('#value5').val(data.var5);
-                     var o = $('#value5').val();
-                      var r = o +'pt';
-                       $('.fill-ratings').width(r);
-                    localStorage.setItem("data", JSON.stringify(data));
+//     },
+//     dataType: 'json',
+//     // alert("hello");
+//     cache: false,
+//     success: function(data){
+//       console.log(data.Message);
+//       if(data.status == "Success"){
+//                     // alert('success');
+//                     console.log('suc');
+//                     // $('a[href="#menu2"]').tab("show");
+//                     $('#value5').val(data.var5);
+//                      var o = $('#value5').val();
+//                       var r = o +'pt';
+//                        $('.fill-ratings').width(r);
+//                     localStorage.setItem("data", JSON.stringify(data));
                     
-                }else{
-                    // alert('failer');
-                    console.log(data.Message);
-                }
-    },
-     error: function(XMLHttpRequest, textStatus, errorThrown) { 
-        console.log("Status: " + textStatus); console.log("Error: " + errorThrown); 
-    }   
+//                 }else{
+//                     // alert('failer');
+//                     console.log(data.Message);
+//                 }
+//     },
+//      error: function(XMLHttpRequest, textStatus, errorThrown) { 
+//         console.log("Status: " + textStatus); console.log("Error: " + errorThrown); 
+//     }   
    
    
- });
+//  });
 
-  return false;
-};
+//   return false;
+// };
 
 // $("#save55").click(function(){
    //Code: Action (like ajax...)
@@ -806,96 +910,104 @@ $("#updateprofile").on("submit", function(){
 
 
 
-$('#Edit').click(function(){
-   //Code: Action (like ajax...)
-   var street2 = $('#street2').val();
-   var HN2 = $('#HN2').val();
-   var Pc2 = $('#Pc2').val();
-   var mobile2 = $('#mobile2').val();
-   var city2 = $('#city2').val();
-   var Userid2 = $('#Userid2').val();
-   var Addid2 = $('#Addid2').val();
+// $('#Edit').click(function(){
+//    //Code: Action (like ajax...)
+//    var street2 = $('#street2').val();
+//    var HN2 = $('#HN2').val();
+//    var Pc2 = $('#Pc2').val();
+//    var mobile2 = $('#mobile2').val();
+//    var city2 = $('#city2').val();
+//    var Userid2 = $('#Userid2').val();
+//    var Addid2 = $('#Addid2').val();
    
-  $.ajax({
-    type: 'post',
-    url: 'http://localhost/Home_DB/functions/addupdate',
-    data: {
-      check: true,
-      street2: street2,
-      HN2: HN2,
-      Pc2: Pc2,
-      Userid2: Userid2,
-      mobile2: mobile2,
-      city2: city2,
-      Addid2: Addid2,
+//   $.ajax({
+//     type: 'post',
+//     url: 'http://localhost/Home_DB/functions/addupdate',
+//     data: {
+//       check: true,
+//       street2: street2,
+//       HN2: HN2,
+//       Pc2: Pc2,
+//       Userid2: Userid2,
+//       mobile2: mobile2,
+//       city2: city2,
+//       Addid2: Addid2,
 
-    },
-    dataType: 'json',
-    // alert("a");
-    cache: false,
-    success: function(data){
-      console.log(data.Message);
-      if(data.status == "Success"){
-                    // alert('success');
-                    console.log('success');
+//     },
+//     dataType: 'json',
+//     // alert("a");
+//     cache: false,
+//     success: function(data){
+//       console.log(data.Message);
+//       if(data.status == "Success"){
+//                     // alert('success');
+//                     console.log('success');
                     
-                    // $('a[href="#menu3"]').tab("show");
-                }else{
-                    // alert('failer');
-                    alert(data.Message);
-                }
-    },
-     error: function(XMLHttpRequest, textStatus, errorThrown) { 
-        alert("Status: " + textStatus); alert("Error: " + errorThrown); 
-    }   
+//                     // $('a[href="#menu3"]').tab("show");
+//                 }else{
+//                     // alert('failer');
+//                     alert(data.Message);
+//                 }
+//     },
+//      error: function(XMLHttpRequest, textStatus, errorThrown) { 
+//         alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+//     }   
    
    
- });
+//  });
 
-  return false;
+//   return false;
 
-});
+// });
 
 
 
-function helo55(){
-   //Code: Action (like ajax...)
-   alert('helo');
-   var Addid3 = $('#Addid3').val();
+// function helo55(){
+//    //Code: Action (like ajax...)
+//    alert('helo');
+//    // var Addid3 = $('#Addid3').val();
+//    var Addid3 = [];
+//    $('.Addid3').each(function(){
+//     Addid3.push($(this).val());
+//    });
+//    console.log(Addid3);
+//    // Addid3 = Addid3.toString();
+//    // alert(Addid3);
+//    console.log(Addid3);
    
-  $.ajax({
-    type: 'post',
-    url: 'http://localhost/Home_DB/functions/adddelete',
-    data: {
-      check: true,
-      Addid3: Addid3,
+//   $.ajax({
+//     type: 'post',
+//     url: 'http://localhost/Home_DB/functions/adddelete',
+//     data: {
+//       check: true,
+//       Addid3: Addid3,
 
-    },
-    dataType: 'json',
-    // alert("a");
-    cache: false,
-    success: function(data){
-      console.log(data.Message);
-      if(data.status == "Success"){
-                    // alert('success');
-                    console.log('success');
+//     },
+//     dataType: 'json',
+//     // alert("a");
+//     cache: false,
+//     success: function(data){
+//       console.log(data.Message);
+//       if(data.status == "Success"){
+//                     // alert('success');
+//                     console.log('success');
                     
-                    // $('a[href="#menu3"]').tab("show");
-                }else{
-                    // alert('failer');
-                    alert(data.Message);
-                }
-    },
-     error: function(XMLHttpRequest, textStatus, errorThrown) { 
-        alert("Status: " + textStatus); alert("Error: " + errorThrown); 
-    }   
+//                     // $('a[href="#menu3"]').tab("show");
+//                 }else{
+//                     // alert('failer');
+//                     alert(data.Message);
+//                 }
+//     },
+//      error: function(XMLHttpRequest, textStatus, errorThrown) { 
+//         alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+//     }   
    
    
- });
+//  });
 
-  return false;
+//   return false;
 
-};
+// };
 
 
 $('#changepass').click(function(){

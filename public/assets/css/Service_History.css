@@ -1,6 +1,43 @@
 @import url(https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
 
+.ohk5{
+  border-radius: 17px;
+    /*background-color: #146371 !important;*/
+    color: white;
+  background-color: #1d7a8c !important;
+}
 
+@media (min-width: 992px){
+  .navbar-expand-lg .navbar-nav .dropdown-menu {
+    position: absolute;
+    margin-left: -150% !important;
+  }
+}
+
+.dropdown-item{
+  color: #212529 !important;
+}
+
+element.style {
+    background-color: #111111;
+    /*height: -129% !important;*/
+    position: absolute;
+    width: 100%;
+}
+
+footer {
+    /* margin-bottom: -66% !important; */
+    /* margin-top: 19% !important; */
+    margin-top: 15%;
+}
+
+#ok2{
+  display: none;
+}
+
+.imp100{
+  margin-left: 6%;
+}
 
 /*
 fieldset, label { margin: 0; padding: 0; }
@@ -120,7 +157,7 @@ h1 { font-size: 1.5em; margin: 10px; }*/
 .star-ratings {
   unicode-bidi: bidi-override;
   color: #ccc;
-  font-size: 2.08em;
+  font-size: 1.50em;
   position: relative;
   margin: 0;
   padding: 0;
@@ -140,6 +177,7 @@ h1 { font-size: 1.5em; margin: 10px; }*/
   }
   .star5 {
     display: inline-block;
+    width: 20% !important;
   }
   .empty-ratings {
     padding: 0;
@@ -167,6 +205,10 @@ h1 { font-size: 1.5em; margin: 10px; }*/
     color: black !important;
   }
 
+.hu5{
+    margin-left: 40%;
+    margin-top: -10%;
+}
 
 
 .tb-li.active {
@@ -257,8 +299,9 @@ a {
     width: 262px !important;
     margin-left: 1% !important;
     margin-top: 8% !important;
-    
-    height: 802px;
+    height: 25em;
+    position: relative;
+    /*height: 802px;*/
     background-color: #1d7a8c !important;
   /*  */
 }
@@ -329,15 +372,53 @@ footer{
     color: grey !important;
   }
 
-  
+  .spu{
+    display: block !important;
+}
+
+
+.ohkr{
+  display: block !important ;
+}
+
+.card{
+  min-width: 28%;
+  margin-right: 5%;
+  margin-bottom: 5%;
+}
+
+.selectsp22{
+  /*width: 45% !important;*/
+  /*margin-left: 50%;*/
+}
 
 .btn1{
   border-radius: 17px;
-  background-color: #6da9b5;
+  background-color: #146371 !important;
    color: white;
 
   }
 
+
+.call1{
+  margin-bottom: 6%;
+  margin-top: 4%;
+}
+
+  .btn2{
+  border-radius: 17px;
+  background-color: #ff7b6d !important;
+   color: white;
+
+  }
+
+.ohk{
+  width: -webkit-fill-available !important;
+}
+
+.new{
+  width: 76% !important;
+}
  
 
  .list1 {
@@ -375,6 +456,7 @@ footer{
 
 .item1.active {
     /* color: #fff; */
+
     background-color: #29626D !important;
 }
 
@@ -406,6 +488,8 @@ footer{
 .gbtn{
   background-color: #67b644;
   color: white;
+  /*width: 35%;*/
+  /*margin-left: 5%;*/
   padding-left: 4px;
   padding-right: 4px;
 }
@@ -438,12 +522,28 @@ footer{
 .item1{
     text-decoration: none !important;
     color: white !important;
-    padding-right: 65% !important;
+    /*padding-right: 65% !important;*/
     text-align: center !important;
-    padding-left: 40% !important;
+    /*padding-left: 40% !important;*/
+    /*padding-bottom: 6% !important;*/
+     padding-left: 4% !important;
     padding-bottom: 6% !important;
+    margin-right: -4%;
     /* margin-top: 0% !important; */
     /* width: 525% !important; */
+}
+
+#st5{
+
+  display: flex;
+}
+
+#st51{
+  display: flex;
+}
+
+.rate5{
+  margin-left: 25% !important;
 }
 
 .home{

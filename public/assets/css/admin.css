@@ -1,3 +1,199 @@
+@import url(https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
+
+.ohk5{
+  border-radius: 17px;
+    /*background-color: #146371 !important;*/
+    color: white;
+  background-color: #1d7a8c !important;
+}
+
+@media (min-width: 992px){
+  .navbar-expand-lg .navbar-nav .dropdown-menu {
+    position: absolute;
+    margin-left: -150% !important;
+  }
+}
+
+.dropdown-item{
+  color: #212529 !important;
+}
+
+.hiddenbtn{
+    display: none;
+}
+
+element.style {
+    background-color: #111111;
+    /*height: -129% !important;*/
+    position: absolute;
+    width: 100%;
+}
+
+footer {
+    /* margin-bottom: -66% !important; */
+    /* margin-top: 19% !important; */
+    margin-top: 15%;
+}
+
+#ok2{
+  display: none;
+}
+
+.imp100{
+  margin-left: 6%;
+}
+
+/*
+fieldset, label { margin: 0; padding: 0; }
+body{ margin: 20px; }
+h1 { font-size: 1.5em; margin: 10px; }*/
+
+/****** Style Star Rating Widget *****/
+
+.rating { 
+  border: none;
+  float: left;
+}
+
+.st { display: none; } 
+.st-lb:before { 
+  margin: 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.half:before { 
+  content: "\f089";
+  position: absolute;
+}
+
+.st-lb { 
+  color: #ddd; 
+ float: right; 
+}
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+.st:checked ~ label, /* show gold star when clicked */
+.rating:not(:checked) > .st-lb:hover, /* hover current star */
+.rating:not(:checked) > .st-lb:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+
+.st:checked + .st-lb:hover, /* hover current star when changing rating */
+.st:checked ~ .st-lb:hover,
+.st-lb:hover ~ .st:checked ~ label, /* lighten current selection */
+.st:checked ~ .st-lb:hover ~ label { color: #FFED85;  } 
+
+
+.rating1 { 
+    border: none;
+    float: left;
+  }
+  
+  .star { display: none; } 
+  .star-lb:before { 
+    margin: 5px;
+    font-size: 1.25em;
+    font-family: FontAwesome;
+    display: inline-block;
+    content: "\f005";
+  }
+  
+  .half:before { 
+    content: "\f089";
+    position: absolute;
+  }
+  
+  .star-lb { 
+    color: #ddd; 
+   float: right; 
+  }
+  
+  /***** CSS Magic to Highlight Stars on Hover *****/
+  
+  .star:checked ~ .star-lb, /* show gold star when clicked */
+  .rating1:not(:checked) > .star-lb:hover, /* hover current star */
+  .rating1:not(:checked) > .star-lb:hover ~ .star-lb { color: #FFD700;  } /* hover previous stars in list */
+  
+  .star:checked + .star-lb:hover, /* hover current star when changing rating */
+  .star:checked ~ .star-lb:hover,
+  .star-lb:hover ~ .star:checked ~ .star-lb, /* lighten current selection */
+  .star:checked ~ .star-lb:hover ~ .star-lb { color: #FFED85;  } 
+  
+
+  .rating2 { 
+    border: none;
+    float: left;
+  }
+  
+  .star1 { display: none; } 
+  .star1-lb:before { 
+    margin: 5px;
+    font-size: 1.25em;
+    font-family: FontAwesome;
+    display: inline-block;
+    content: "\f005";
+  }
+  
+  .half:before { 
+    content: "\f089";
+    position: absolute;
+  }
+  
+  .star1-lb { 
+    color: #ddd; 
+   float: right; 
+  }
+  
+  /***** CSS Magic to Highlight Stars on Hover *****/
+  
+  .star1:checked ~ .star1-lb, /* show gold star when clicked */
+  .rating2:not(:checked) > .star1-lb:hover, /* hover current star */
+  .rating2:not(:checked) > .star1-lb:hover ~ .star1-lb { color: #FFD700;  } /* hover previous stars in list */
+  
+  .star1:checked + .star1-lb:hover, /* hover current star when changing rating */
+  .star1:checked ~ .star1-lb:hover,
+  .star1-lb:hover ~ .star1:checked ~ .star1-lb, /* lighten current selection */
+  .star1:checked ~ .star1-lb:hover ~ .star1-lb { color: #FFED85;  } 
+  
+  
+.star-ratings {
+  unicode-bidi: bidi-override;
+  color: #ccc;
+  font-size: 1.50em;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+  .fill-ratings {
+    color: #FFD700;
+    padding: 0;
+    position: absolute;
+    z-index: 1;
+    display: block;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    
+    /* // Allows us to grab the width of the span elements */
+   
+  }
+  .star5 {
+    display: inline-block;
+    width: 20% !important;
+  }
+  .empty-ratings {
+    padding: 0;
+    display: block;
+    z-index: 0;
+  }
+
+
+
+
+
+
 .Rectangle{
     background-color: #1fb6ff;
   
@@ -24,6 +220,7 @@ body{
     font-family: 'Roboto', sans-serif;
 font-family: 'Work Sans', sans-serif;
 color: #646464;
+margin-bottom: 4% !important;
 }
 
 .ver-nav{
@@ -131,7 +328,7 @@ color: #646464;
       border: solid 1px #e1e1e1;
       margin-top: 1%;
       margin-bottom: 1%;
-      margin-left: 20%;
+      /*margin-left: 20%;*/
   }
 
   
@@ -149,7 +346,7 @@ color: #646464;
     padding-left: 1%;
     border: solid 1px #e1e1e1;
     margin-top: -1%;
-    margin-left: 20%;
+    /*margin-left: 20%;*/
 }
 
 .search{

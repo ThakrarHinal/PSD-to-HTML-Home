@@ -20,12 +20,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Work+Sans&display=swap" rel="stylesheet">
 
     <script src="https://kit.fontawesome.com/390f1f53bc.js" crossorigin="anonymous"></script>
-    <!-- <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" /> -->
-    <!-- <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script> -->
-    <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css"> -->
-    <!-- <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script> -->
-
-
+   
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -179,33 +174,7 @@
                 <div id="menu1" class="container tab-pane fade"><br>
     <table>
         <tbody>
-           <!--  <tr class="row-lg">
-                <td>
-                    <div class="first-row"><b> Select number of rooms and bath</b></div>
-                    <div class="dropdown dp1">
-                        <button class="btn dropdown-toggle border" type="button"
-                            id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-                            1 bed
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                            <li><button class="dropdown-item" type="button">2 bed</button></li>
-                            <li><button class="dropdown-item" type="button">3 bed</button></li>
-                            <li><button class="dropdown-item" type="button">4 bed</button></li>
-                        </ul>
-                        <button class="btn dropdown-toggle border" type="button"
-                            id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-                            1 bath
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                            <li><button class="dropdown-item" type="button">2 bath</button></li>
-                            <li><button class="dropdown-item" type="button">3 bath</button></li>
-                            <li><button class="dropdown-item" type="button">4 bath</button></li>
-                        </ul>
-                    </div>
-                    <hr class="line2">
-                </td>
-
-            </tr> -->
+          
             <form method="post" id="schedule">
                 <tr>
                     <td>
@@ -607,12 +576,7 @@
                     <span class="float-end">0,00 €</span>
                 </div>
             </tr>
-            <!-- <tr>
-                    <div>
-                        <span>Discount</span>
-                        <span class="float-end">-$27</span>
-                    </div>
-                </tr> -->
+           
             <hr>
             <tr>
                 <div>
@@ -622,12 +586,7 @@
                     </span>
                 </div>
             </tr>
-            <!-- <tr><br>
-                    <div>
-                        <span>Effective Price</span>
-                        <span class="float-end ">$50.4</span>
-                    </div>
-                </tr> -->
+          
         </table><br>
         <!-- <small class="card-text">You will save 20% according to 35a ESIG.</small> -->
     </div>
@@ -701,73 +660,7 @@
                 <hr>
             </td>
         </tr>
-        <!-- <tr>
-                    <td>
-                        <li class="mb-1 list-unstyled">
-                            <img src="images/rigth-arrow.png" class="normal"  id="image"  alt="">
-                            <button class="btn d-inline-flex align-items-center rounded collapsed" onclick="rotateImg()" data-bs-toggle="collapse" data-bs-target="#fourth" aria-expanded="false">
-                              <small> Which Helperland professional will come to my place?</small>
-                            </button>
-                    
-                            <div class="collapse" id="fourth">
-                              <ul class="list-unstyled pb-1 small">
-                                  <li><a href="#" class="d-inline-flex align-items-center rounded">Introduction</a></li>
-                              </ul>
-                            </div>
-                          </li>
-                          <hr>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <li class="mb-1 list-unstyled">
-                            <img src="images/rigth-arrow.png" class="normal image1"  id="image"  alt="">
-                            <button class="btn d-inline-flex align-items-center rounded collapsed" onclick="rotateImg1()" data-bs-toggle="collapse" data-bs-target="#fifth" aria-expanded="false">
-                              <small>Which Helperland professional will come to my place?</small> 
-                            </button>
-                    
-                            <div class="collapse" id="fifth">
-                              <ul class="list-unstyled pb-1 small">
-                                  <li><a href="#" class="d-inline-flex align-items-center rounded">Introduction</a></li>
-                              </ul>
-                            </div>
-                          </li>
-                          <hr>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <li class="mb-1 list-unstyled">
-                            <img src="images/rigth-arrow.png" class="normal image1"  id="image"  alt="">
-                            <button class="btn d-inline-flex align-items-center rounded collapsed" onclick="rotateImg1()" data-bs-toggle="collapse" data-bs-target="#sixth" aria-expanded="false">
-                              <small class="image1">Which Helperland professional will come to my place?</small> 
-                            </button>
-                    
-                            <div class="collapse" id="sixth">
-                              <ul class="list-unstyled pb-1 small">
-                                  <li><a href="#" class="d-inline-flex align-items-center rounded">Introduction</a></li>
-                              </ul>
-                            </div>
-                          </li>
-                          <hr>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <li class="mb-1 list-unstyled">
-                           
-                          <img src="images/rigth-arrow.png" class="normal"  id="image1"  alt="">  
-                            <button class="btn d-inline-flex align-items-center rounded collapsed" onclick="rotateImg1()" data-bs-toggle="collapse" data-bs-target="#seventh" aria-expanded="false">
-                               
-                                <small>Which Helperland professional will come to my place?</small> 
-                            </button>
-                    
-                            <div class="collapse" id="seventh">
-                              <ul class="list-unstyled pb-1 small">
-                                  <li><a href="#" class="d-inline-flex align-items-center rounded">Introduction</a></li>
-                              </ul>
-                            </div>
-                          </li>-->
+    
         <hr>
         <tr>
             <td>

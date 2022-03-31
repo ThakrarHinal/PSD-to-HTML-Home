@@ -14,6 +14,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Work+Sans&display=swap" rel="stylesheet">
 
+<!-- <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script> -->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
 
 
     <link rel="stylesheet" href="http://localhost/Home_DB/assets/css/table.css">
@@ -133,37 +137,22 @@
                 <th>Service Date<img src="images/data.png" alt=""> </th>
                 <th>Service Provider<img src="images/data.png" alt=""> </th>
                 <th>Payment<img src="images/data.png" alt=""></th>
+                <th></th>
                 <th>Actions</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
                 <!-- <th>Salary</th> -->
             </tr>
         </thead>
         <tbody>
-             <p><?php foreach($_SESSION['serviceid'] as  $values): ?></p>
-                                                    <tr data-bs-toggle="modal" data-bs-target="#modalcontainer<?php echo $values->ServiceRequestId;?>">
-                                                      <td>
-                                                        <div>1</div>
-                                                      </td>
-                                                      <td>
-                                                        <div> <img src="http://localhost/Home_DB/public/assets/images/upcomingServices/cal.png" alt="">&nbsp<?php $dateArray = explode(" ", $values->ServiceStartDate); print_r($dateArray[0]);?></div>
-                                                        <div><img src="http://localhost/Home_DB/public/assets/images/upcomingServices/time.png" alt="">&nbsp<?php $dateArray = explode(" ", $values->ServiceStartDate); print_r($dateArray[1]);?></div>
-                                                      </td>
-                                                      <td>
-                                                      
-                                                        <span><img class="img1" src="http://localhost/Home_DB/public/assets/images/serviceHistory/hat.png" alt=""></span> 
-                                                        <span class="txt" >  Lyum Watson</span> 
-                                                        <div class="txt1"><?php echo $values->First_name;?>&nbsp<?php echo $values->Last_name;?><img src="images/y-star.png" alt=""> <img src="images/y-star.png" alt=""> <img src="images/y-star.png" alt=""> <img src="images/y-star.png" alt=""> <img src="images/star2.png" alt=""> </div>
-                                                      </td>
-                                                        <td class="txt2">
-                                                        <?php echo $values->TotalCost;?>&nbsp€
-                                                      </td>
-                                                      <td class="justify-content-center">
-                                                        <button class="btn btn1 border"  data-bs-toggle="modal" data-bs-target="#modal<?php echo $values->ServiceRequestId;?>">Reschedule</button>
-                                                        <button type="submit" name="login" data-bs-toggle="modal" data-bs-target="#modal1<?php echo $values->ServiceRequestId;?>" id="login" class="btn btn2 border">cancel</button>
-                                                      </td>
-                                                    </tr>
+                                                     
+        
+        </tbody>
 
-
-                                                     <div class="modal fade" id="modalcontainer<?php echo $values->ServiceRequestId;?>" tabindex="-1" aria-labelledby="modalcontainer" aria-hidden="true">
+          <div class="modal fade" id="modalcontainer" tabindex="-1" aria-labelledby="modalcontainer" aria-hidden="true">
                                                         <div class="modal-dialog modal-dialog-centered">
                                                         <div class="modal-content justify-content-center">
                                                          <div class="modal-header">
@@ -171,26 +160,26 @@
                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                          </div>
                                                          <div class="modal-body">
-                                                          <form action="<?php echo BASEURL; ?>/functions/userlogin" method="POST">
+                                                          <form action="" method="POST">
                                                             <div class="col-md-10">
                                                                    
-                                                                    <small><b><?php $dateArray = explode(" ", $values->ServiceStartDate); print_r($dateArray[0]);?>&nbsp<?php print_r($dateArray[1]);?>-<?php echo $values->endTime; ?></b></small><br>
-                                                                    <small>Duration:<?php echo $values->ServiceHours;?>&nbspHrs</small>
+                                                                    <small><b id="date"></b></small><br>
+                                                                    <small>Duration:<span id="time"></span>&nbspHrs</small>
 
                                                                 </div>
-                                                                <hr class="line2">
+                                                                <hr class="line2"> 
                                                                 <!-- <br> -->
-                                                                <div class="col-md-10">
-                                                                    <small>Service Id: <?php echo $values->ServiceRequestId;?></small><br>
-                                                                    <small>Extras: <?php echo $values->ExtraServices;?></small><br>
-                                                                    <small class="txt2" >Net Amount: <?php echo $values->TotalCost;?> €</small>
+                                                                 <div class="col-md-10">
+                                                                    <small>Service Id: <span id="srid"></span></small><br>
+                                                                    <small>Extras: <span id="ex"></span></small><br>
+                                                                    <small class="txt2" >Net Amount: <span id="net"></span> €</small>
                                                                 </div>
                                                                 <hr class="line2">
 
                                                                  <div class="col-md-10">
-                                                                    <small>Service AAddress: <?php echo $values->ServiceRequestId;?></small><br>
-                                                                    <small>Phone: <?php echo $values->Mobile;?></small><br>
-                                                                    <small>Email: <?php echo $values->Email;?></small>
+                                                                    <small>Service AAddress:<span id="add"></span></small><br>
+                                                                    <small>Phone: <span id="mob"></span></small><br>
+                                                                    <small>Email: <span id="mail"></span> </small>
                                                                 </div>
                                                                 <hr class="line2">
                                                                 <div>
@@ -199,19 +188,13 @@
                                                                  </div>
                                                              
                                                           </form>
-                                                           </div>
-                                                       <!--  <div class="modal-footer">
-                                                           
-                                                             <div class="text-center">
-                                                                  
-                                                                </div>
-                                                         </div> -->
-                                                        </div>
+                                                           </div> 
+                                                         </div>
                                                         </div>
                                                         </div>
 
 
-                                                            <div class="modal fade" id="modal<?php echo $values->ServiceRequestId;?>" tabindex="-1" aria-labelledby="modalcontainer" aria-hidden="true">
+                                                         <div class="modal fade" id="modal1" tabindex="-1" aria-labelledby="modal1" aria-hidden="true">
                                                         <div class="modal-dialog modal-dialog-centered">
                                                         <div class="modal-content new justify-content-center">
                                                          <div class="modal-header">
@@ -219,38 +202,33 @@
                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                          </div>
                                                          <div class="modal-body">
-                                                          <form action="<?php echo BASEURL; ?>/functions/reschedule" method="POST">
+                                                          <form action="" id="reschedule1" method="POST">
                                                             <div class="col-md-10">
-                                                               <input type="hidden" name="cancelid1" value="<?php echo $values->ServiceRequestId;?>">
-                                                               <input type="hidden" name="proid1" value="<?php echo $values->Serviceproviderid;?>">
+                                                               <input type="hidden" name="cancelid1" id="cancelid1" value="">
+                                                               <input type="hidden" id="proid1" name="proid1" value="">
                                                                <p>Select New Date & Time</p>
-                                                                    <input type="date" id="date1" value="<?php $dateArray = explode(" ", $values->ServiceStartDate); print_r($dateArray[0]);?>" name="date1" placeholder="date">
-                                                                    <select class="form-select-sm op" id="time" name="time1"
+                                                                    <input type="date" id="date1" value="" name="date1" placeholder="date">
+                                                                    <!-- <input type="time" value="" id="time1" name="time1"> -->
+                                                                    <select class="form-select-sm op" id="time1" name="time1"
                                                                         aria-label="Default select example">
-                                                                        <option selected value="<?php $dateArray = explode(" ", $values->ServiceStartDate); print_r($dateArray[1]);?>"></option>
+                                                                        <option selected value="3">03:00:00</option>
                                                                         <option value="4">04:00:00</option>
                                                                         <option value="5">05:00:00</option>
                                                                         <option value="6">06:00:00</option>
                                                                     </select>
                                                                 </div><br>
                                                                 <div>
-                                                                   <button type="submit" name="reschedule" id="login" class="btn ohk btn1 border">Reschadule</button>
+                                                                   <button type="submit" name="reschedule" id="login1" class="btn ohk btn1 border">Reschadule</button>
                                                                  </div>
                                                              
                                                           </form>
-                                                           </div>
-                                                       <!--  <div class="modal-footer">
-                                                           
-                                                             <div class="text-center">
-                                                                  
-                                                                </div>
-                                                         </div> -->
+                                                           </div> 
                                                         </div>
                                                         </div>
-                                                        </div> 
+                                                        </div>
 
 
-                                                            <div class="modal fade" id="modal1<?php echo $values->ServiceRequestId;?>" tabindex="-1" aria-labelledby="modalcontainer" aria-hidden="true">
+                                                        <div class="modal fade" id="modal2" tabindex="-1" aria-labelledby="modal2" aria-hidden="true">
                                                         <div class="modal-dialog modal-dialog-centered">
                                                         <div class="modal-content justify-content-center">
                                                          <div class="modal-header">
@@ -258,12 +236,12 @@
                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                          </div>
                                                          <div class="modal-body">
-                                                          <form action="<?php echo BASEURL; ?>/functions/Cancel1" method="POST">
+                                                          <form action="" id="Cancel" method="POST">
                                                             <div class="col-md-10">
-                                                              <input type="hidden" name="cancelid" value="<?php echo $values->ServiceRequestId;?>">
-                                                              <input type="hidden" name="cancelproid" value="<?php echo $values->Serviceproviderid;?>">
+                                                              <input type="" id="cancelid" name="cancelid" value="">
+                                                              <input type="" id="cancelproid" name="cancelproid" value=""> 
                                                               <!-- <h2><?php echo $values->ServiceStartDate;?></h2> -->
-                                                              <p>Why you want to cancel tha service request?</p>
+                                                             <p>Why you want to cancel tha service request?</p>
                                                                     <textarea rows="5" cols="30"></textarea>
 
                                                                 </div><br>
@@ -272,21 +250,12 @@
                                                                  </div>
                                                              
                                                           </form>
-                                                           </div>
-                                                       <!--  <div class="modal-footer">
-                                                           
-                                                             <div class="text-center">
-                                                                  
-                                                                </div>
-                                                         </div> -->
+                                                           </div> 
+                                                       </div>
                                                         </div>
-                                                        </div>
-                                                        </div> 
+                                                        </div>  
 
 
-                                                     <p><?php endforeach; ?></p>
-        
-        </tbody>
       
     </table>
 </div>
@@ -314,35 +283,10 @@
             </tr>
         </thead>
         <tbody>
-             <p><?php foreach($_SESSION['servicehistory'] as  $values): ?></p>
-                                                     <p><?php $hi =  $values->ServiceRequestId; ?></p>
-                                                         <tr data-bs-toggle="modal" data-bs-target="#modalcontainer22<?php echo $values->ServiceRequestId;?>">
-                                                      <td>
-                                                        <div> <img src="http://localhost/Home_DB/public/assets/images/upcomingServices/cal.png" alt=""> <?php $dateArray = explode(" ", $values->ServiceStartDate); print_r($dateArray[0]);?></div>
-                                                        <div><img src="http://localhost/Home_DB/public/assets/images/upcomingServices/time.png"> <?php $dateArray = explode(" ", $values->ServiceStartDate); print_r($dateArray[1]);?></div>
-                                                      </td>
-                                                      <td> <span><img class="img1" src="http://localhost/Home_DB/public/assets/images/serviceHistory/hat.png" alt=""></span> 
-                                                        <span class="txt" ><?php echo $values->First_name;?><?php echo $values->Last_name;?></span> 
-                                                        <div class="txt1">
-                                                         
-                                                          <div class="star-ratings">
-                                                                    <div class="fill-ratings" style="width: <?php echo $values->ratings; ?>% !important;">
-                                                                      <span class="star5">★★★★★</span>
-                                                                    </div>
-                                                                    <div class="empty-ratings">
-                                                                      <span class="star5">★★★★★</span>
-                                                                    </div>
-                                                                  </div>
-                                                                <span><?php echo $values->ratings/10; ?></span>  
-                                                      </div>
-                                                    </td>
-                                                        <td class="txt2">
-                                                        €<?php echo $values->TotalCost;?>
-                                                      </td>
-                                                      <td><button class="border gbtn comp<?php echo $values->Status;?> status1"  ><?php echo $values->Status;?></button></td>
-                                                      <p id="color1"></p>
-                                                      <td><button data-bs-toggle="modal"  data-bs-target="#shistory<?php echo $hi;?>" class="btn btn1 border">Rate SP</button></td>
-                                                    </tr>
+
+        </tbody>
+             <!-- 
+                                                     
 
                                                      
                                                     <div class="modal fade" id="modalcontainer22<?php echo $values->ServiceRequestId;?>" tabindex="-1" aria-labelledby="modalcontainer" aria-hidden="true">
@@ -361,8 +305,8 @@
 
                                                                 </div>
                                                                 <hr class="line2">
-                                                                <!-- <br> -->
-                                                                <div class="col-md-10">
+                                                                 <br> -->
+                                                               <!-- <div class="col-md-10">
                                                                     <small>Service Id: <?php echo $values->ServiceRequestId;?></small><br>
                                                                     <small>Extras: <?php echo $values->ExtraServices;?></small><br>
                                                                     <small class="txt2" >Net Amount: <?php echo $values->TotalCost;?> €</small>
@@ -381,19 +325,14 @@
                                                                  </div>
                                                              
                                                           </form>
-                                                           </div>
-                                                       <!--  <div class="modal-footer">
-                                                           
-                                                             <div class="text-center">
-                                                                  
-                                                                </div>
-                                                         </div> -->
+                                                           </div> -->
+                                                       
+                                                      <!--   </div>
                                                         </div>
-                                                        </div>
-                                                        </div>
+                                                        </div> -->
 
 
-                                                     <div class="modal fade" id="shistory<?php echo $hi;?>" tabindex="-1" aria-labelledby="modalcontainer" aria-hidden="true">
+                                                     <div class="modal fade" id="Modal3" tabindex="-1" aria-labelledby="Modal3" aria-hidden="true">
                                                         <div class="modal-dialog modal-dialog-centered">
                                                         <div class="modal-content justify-content-center">
                                                          <div class="modal-header">
@@ -401,16 +340,16 @@
                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                          </div>
                                                          <div class="modal-body">
-                                                          <form id="ratesp11" action="<?php echo BASEURL; ?>/functions/Rate" method="post">
+                                                          <form id="ratesp11" action="" method="post">
                                                             <div class="col-md-10">
-                                                              <input type="hidden" id="serviceid1" name="serviceid1" value="<?php echo $values->ServiceRequestId;?>">
+                                                              <input type="" id="serviceid1" name="serviceid1" value="">
                                                               <!-- <input type="number" id="ratingtosp" name="ratingtosp" value="<?php echo $values->Serviceproviderid;?>"> -->
-                                                              <input type="hidden" class="helook" name="helook" id="helook" value="<?php echo $values->Userid ?>">
-                                                              <input type="hidden" name="helook2" id="helook2" value="<?php echo $values->Userid ?>">
-                                                              <input type="hidden" id="ratingfrom" name="ratingfrom" value="<?php echo $values->UserId;?>">
+                                                              <input type="" class="helook" name="helook" id="helook" value="">
+                                                              <input type="" name="helook2" id="helook2" value="">
+                                                              <input type="" id="ratingfrom" name="ratingfrom" value="">
                                                               <label>Comment</label>
-                                                              <input type="text" id="commentsp" name="commentsp">
-                                                              <input type="hidden" name="value5" class="value5" value="" id="value5">
+                                                              <input type="text" id="comment" name="commentsp">
+                                                              <input type="" name="value5" class="value5" value="" id="value5">
                                                              
 
                                                                 </div>
@@ -425,48 +364,48 @@
                                                                 <div>
                                                                   <span>On time arrival</span>
                                                                     <fieldset class="rating">
-                                                                <input type="radio" class="st" id="star5<?php echo $values->ServiceRequestId;?>" name="rating" value="5" />
-                                                                <label class = "full st-lb" for="star5<?php echo $values->ServiceRequestId;?>" title="Awesome - 5 stars"></label>
-                                                                <input type="radio" class="st" id="star4half<?php echo $values->ServiceRequestId;?>" name="rating" value="4.5" /><label class="half st-lb" for="star4half<?php echo $values->ServiceRequestId;?>" title="Pretty good - 4.5 stars"></label>
-                                                                <input type="radio" class="st" id="star4<?php echo $values->ServiceRequestId;?>" name="rating" value="4" /><label class = "full st-lb" for="star4<?php echo $values->ServiceRequestId;?>" title="Pretty good - 4 stars"></label>
-                                                                <input type="radio" class="st" id="star3half<?php echo $values->ServiceRequestId;?>" name="rating" value="3.5" /><label class="half st-lb" for="star3half<?php echo $values->ServiceRequestId;?>" title="Meh - 3.5 stars"></label>
-                                                                <input type="radio" class="st" id="star3<?php echo $values->ServiceRequestId;?>" name="rating" value="3" /><label class = "full st-lb" for="star3<?php echo $values->ServiceRequestId;?>" title="Meh - 3 stars"></label>
-                                                                <input type="radio" class="st" id="star2half<?php echo $values->ServiceRequestId;?>" name="rating" value="2.5" /><label class="half st-lb" for="star2half<?php echo $values->ServiceRequestId;?>" title="Kinda bad - 2.5 stars"></label>
-                                                                <input type="radio" class="st" id="star2<?php echo $values->ServiceRequestId;?>" name="rating" value="2" /><label class = "full st-lb" for="star2<?php echo $values->ServiceRequestId;?>" title="Kinda bad - 2 stars"></label>
-                                                                <input type="radio" class="st" id="star1half<?php echo $values->ServiceRequestId;?>" name="rating" value="1.5" /><label class="half st-lb" for="star1half<?php echo $values->ServiceRequestId;?>" title="Meh - 1.5 stars"></label>
-                                                                <input type="radio" class="st" id="star1<?php echo $values->ServiceRequestId;?>" name="rating" value="1" /><label class = "full st-lb" for="star1<?php echo $values->ServiceRequestId;?>" title="Sucks big time - 1 star"></label>
-                                                                <input type="radio" class="st" id="starhalf<?php echo $values->ServiceRequestId;?>" name="rating" value="0.5" /><label class="half st-lb" for="starhalf<?php echo $values->ServiceRequestId;?>" title="Sucks big time - 0.5 stars"></label>
+                                                                <input type="radio" class="st" id="star5" name="rating" value="5" />
+                                                                <label class = "full st-lb" for="star5" title="Awesome - 5 stars"></label>
+                                                                <input type="radio" class="st" id="star4half" name="rating" value="4.5" /><label class="half st-lb" for="" title="Pretty good - 4.5 stars"></label>
+                                                                <input type="radio" class="st" id="star4" name="rating" value="4" /><label class = "full st-lb" for="star4" title="Pretty good - 4 stars"></label>
+                                                                <input type="radio" class="st" id="star3half" name="rating" value="3.5" /><label class="half st-lb" for="star3half" title="Meh - 3.5 stars"></label>
+                                                                <input type="radio" class="st" id="star3" name="rating" value="3" /><label class = "full st-lb" for="star3" title="Meh - 3 stars"></label>
+                                                                <input type="radio" class="st" id="star2half" name="rating" value="2.5" /><label class="half st-lb" for="star2half" title="Kinda bad - 2.5 stars"></label>
+                                                                <input type="radio" class="st" id="star2" name="rating" value="2" /><label class = "full st-lb" for="star2" title="Kinda bad - 2 stars"></label>
+                                                                <input type="radio" class="st" id="star1half" name="rating" value="1.5" /><label class="half st-lb" for="star1half" title="Meh - 1.5 stars"></label>
+                                                                <input type="radio" class="st" id="star1" name="rating" value="1" /><label class = "full st-lb" for="star1" title="Sucks big time - 1 star"></label>
+                                                                <input type="radio" class="st" id="starhalf" name="rating" value="0.5" /><label class="half st-lb" for="starhalf" title="Sucks big time - 0.5 stars"></label>
                                                                 </fieldset>
                                                                   </div><br>
 
                                                                                             <div>
                                                                     <fieldset class="rating1">
-                                                                <input type="radio" class="star" id="ratestar5<?php echo $values->ServiceRequestId;?>" name="rating1" value="5" /><label class = "full star-lb" for="ratestar5<?php echo $values->ServiceRequestId;?>" title="Awesome - 5 stars"></label>
-                                                                <input type="radio" class="star" id="ratestar4half<?php echo $values->ServiceRequestId;?>" name="rating1" value="4.5" /><label class="half star-lb" for="ratestar4half<?php echo $values->ServiceRequestId;?>" title="Pretty good - 4.5 stars"></label>
-                                                                <input type="radio" class="star" id="ratestar4<?php echo $values->ServiceRequestId;?>" name="rating1" value="4" /><label class = "full star-lb" for="ratestar4<?php echo $values->ServiceRequestId;?>" title="Pretty good - 4 stars"></label>
-                                                                <input type="radio" class="star" id="ratestar3half<?php echo $values->ServiceRequestId;?>" name="rating1" value="3.5" /><label class="half star-lb" for="ratestar3half<?php echo $values->ServiceRequestId;?>" title="Meh - 3.5 stars"></label>
-                                                                <input type="radio" class="star" id="ratestar3<?php echo $values->ServiceRequestId;?>" name="rating1" value="3" /><label class = "full star-lb" for="ratestar3<?php echo $values->ServiceRequestId;?>" title="Meh - 3 stars"></label>
-                                                                <input type="radio" class="star" id="ratestar2half<?php echo $values->ServiceRequestId;?>" name="rating1" value="2.5" /><label class="half star-lb" for="ratestar2half<?php echo $values->ServiceRequestId;?>" title="Kinda bad - 2.5 stars"></label>
-                                                                <input type="radio" class="star" id="ratestar2<?php echo $values->ServiceRequestId;?>" name="rating1" value="2" /><label class = "full star-lb" for="ratestar2<?php echo $values->ServiceRequestId;?>" title="Kinda bad - 2 stars"></label>
-                                                                <input type="radio" class="star" id="ratestar1half<?php echo $values->ServiceRequestId;?>" name="rating1" value="1.5" /><label class="half star-lb" for="ratestar1half<?php echo $values->ServiceRequestId;?>" title="Meh - 1.5 stars"></label>
-                                                                <input type="radio" class="star" id="ratestar1<?php echo $values->ServiceRequestId;?>" name="rating1" value="1" /><label class = "full star-lb" for="ratestar1<?php echo $values->ServiceRequestId;?>" title="Sucks big time - 1 star"></label>
-                                                                <input type="radio" class="star" id="ratestarhalf<?php echo $values->ServiceRequestId;?>" name="rating1" value="0.5" /><label class="half star-lb" for="ratestarhalf<?php echo $values->ServiceRequestId;?>" title="Sucks big time - 0.5 stars"></label>
+                                                                <input type="radio" class="star" id="ratestar5" name="rating1" value="5" /><label class = "full star-lb" for="ratestar5" title="Awesome - 5 stars"></label>
+                                                                <input type="radio" class="star" id="ratestar4half" name="rating1" value="4.5" /><label class="half star-lb" for="ratestar4half" title="Pretty good - 4.5 stars"></label>
+                                                                <input type="radio" class="star" id="ratestar4" name="rating1" value="4" /><label class = "full star-lb" for="ratestar4" title="Pretty good - 4 stars"></label>
+                                                                <input type="radio" class="star" id="ratestar3half" name="rating1" value="3.5" /><label class="half star-lb" for="ratestar3half" title="Meh - 3.5 stars"></label>
+                                                                <input type="radio" class="star" id="ratestar3" name="rating1" value="3" /><label class = "full star-lb" for="ratestar3" title="Meh - 3 stars"></label>
+                                                                <input type="radio" class="star" id="ratestar2half" name="rating1" value="2.5" /><label class="half star-lb" for="ratestar2half" title="Kinda bad - 2.5 stars"></label>
+                                                                <input type="radio" class="star" id="ratestar2" name="rating1" value="2" /><label class = "full star-lb" for="ratestar2" title="Kinda bad - 2 stars"></label>
+                                                                <input type="radio" class="star" id="ratestar1half" name="rating1" value="1.5" /><label class="half star-lb" for="ratestar1half" title="Meh - 1.5 stars"></label>
+                                                                <input type="radio" class="star" id="ratestar1" name="rating1" value="1" /><label class = "full star-lb" for="ratestar1" title="Sucks big time - 1 star"></label>
+                                                                <input type="radio" class="star" id="ratestarhalf" name="rating1" value="0.5" /><label class="half star-lb" for="ratestarhalf" title="Sucks big time - 0.5 stars"></label>
                                                                 </fieldset>
                                                                 Friendly
                                                                   </div><br>
 
                                                                   <div>
                                                                     <fieldset class="rating2">
-                                                                <input type="radio" class="star1" id="rate1star5<?php echo $values->ServiceRequestId;?>" name="rating2" value="5" /><label class = "full star1-lb" for="rate1star5<?php echo $values->ServiceRequestId;?>" title="Awesome - 5 stars"></label>
-                                                                <input type="radio" class="star1" id="rate1star4half<?php echo $values->ServiceRequestId;?>" name="rating2" value="4.5" /><label class="half star1-lb" for="rate1star4half<?php echo $values->ServiceRequestId;?>" title="Pretty good - 4.5 stars"></label>
-                                                                <input type="radio" class="star1" id="rate1star4<?php echo $values->ServiceRequestId;?>" name="rating2" value="4" /><label class = "full star1-lb" for="rate1star4<?php echo $values->ServiceRequestId;?>" title="Pretty good - 4 stars"></label>
-                                                                <input type="radio" class="star1" id="rate1star3half<?php echo $values->ServiceRequestId;?>" name="rating2" value="3.5" /><label class="half star1-lb" for="rate1star3half<?php echo $values->ServiceRequestId;?>" title="Meh - 3.5 stars"></label>
-                                                                <input type="radio" class="star1" id="rate1star3<?php echo $values->ServiceRequestId;?>" name="rating2" value="3" /><label class = "full star1-lb" for="rate1star3<?php echo $values->ServiceRequestId;?>" title="Meh - 3 stars"></label>
-                                                                <input type="radio" class="star1" id="rate1star2half<?php echo $values->ServiceRequestId;?>" name="rating2" value="2.5" /><label class="half star1-lb" for="rate1star2half<?php echo $values->ServiceRequestId;?>" title="Kinda bad - 2.5 stars"></label>
-                                                                <input type="radio" class="star1" id="rate1star2<?php echo $values->ServiceRequestId;?>" name="rating2" value="2" /><label class = "full star1-lb" for="rate1star2<?php echo $values->ServiceRequestId;?>" title="Kinda bad - 2 stars"></label>
-                                                                <input type="radio" class="star1" id="rate1star1half<?php echo $values->ServiceRequestId;?>" name="rating2" value="1.5" /><label class="half star1-lb" for="rate1star1half<?php echo $values->ServiceRequestId;?>" title="Meh - 1.5 stars"></label>
-                                                                <input type="radio" class="star1" id="rate1star1<?php echo $values->ServiceRequestId;?>" name="rating2" value="1" /><label class = "full star1-lb" for="rate1star1<?php echo $values->ServiceRequestId;?>" title="Sucks big time - 1 star"></label>
-                                                                <input type="radio" class="star1" id="rate1starhalf<?php echo $values->ServiceRequestId;?>" name="rating2" value="0.5" /><label class="half star1-lb" for="rate1starhalf<?php echo $values->ServiceRequestId;?>" title="Sucks big time - 0.5 stars"></label>
+                                                                <input type="radio" class="star1" id="rate1star5" name="rating2" value="5" /><label class = "full star1-lb" for="rate1star5" title="Awesome - 5 stars"></label>
+                                                                <input type="radio" class="star1" id="rate1star4half" name="rating2" value="4.5" /><label class="half star1-lb" for="rate1star4half" title="Pretty good - 4.5 stars"></label>
+                                                                <input type="radio" class="star1" id="rate1star4" name="rating2" value="4" /><label class = "full star1-lb" for="rate1star4" title="Pretty good - 4 stars"></label>
+                                                                <input type="radio" class="star1" id="rate1star3half" name="rating2" value="3.5" /><label class="half star1-lb" for="rate1star3half" title="Meh - 3.5 stars"></label>
+                                                                <input type="radio" class="star1" id="rate1star3" name="rating2" value="3" /><label class = "full star1-lb" for="rate1star3" title="Meh - 3 stars"></label>
+                                                                <input type="radio" class="star1" id="rate1star2half" name="rating2" value="2.5" /><label class="half star1-lb" for="rate1star2half" title="Kinda bad - 2.5 stars"></label>
+                                                                <input type="radio" class="star1" id="rate1star2" name="rating2" value="2" /><label class = "full star1-lb" for="rate1star2" title="Kinda bad - 2 stars"></label>
+                                                                <input type="radio" class="star1" id="rate1star1half" name="rating2" value="1.5" /><label class="half star1-lb" for="rate1star1half" title="Meh - 1.5 stars"></label>
+                                                                <input type="radio" class="star1" id="rate1star1" name="rating2" value="1" /><label class = "full star1-lb" for="rate1star1" title="Sucks big time - 1 star"></label>
+                                                                <input type="radio" class="star1" id="rate1starhalf" name="rating2" value="0.5" /><label class="half star1-lb" for="rate1starhalf" title="Sucks big time - 0.5 stars"></label>
                                                                 </fieldset>Quality of Service
                                                                   </div>
 
@@ -479,20 +418,8 @@
                                                            </div>
                                                           
                                                          </div>
-                                                       <!--  <div class="modal-footer">
-                                                           
-                                                             <div class="text-center">
-                                                                  
-                                                                </div>
-                                                         </div> -->
                                                         </div>
                                                         </div> 
-
-
-
-
-                                                     <p><?php endforeach; ?></p>
-
     </table>
 
     </div>
@@ -501,94 +428,13 @@
      <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
         
            <table id="example2" class="display float-end" style="width:100%"> 
+            <thead>
+                <tr>
+                    <th></th>
+                </tr>
+            </thead>
         <tbody>
-                                               
-                      <div class=" icons spu first-row dp1">
-                                    <div >
-                                                    <p><?php foreach($_SESSION['favid'] as  $values): ?></p>
-                                                     
-                                                    <form action="<?php echo BASEURL; ?>/functions/favunfav" id="okdok" method="POST">
-
-                                                       <span class="col-sm-2 float-start card text-center">
-                                            <div class="col-auto card-body">
-                                                <span>
-                                                    <div >
-                                                    <img class="img1"
-                                                        src="http://localhost/Home_DB/public/assets/images/book-service/forma-1-copy-19.png"
-                                                        alt="">
-                                                </div>
-                                                </span>
-                                                </div>
-
-
-                                                
-                                                <div class="div1">
-                                            <?php echo $values->First_name;?>&nbsp<?php echo $values->Last_name;?>
-                                        </div>
-
-                                        
-                                                                  <div class="star-ratings container rate5">
-                                                                    <div class="fill-ratings" style="width: <?php echo $values->ratings; ?>% !important;">
-                                                                      <span id="st5" class="star5">★★★★★</span>
-                                                                    </div>
-                                                                    <div class="empty-ratings">
-                                                                      <span id="st51" class="star5">★★★★★</span>
-                                                                    </div>
-                                                                  </div>
-                                        
-                                        
-                                                                 <span class="hu5"><?php echo $values->ratings/10; ?></span>  <br> 
-                                                      <!-- </div> -->
-
-                                                      <small><?php echo $values->total . ' cleaning';?></small>
-
-                                        <input type="hidden" name="targetid" id="targetid" value="<?php echo $values->Userid;?>">
-                                                        <input type="hidden" name="userid" id="userid" value="<?php echo $values->UserId;?>">
-                                                        <div class="call1">
-                                                      <?php if (!$values->isblockd == 1): ?>
-                                                        <span>
-                                                      <button class="border gbtn ohk5 selectsp1" type="submit" name="block" >Block</button>
-                                                    </span>
-                                                      <?php endif; ?>
-                                                      <?php if ($values->isblockd == 1): ?>
-                                                        <span>
-                                                      <button class="border gbtn ohk5 selectsp1 " type="submit" name="unblock" >unBlock</button>
-                                                    </span>
-                                                      <?php endif; ?>
-                                                      <?php if (!$values->isfavourite == 1): ?>
-                                                        <span>
-                                                      <button type="submit" name="fav" class="btn btn2 btn1 border selectsp1 selectsp22">Favourite</button>
-                                                    </span>
-                                                       <?php endif; ?>
-                                                       <?php if ($values->isfavourite == 1): ?>
-                                                        <span>
-                                                      <button type="submit" name="unfav" class=" btn btn2 btn1 border selectsp1 selectsp22">UnFavourite</button>
-                                                    </span>
-                                                  </div>
-                                                      <?php endif; ?>
-                                       
-                                </span>
-
-                                                      <tr>
-                                                     
-                                                    </tr>
-                                                    
-                                                    </form>
-                                                    <p><?php endforeach; ?></p>
-                                                    
-                                                     </div>
-                                          
-                                          </div>
-
-
-
-
-
-                                                         
-
-
-                                                    
-        
+    
         </tbody>
       
     </table>
@@ -970,34 +816,6 @@
     
 </div>
 
-    <script>
-        $(document).ready(function() {
-
-    $('#example').DataTable( {
-        "order": [[ 3, "desc" ]],
-         dom: 'Bfrtip',
-        buttons: [
-            'Export'
-        ],
-        
-    } );
-     $('#example1').DataTable( {
-        "order": [[ 3, "desc" ]],
-         dom: 'Bfrtip',
-        buttons: [
-            'excel'
-        ],
-    } );
-     $('#example2').DataTable( {
-        "order": [[ 3, "desc" ]],
-         dom: 'Bfrtip',
-        buttons: [
-            'excel'
-        ],
-    } );
-
-} );
-    </script>
 
 
      <section class="f1">

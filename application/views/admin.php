@@ -15,6 +15,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Work+Sans&display=swap" rel="stylesheet">
 
 
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
     <link rel="stylesheet" href="http://localhost/Home_DB/assets/css/table.css">
     <link rel="stylesheet" href="http://localhost/Home_DB/assets/css/imp.css">
@@ -52,9 +53,104 @@
       </nav>
 
 
+<!-- <div class="container mt-3">
+  <h3>Modal Example</h3>
+  <p>Click on the button to open the modal.</p> -->
+  
+  <button type="button" class="btn hiddenbtn examplehidden btn-primary" data-bs-toggle="modal" data-bs-target="#examplemodal">
+    Open modal
+  </button>
+ <!--  <input type="text" name="" id="name" placeholder="name">
+  <button type="search" id="SearchButton">helo</button> -->
+  <button type="button" class="btn hiddenbtn example2hidden btn-primary" data-bs-toggle="modal" data-bs-target="#example2modal">
+    Open modal
+  </button>
+   <button type="button" class="btn hiddenbtn example3hidden btn-primary" data-bs-toggle="modal" data-bs-target="#example3modal">
+    Open modal
+  </button>
+<!-- </div> -->
 
+<!-- The Modal -->
+<!-- <div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content"> -->
 
+      <!-- Modal Header -->
+     <!--  <div class="modal-header">
+        <h4 class="modal-title">Modal Heading</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div> -->
 
+      <!-- Modal body -->
+     <!--  <div class="modal-body">
+        Modal body..
+      </div> -->
+
+      <!-- Modal footer -->
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+ -->
+
+      <div class="form-border float-end">
+            <form class="row gy-2 gx-3 align-items-center">
+                <div class="col-sm-2">
+                    <div class="form-check">
+                      <input class="form-control"  type="number" id="SizingCheck" placeholder="Service ID">
+                    </div>
+                    </div>
+                <div class="col-sm-2">
+                 <!--  <select name="customer" class="form-select form-control" placeholder="Customer"  id="autoSizingSelect">
+                    <option >Customer</option>
+                    <option value=" ">minal</option>
+                    <option value=" ">Hinal</option>
+                    <option value=" ">Three</option>
+                  </select> -->
+                  <input class="form-control"  type="text" id="autoSizingSelect" placeholder="Customer">
+                </div>
+                <div class="col-sm-2">
+                  <!-- <select name="service-provider" class="form-select" id="autoSizing">
+                    <option selected>Service Provider</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select> -->
+                  <input class="form-control"  type="text" id="autoSizing" placeholder="Customer">
+                </div>
+               
+                <div class="col-sm-2">
+                    <select name="status" class="form-select" id="autoSelect">
+                      <option selected>Status</option>
+                      <option value="Cancelled">Cancelled</option>
+                      <option value="Completed">Completed</option>
+                      <option value="3">Three</option>
+                    </select>
+               </div>
+               <div class="col-sm-2">
+                <div class="form-group startdate">
+                  <input type="text" id="startdate" class="form-control" placeholder="From Date" />
+                 
+                </div>
+               </div>
+               <div class="col-sm-2">
+                <div class="form-group startdate">
+                  <input type="text" id="endDate" class="form-control" placeholder="To Date" />
+                 
+                </div>
+               </div>
+                <div class="col-sm-1">
+                  <button type="button" id="SearchButton" class="search btn">Search</button>
+                </div>
+                <div class="col-sm-1">
+                    <button type="submit" class="btn clear border">Clear</button>
+                  </div>
+              </form>
+        </div>    
 <!-- 
        <div class="container sh1">
         <div class="align-items-start hy">
@@ -90,7 +186,7 @@
               <li class="nav-item"><a class="item nav-tabs" href="#about">Service Requests</a></li>
               <li class="nav-item"><a class="item nav-tabs" href="#about">Service Providers</a></li>
               <!-- <li class="nav-item"><a class="item nav-tabs" href="#about">User Management</a></li> -->
-              <div class="nav-link item1  border-bottom" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Service History</div>
+              <div class="nav-link item1  border-bottom" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">User Management</div>
               <li class="dropdown nav-item dp-1">
                 <a href="#" class="item nav-tabs">
                   Finance Module<span><i class="fa fa-angle-down"></i></span>
@@ -120,6 +216,11 @@
           <!-- </table> -->
         </div>
 
+
+
+
+
+
   <div class="tab-content col-auto" id="v-pills-tabContent">
 
     <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
@@ -134,65 +235,29 @@
           <label>arew</label>
           <input type="search" name="">
         </div> -->
+        <!-- <button type="button" data-bs-toggle="modal" data-bs-target="#examplemodal">
+  Launch demo modal
+</button> -->
 
-    <table id="example" class="display float-end" style="width:100%">
+    <table id="reqests" class="display float-end" style="width:100%">
         <thead>
             <tr>
                 <th>Service Id <img src="images/data.png" alt=""></th>
                 <th>Service Date<img src="images/data.png" alt=""> </th>
-                <th>Service Provider<img src="images/data.png" alt=""> </th>
                 <th>Customer Details<img src="images/data.png" alt=""></th>
+                <th>Service Provider<img src="images/data.png" alt=""> </th>
+                <th>Total Amount</th>
                 <th>Status</th>
                 <th>Actions</th>
                 <!-- <th>Salary</th> -->
             </tr>
         </thead>
         <tbody>
-              <p><?php foreach($_SESSION['sr77'] as  $values): ?></p>
-                                                    <tr>
-                                                      <td>
-                                                        <div>1</div>
-                                                      </td>
-                                                      <td>
-                                                        <div> <img src="http://localhost/Home_DB/public/assets/images/upcomingServices/cal.png" alt="">&nbsp<?php $dateArray = explode(" ", $values->ServiceStartDate); print_r($dateArray[0]);?></div>
-                                                        <div><img src="http://localhost/Home_DB/public/assets/images/upcomingServices/time.png" alt="">&nbsp<?php $dateArray = explode(" ", $values->ServiceStartDate); print_r($dateArray[1]);?></div>
-                                                      </td>
-                                                      <td>
-                                                      
-                                                        <span><img class="img1" src="http://localhost/Home_DB/public/assets/images/serviceHistory/hat.png" alt=""></span> 
-                                                        <span class="txt" ><?php echo $values->First_name;?>&nbsp<?php echo $values->Last_name;?>
-                                                          <?php echo $values->AddressLine1;?>&nbsp<?php echo $values->AddressLine2;?>
-                                                        </span> 
-                                                        <div class="txt1"><img src="images/y-star.png" alt=""> <img src="images/y-star.png" alt=""> <img src="images/y-star.png" alt=""> <img src="images/y-star.png" alt=""> <img src="images/star2.png" alt=""> </div>
-                                                      </td>
-                                                        <td class="txt2">
-                                                        <?php echo $values->srname;?>&nbsp<?php echo $values->srlname;?>
-                                                        <?php echo $values->ratings;?>
-                                                      </td>
-                                                      <td class="justify-content-center">
-                                                        <!-- <?php echo $values->Serviceproviderid;?> --> 
-                                                        <!-- <?php echo $values->ratings;?> -->
-                                                        <?php echo $values->Status;?>
-                                                        <!-- <?php echo $values->First_name;?> -->
-                                                      </td>
-                                                      <td>
-                                                        <div class="dropdown btn2">
-                      <div id="dropdownMenuButton1" class="test" data-bs-toggle="dropdown" aria-expanded="false"></div>
-                      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a data-bs-toggle="modal" data-bs-target="#modalcontainer<?php echo $values->ServiceRequestId;?>" class="dropdown-item" href="#">Edit & Reschedule</a></li>
-                        <li><a class="dropdown-item" href="#">Refund</a></li>
-                        <li><a class="dropdown-item" href="#">Cancel</a></li>
-                        <li><a class="dropdown-item" href="#">Change SP</a></li>
-                        <li><a class="dropdown-item" href="#">Escalate</a></li>
-                        <li><a class="dropdown-item" href="#">History Log</a></li>
-                        <li><a class="dropdown-item" href="#">Download Invoice</a></li>
-                      </ul>
-                    </div>
-                                                      </td>
-                                                    </tr>
+              
+<!-- <tr data-bs-toggle="modal" data-bs-target="#examplemodal">kdjhfksjh</tr> -->
 
 
-                                                     <div class="modal fade" id="modalcontainer<?php echo $values->ServiceRequestId;?>" tabindex="-1" aria-labelledby="modalcontainer" aria-hidden="true">
+                                                     <div class="modal fade" id="examplemodal" tabindex="-1" aria-labelledby="modalcontainer" aria-hidden="true">
                                                         <div class="modal-dialog modal-dialog-centered">
                                                         <div class="modal-content justify-content-center">
                                                          <div class="modal-header">
@@ -200,33 +265,123 @@
                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                          </div>
                                                          <div class="modal-body">
-                                                         <form class="row g-3" action="<?php echo BASEURL; ?>/functions/editall"  method="post" id="Add-form2">
-                                                                      <input  type="" id="srid" value="<?php echo $values->ServiceRequestId;?>" name="srid">
-                                                                      <input type="" value="<?php echo $values->AddressId;?>" name="Addid" id="Addid2">
-                                                                      <div class="col-md-6">
+                                                         <form class="row g-3" action=""  method="post" id="Add-form2">
+                                                                      <input  type="hidden" id="srid" value="" name="srid">
+                                                                      <input type="hidden" value="" name="Addid" id="Addid2">
+                                                                      <!-- <div class="col-md-6"> -->
+                                                                        <br>
                                                                         <label for="inputEmail4" class="form-label">Date</label>
-                                                                        <input type="date" name="date" value="<?php $dateArray = explode(" ", $values->ServiceStartDate); print_r($dateArray[0]);?>" class="form-control" id="date" placeholder="Street name">
+                                                                        <input type="date" name="date" value="" class="form-control" id="date2" placeholder="Street name">
+                                                                      <!-- </div> -->
+                                                                      <br>
+                                                                      <!-- <div class="col-md-6"> -->
+                                                                        <label for="inputPassword4" class="form-label">Time</label>
+                                                                        <input type="time" name="time" value="" class="form-control" id="time2" placeholder="House number">
+                                                                      <!-- </div> -->
+                                                                      <br>
+                                                                      <p>Service Address</p>
+                                                                      <!-- <div class="col-md-6"> -->
+                                                                        <label for="inputEmail4" class="form-label">Street name</label>
+                                                                        <input type="text" name="street" value="" class="form-control" id="street" placeholder="Street name">
+                                                                      <!-- </div> -->
+                                                                      <br>
+                                                                      <!-- <div class="col-md-6"> -->
+                                                                        <label for="inputPassword4" class="form-label">House number</label>
+                                                                        <input type="number" name="house_number" value="" class="form-control" id="house_number" placeholder="House number">
+                                                                      <!-- </div> -->
+                                                                      <br>
+                                                                      <!-- <div class="col-md-6"> -->
+                                                                          <label for="inputZip" class="form-label">Postal code</label>
+                                                                          <input type="text" name="Postalcode" class="form-control" value="" id="Postalcode" placeholder="Postal code">
+                                                                        <!-- </div> -->
+                                                                        <br>
+                                                                        <!-- <div class="col-md-6"> -->
+                                                                          <label for="inputCity" class="form-label">City</label>
+                                                                          <input type="text" value="" name="city2" class="form-control" id="city2">
+                                                                        <!-- </div> -->
+                                                                        <br>
+                                                                        <!-- <div class="col-md-6"> -->
+                                                                          <label for="inputCity" class="form-label">Why you want to reschedule service request</label>
+                                                                          <!-- <input type="textarea" value="" name="city2" class="form-control" id="city2"> -->
+                                                                          <textarea cols="38" rows="6" placeholder="Why you want to reschedule service request"></textarea>
+                                                                        <!-- </div> -->
+                                                                        <!-- <label for="inputCity" class="form-label">Phone number</label>
+                                                                        <div class="input-group mn col-2">
+                                                                          <span class="input-group-text" id="inputGroup-sizing-default">
+                                                                            <button class="btn input-group-text  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">+46</button>
+                                                                          <ul class="dropdown-menu">
+                                                                            <li><a class="dropdown-item" href="#">+91</a></li>
+                                                                            <li><a class="dropdown-item" href="#">+1</a></li>
+                                                                            <li><a class="dropdown-item" href="#">+35</a></li>
+                                                                          </ul>
+                                                                          </span>
+                                                                          <input type="text" value="<?php echo $values->Mobile;?>" name="mobile2" class="form-control" placeholder="Mobile number" aria-label="Sizing example input" id="mobile2" aria-describedby="inputGroup-sizing-default">
+                                                                        </div> -->
+                                                                      <br>
+                                                                      <!-- <div class="col-auto"> -->
+                                                                        <button type="submit" id="Editsr" name="Editsr" class="btn btn1">Update</button>
+                                                                        <!-- <button type="cancel" id="cancel" class="btn submit1">Cancel</button> -->
+                                                                      <!-- </div> -->
+                                                                    </form>
+                                                           </div>
+                                                       <!--  <div class="modal-footer">
+                                                           
+                                                             <div class="text-center">
+                                                                  
+                                                                </div>
+                                                         </div> -->
+                                                        </div>
+                                                        </div>
+                                                        </div>
+
+
+
+                                                        <div class="modal fade" id="example2modal" tabindex="-1" aria-labelledby="modalcontainer" aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-centered">
+                                                        <div class="modal-content justify-content-center">
+                                                         <div class="modal-header">
+                                                           <p class="modal-title"><b>Edit Service Request</b></p>
+                                                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                         </div>
+                                                         <div class="modal-body">
+                                                         <form class="row g-3" action=""  method="post" id="refundform">
+                                                                      <input  type="hidden" id="userid" value="" name="userid">
+                                                                      <input type="hidden" value="" name="Addid" id="Addid2">
+                                                                      <!-- <div> -->
+                                                                        <span>Paid Amount<p id="tc"></p></span>
+                                                                         <span>Refunded Amount<p id="tc1"></p></span><br>
+                                                                         <label>Amount</label><br>
+                                                                         <input type="" value="" name="Addid" id="Addid2"><br><br>
+                                                                         <label for="inputCity" class="form-label">Why you want to refund Amount</label>
+                                                                          <!-- <input type="textarea" value="" name="city2" class="form-control" id="city2"> -->
+                                                                          <textarea cols="38" rows="6" placeholder="Why you want to refund Amount"></textarea><br><br>
+                                                                        
+                                                                      <!-- </div> -->
+                                                                      
+                                                                      <!-- <div class="col-md-6">
+                                                                        <label for="inputEmail4" class="form-label">Date</label>
+                                                                        <input type="date" name="date" value="" class="form-control" id="date2" placeholder="Street name">
                                                                       </div>
                                                                       <div class="col-md-6">
                                                                         <label for="inputPassword4" class="form-label">Time</label>
-                                                                        <input type="time" name="time" value="<?php $dateArray = explode(" ", $values->ServiceStartDate); print_r($dateArray[1]);?>" class="form-control" id="time" placeholder="House number">
+                                                                        <input type="time" name="time" value="" class="form-control" id="time2" placeholder="House number">
                                                                       </div>
                                                                       <div class="col-md-6">
                                                                         <label for="inputEmail4" class="form-label">Street name</label>
-                                                                        <input type="text" name="street" value="<?php echo $values->AddressLine1;?>" class="form-control" id="street" placeholder="Street name">
+                                                                        <input type="text" name="street" value="" class="form-control" id="street" placeholder="Street name">
                                                                       </div>
                                                                       <div class="col-md-6">
                                                                         <label for="inputPassword4" class="form-label">House number</label>
-                                                                        <input type="number" name="house_number" value="<?php echo $values->AddressLine2;?>" class="form-control" id="house_number" placeholder="House number">
+                                                                        <input type="number" name="house_number" value="" class="form-control" id="house_number" placeholder="House number">
                                                                       </div>
                                                                       <div class="col-md-6">
                                                                           <label for="inputZip" class="form-label">Postal code</label>
-                                                                          <input type="text" name="Postalcode" class="form-control" value="<?php echo $values->PostalCode;?>" id="Postalcode" placeholder="Postal code">
+                                                                          <input type="text" name="Postalcode" class="form-control" value="" id="Postalcode" placeholder="Postal code">
                                                                         </div>
                                                                         <div class="col-md-6">
                                                                           <label for="inputCity" class="form-label">City</label>
-                                                                          <input type="text" value="<?php echo $values->City;?>" name="city2" class="form-control" id="city2">
-                                                                        </div>
+                                                                          <input type="text" value="" name="city2" class="form-control" id="city2">
+                                                                        </div> -->
                                                                         <!-- <label for="inputCity" class="form-label">Phone number</label>
                                                                         <div class="input-group mn col-2">
                                                                           <span class="input-group-text" id="inputGroup-sizing-default">
@@ -256,7 +411,84 @@
                                                         </div>
                                                         </div>
 
-                                                     <p><?php endforeach; ?></p>
+
+
+
+                                                        <div class="modal fade" id="example3modal" tabindex="-1" aria-labelledby="modalcontainer" aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-centered">
+                                                        <div class="modal-content justify-content-center">
+                                                         <div class="modal-header">
+                                                           <p class="modal-title"><b>Cancel Service Request</b></p>
+                                                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                         </div>
+                                                         <div class="modal-body">
+                                                         <form class="row g-3" action=""  method="post" id="cancelsrid">
+                                                                      <!-- <input  type="hidden" id="userid" value="" name="userid"> -->
+                                                                      <input type="hidden" value="" name="Addid" id="hinalid">
+                                                                      <!-- <div> -->
+                                                                        <!-- <span>Paid Amount<p>sdj</p></span> -->
+                                                                         <!-- <span>Refunded Amount<p>sdj</p></span><br> -->
+                                                                         <!-- <label>Amount</label><br> -->
+                                                                         <!-- <input type="number" value="" name="Addid" id="cansrid2"><br><br> -->
+                                                                         <label for="inputCity" class="form-label">Why you want to cancel Service Request</label>
+                                                                          <!-- <input type="textarea" value="" name="city2" class="form-control" id="city2"> -->
+                                                                          <textarea cols="38" rows="6" placeholder="Why you want to cancel service request"></textarea><br><br>
+                                                                        
+                                                                      <!-- </div> -->
+                                                                      
+                                                                      <!-- <div class="col-md-6">
+                                                                        <label for="inputEmail4" class="form-label">Date</label>
+                                                                        <input type="date" name="date" value="" class="form-control" id="date2" placeholder="Street name">
+                                                                      </div>
+                                                                      <div class="col-md-6">
+                                                                        <label for="inputPassword4" class="form-label">Time</label>
+                                                                        <input type="time" name="time" value="" class="form-control" id="time2" placeholder="House number">
+                                                                      </div>
+                                                                      <div class="col-md-6">
+                                                                        <label for="inputEmail4" class="form-label">Street name</label>
+                                                                        <input type="text" name="street" value="" class="form-control" id="street" placeholder="Street name">
+                                                                      </div>
+                                                                      <div class="col-md-6">
+                                                                        <label for="inputPassword4" class="form-label">House number</label>
+                                                                        <input type="number" name="house_number" value="" class="form-control" id="house_number" placeholder="House number">
+                                                                      </div>
+                                                                      <div class="col-md-6">
+                                                                          <label for="inputZip" class="form-label">Postal code</label>
+                                                                          <input type="text" name="Postalcode" class="form-control" value="" id="Postalcode" placeholder="Postal code">
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                          <label for="inputCity" class="form-label">City</label>
+                                                                          <input type="text" value="" name="city2" class="form-control" id="city2">
+                                                                        </div> -->
+                                                                        <!-- <label for="inputCity" class="form-label">Phone number</label>
+                                                                        <div class="input-group mn col-2">
+                                                                          <span class="input-group-text" id="inputGroup-sizing-default">
+                                                                            <button class="btn input-group-text  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">+46</button>
+                                                                          <ul class="dropdown-menu">
+                                                                            <li><a class="dropdown-item" href="#">+91</a></li>
+                                                                            <li><a class="dropdown-item" href="#">+1</a></li>
+                                                                            <li><a class="dropdown-item" href="#">+35</a></li>
+                                                                          </ul>
+                                                                          </span>
+                                                                          <input type="text" value="<?php echo $values->Mobile;?>" name="mobile2" class="form-control" placeholder="Mobile number" aria-label="Sizing example input" id="mobile2" aria-describedby="inputGroup-sizing-default">
+                                                                        </div> -->
+                                                                      
+                                                                      <div class="col-12">
+                                                                        <button type="submit" id="Editsr" name="Editsr" class="btn btn1">Edit</button>
+                                                                        <!-- <button type="cancel" id="cancel" class="btn submit1">Cancel</button> -->
+                                                                      </div>
+                                                                    </form>
+                                                           </div>
+                                                       <!--  <div class="modal-footer">
+                                                           
+                                                             <div class="text-center">
+                                                                  
+                                                                </div>
+                                                         </div> -->
+                                                        </div>
+                                                        </div>
+                                                        </div>
+
                                                 
         
         </tbody>
@@ -274,22 +506,27 @@
                                               </div>
 
 
-                                               <table id="example1" class="display float-end" style="width:100%">
+                                               <table id="users" class="display float-end" style="width:100%">
+
+
 
                                                 <thead>
+
+                                                   <!-- <div id="search"></div> -->
+                                                   <!-- <tr id="search"></tr> -->
             <tr>
-                <th>Service Details<img src="images/data.png" alt=""></th>
-                <th>Service Date<img src="images/data.png" alt=""> </th>
-                <th>Service Provider<img src="images/data.png" alt=""> </th>
-                <th>Payment<img src="images/data.png" alt=""></th>
-                <th>Rate SP</th>
-                <th>Rate SP</th>
-                 <th>Rate SP</th>
+                <th>User Name<img src="images/data.png" alt=""></th>
+                <th>Role<img src="images/data.png" alt=""> </th>
+                <th>Date of Registration<img src="images/data.png" alt=""> </th>
+                <th>User Type<img src="images/data.png" alt=""></th>
+                <th>Phone</th>
+                <th>Postal code</th>
+                 <th>Status</th>
                 <!-- <th>Salary</th> -->
             </tr>
         </thead>
         <tbody>
-          <p><?php foreach($_SESSION['userdetails'] as  $values): ?></p>
+          <!-- <p><?php foreach($_SESSION['userdetails'] as  $values): ?></p>
            <tr data-bs-toggle="modal" data-bs-target="#modalcontainer<?php echo $values->ServiceRequestId;?>">
                                                   <form action="<?php echo BASEURL; ?>/functions/changestatus" method="POST">
                                                       <td>
@@ -322,7 +559,7 @@
                                                     </form>
                                                     </tr>
                                                      <p><?php endforeach; ?></p>
-
+ -->
         </tbody>
 
     </table>
@@ -337,28 +574,6 @@
 
     
 </div>
-
-    <script>
-        $(document).ready(function() {
-
-    $('#example').DataTable( {
-        "order": [[ 3, "desc" ]],
-         dom: 'Bfrtip',
-        buttons: [
-            'Export'
-        ],
-        
-    } );
-     $('#example1').DataTable( {
-        "order": [[ 3, "desc" ]],
-         dom: 'Bfrtip',
-        buttons: [
-            'excel'
-        ],
-    } );
-    
-} );
-    </script>
 
 
     

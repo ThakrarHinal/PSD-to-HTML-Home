@@ -430,6 +430,15 @@ footer{
   /* background-color: #f1f1f1; */
 }
 
+.list2 {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 104%;
+  /*height: 400px;*/
+  /* background-color: #f1f1f1; */
+}
+
 .item {
   display: block;
   color: white;

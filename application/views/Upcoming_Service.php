@@ -15,6 +15,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Work+Sans&display=swap" rel="stylesheet">
 
 
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
+
+
 
     <link rel="stylesheet" href="http://localhost/Home_DB/assets/css/table.css">
       <link rel="stylesheet" href="http://localhost/Home_DB/assets/css/imp.css">
@@ -110,6 +119,7 @@
                     <div class="nav-link item1 border-bottom" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Service History</div>
                     <div class="nav-link item1 border-bottom" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">My Ratings</div>
                     <div class="nav-link item1 border-bottom" id="v-pills-messages2-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages2" type="button" role="tab" aria-controls="v-pills-messages2" aria-selected="false">Block Customer</div>
+                    <div class="nav-link item1 border-bottom" id="v-pills-messages3-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages3" type="button" role="tab" aria-controls="v-pills-messages3" aria-selected="false">Service Request</div>
                   </div>
                   </div>
 
@@ -120,14 +130,18 @@
 
   <div class="tab-content row tb-content" id="v-pills-tabContent">
 
+    
     <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
 
         <div class="sh">
                                                 Current Service Requests
-                                                <button class="btn float-end ex ex1 border">Export</button>
+                                                <!-- <button class="btn float-end ex ex1 border">Export</button> -->
                                               </div> 
 
-    <table id="example" class="display float-end" style="width:100%">
+          <p id="ohk"></p>                                    
+                                              
+
+    <table id="example9" class="display float-end" style="width:100%">
         <thead>
             <tr>
                 <th>Service Id <img src="images/data.png" alt=""></th>
@@ -139,84 +153,8 @@
             </tr>
         </thead>
         <tbody>
-         <!-- <h2><?php echo $_SESSION['helo66']; ?></h2> -->
-         <!-- <h2 id="imp77">ok</h2> -->
-         <h2 id="ok2"></h2>
-             <p><?php foreach($_SESSION['services'] as  $values): ?></p>
-                                                    <tr>
-                                                      <form action="<?php echo BASEURL; ?>/functions/accept" method="post">
-                                                      <td>
-                                                        <div>1</div>
-                                                        <input type="" value="<?php echo $values->ServiceRequestId;?>" name="serviceid">
-                                                        <input type="" value="<?php echo $values->Status;?>" id="statusid" name="status">
-                                                        <input type="" value="<?php echo $this->getSession('Userid');?>" name="username">
-                                                        <input type="" value="<?php $dateArray = explode(" ", $values->ServiceStartDate); print_r($dateArray[1]);?>" name="stime">
-                                                      </td>
-                                                      <td>
-                                                        <div> <img src="http://localhost/Home_DB/public/assets/images/upcomingServices/cal.png" alt="">&nbsp<?php $dateArray = explode(" ", $values->ServiceStartDate); print_r($dateArray[0]);?></div>
-                                                        <div><img src="http://localhost/Home_DB/public/assets/images/upcomingServices/time.png" alt="">&nbsp<?php $dateArray = explode(" ", $values->ServiceStartDate); print_r($dateArray[1]);?></div>
-                                                      </td>
-                                                      <td>
-                                                      
-                                                        <span><img class="img1" src="http://localhost/Home_DB/public/assets/images/serviceHistory/hat.png" alt=""></span> 
-                                                        <span class="txt" >  Lyum Watson</span> 
-                                                        <div class="txt1"><?php echo $values->First_name;?>&nbsp<?php echo $values->Last_name;?><img src="images/y-star.png" alt=""> <img src="images/y-star.png" alt=""> <img src="images/y-star.png" alt=""> <img src="images/y-star.png" alt=""> <img src="images/star2.png" alt=""> </div>
-                                                      </td>
-                                                        <td class="txt2">
-                                                        <?php echo $values->TotalCost;?>&nbsp€
-                                                      </td>
-                                                      <td class="justify-content-center">
-                                                        <button class="btn btn1 border" id="acceptbtn" name="acceptbtn">Accept</button>
-                                                        <!-- <button type="submit" name="login" data-bs-toggle="modal" data-bs-target="#modal1<?php echo $values->ServiceRequestId;?>" id="login" class="btn btn2 border">cancel</button> -->
-                                                      </td>
-                                                      </form>
-                                                    </tr>
-
-
-                                                     <div class="modal fade" id="modalcontainer<?php echo $values->ServiceRequestId;?>" tabindex="-1" aria-labelledby="modalcontainer" aria-hidden="true">
-                                                        <div class="modal-dialog modal-dialog-centered">
-                                                        <div class="modal-content justify-content-center">
-                                                         <div class="modal-header">
-                                                           <p class="modal-title"><b>Service Details</b></p>
-                                                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                         </div>
-                                                         <div class="modal-body">
-                                                          <form action="<?php echo BASEURL; ?>/functions/accept54654" method="POST">
-                                                            <div class="col-md-10">
-                                                                   
-                                                                    <small><b><?php $dateArray = explode(" ", $values->ServiceStartDate); print_r($dateArray[0]);?>&nbsp<?php print_r($dateArray[1]);?>-<?php echo $values->endTime; ?></b></small><br>
-                                                                    <small>Duration:<?php echo $values->ServiceHours;?>&nbspHrs</small>
-
-                                                                </div>
-                                                                <hr class="line2">
-                                                                <!-- <br> -->
-                                                                <div class="col-md-10">
-                                                                    <small>Service Id: <?php echo $values->ServiceRequestId;?></small><br>
-                                                                    <small>Extras: <?php echo $values->ExtraServices;?></small><br>
-                                                                    <small class="txt2" >Net Amount: <?php echo $values->TotalCost;?> €</small>
-                                                                </div>
-                                                                <hr class="line2">
-
-                                                                 <div class="col-md-10">
-                                                                    <small>Service AAddress: <?php echo $values->ServiceRequestId;?></small><br>
-                                                                    <small>Phone: <?php echo $values->Mobile;?></small><br>
-                                                                    <small>Email: <?php echo $values->Email;?></small>
-                                                                </div>
-                                                                <hr class="line2">
-                                                                <div>
-                                                                   <button type="submit" name="login" id="login" class="btn btn1 border">Accept</button>
-                                                                   <!-- <button type="submit" name="login" id="login" class="btn btn2 border">cancel</button> -->
-                                                                 </div>
-                                                             
-                                                          </form>
-                                                           </div>
-                                                       <!--  <div class="modal-footer">
-                                                           
-                                                             <div class="text-center">
-                                                                  
-                                                                </div>
-                                                         </div> -->
-                                                        </div>
+         
+                                                       <!--  </div>
                                                         </div>
                                                         </div>
 
@@ -248,14 +186,14 @@
                                                                  </div>
                                                              
                                                           </form>
-                                                           </div>
+                                                           </div> -->
                                                        <!--  <div class="modal-footer">
                                                            
                                                              <div class="text-center">
                                                                   
                                                                 </div>
                                                          </div> -->
-                                                        </div>
+                                                        <!-- </div>
                                                         </div>
                                                         </div> 
 
@@ -271,9 +209,9 @@
                                                           <form action="<?php echo BASEURL; ?>/functions/Cancel1" method="POST">
                                                             <div class="col-md-10">
                                                               <input type="hidden" name="cancelid" value="<?php echo $values->ServiceRequestId;?>">
-                                                              <input type="hidden" name="cancelproid" value="<?php echo $values->Serviceproviderid;?>">
+                                                              <input type="hidden" name="cancelproid" value="<?php echo $values->Serviceproviderid;?>"> -->
                                                               <!-- <h2><?php echo $values->ServiceStartDate;?></h2> -->
-                                                              <p>Why you want to cancel tha service request?</p>
+                                                             <!--  <p>Why you want to cancel tha service request?</p>
                                                                     <textarea rows="5" cols="30"></textarea>
 
                                                                 </div><br>
@@ -282,20 +220,20 @@
                                                                  </div>
                                                              
                                                           </form>
-                                                           </div>
+                                                           </div> -->
                                                        <!--  <div class="modal-footer">
                                                            
                                                              <div class="text-center">
                                                                   
                                                                 </div>
                                                          </div> -->
-                                                        </div>
+                                                        <!-- </div>
                                                         </div>
                                                         </div> 
 
 
-                                                     <p><?php endforeach; ?></p>
-        
+                      
+         -->
         </tbody>
       
     </table>
@@ -307,11 +245,11 @@
    
     <div class="sh">
                                                 Service History
-                                                <button class="btn float-end ex ex1 border">Export</button>
+                                                <!-- <button class="btn float-end ex ex1 border">Export</button> -->
                                               </div>
 
 
-                                               <table id="example1" class="display float-end" style="width:100%">
+                                               <table id="example8" class="display float-end" style="width:100%">
 
                                                 <thead>
             <tr>
@@ -324,9 +262,9 @@
             </tr>
         </thead>
         <tbody>
-             <p><?php foreach($_SESSION['serviceid2'] as  $values): ?></p>
+             <<!-- p><?php foreach($_SESSION['serviceid2'] as  $values): ?></p> -->
                                                      <!-- <p><?php $hi =  $values->ServiceRequestId; ?></p> -->
-                                                         <tr data-bs-toggle="modal" data-bs-target="#modalcontainer22<?php echo $values->ServiceRequestId;?>">
+                                                         <!-- <tr data-bs-toggle="modal" data-bs-target="#modalcontainer22<?php echo $values->ServiceRequestId;?>">
                                                           <td>323443</td>
                                                       <td>
                                                         <div> <img src="http://localhost/Home_DB/public/assets/images/upcomingServices/cal.png" alt=""> <?php $dateArray = explode(" ", $values->ServiceStartDate); print_r($dateArray[0]);?></div>
@@ -338,10 +276,10 @@
                                                     </td>
                                                         <td class="txt2">
                                                         €<?php echo $values->TotalCost;?>
-                                                      </td>
+                                                      </td> -->
                                                      <!--  <td><button class="border gbtn comp<?php echo $values->Status;?> status1"  ><?php echo $values->Status;?></button></td> -->
                                                       <!-- <p id="color1"></p> -->
-                                                      <p><?php date_default_timezone_set('Asia/Kolkata'); $date =  date('Y-m-d'); $time = date('h:i:s'); $dateArray = explode(" ", $values->ServiceStartDate); $dateArray2 = $dateArray[0]; ?></p>
+                                                     <!--  <p><?php date_default_timezone_set('Asia/Kolkata'); $date =  date('Y-m-d'); $time = date('h:i:s'); $dateArray = explode(" ", $values->ServiceStartDate); $dateArray2 = $dateArray[0]; ?></p>
                                                       <td>
                                                         <?php if ($values->endTime < $time AND $dateArray2 < $date): ?>
                                                          <span><button id="completesr" data-bs-toggle="modal" data-bs-target="#compelete<?php echo $values->ServiceRequestId;?>" class="btn btn1 border">Complete</button></span> 
@@ -361,23 +299,23 @@
                                                          <div class="modal-body">
                                                           <form action="<?php echo BASEURL; ?>/functions/chancelsr" id="important" method="POST">
                                                             <div class="col-md-10">
-                                                              <input type="" name="srid" id="srid" value="<?php echo $values->ServiceRequestId;?>">
+                                                              <input type="" name="srid" id="srid" value="<?php echo $values->ServiceRequestId;?>"> -->
                                                               
                                                               <!-- <h2><?php echo $values->ServiceStartDate;?></h2> -->
                                                               
-                                                                <div>
+                                                               <!--  <div>
                                                                   <button id="cancelsr555"  type="submit" class="btn btn1 border">Cancel</button>
                                                                  </div>
                                                              </div>
                                                           </form>
-                                                           </div>
+                                                           </div> -->
                                                        <!--  <div class="modal-footer">
                                                            
                                                              <div class="text-center">
                                                                   
                                                                 </div>
                                                          </div> -->
-                                                        </div>
+                                                      <!--   </div>
                                                         </div>
                                                         </div> 
 
@@ -393,9 +331,9 @@
                                                           <form action="<?php echo BASEURL; ?>/functions/Cancel1" method="POST">
                                                             <div class="col-md-10">
                                                               <input type="hidden" name="cancelid" value="<?php echo $values->ServiceRequestId;?>">
-                                                              <input type="hidden" name="cancelproid" value="<?php echo $values->Serviceproviderid;?>">
+                                                              <input type="hidden" name="cancelproid" value="<?php echo $values->Serviceproviderid;?>"> -->
                                                               <!-- <h2><?php echo $values->ServiceStartDate;?></h2> -->
-                                                              <p>Why you want to cancel tha service request?</p>
+                                                              <!-- <p>Why you want to cancel tha service request?</p>
                                                                     <textarea rows="5" cols="30"></textarea>
 
                                                                 </div><br>
@@ -404,14 +342,14 @@
                                                                  </div>
                                                              
                                                           </form>
-                                                           </div>
+                                                           </div> -->
                                                        <!--  <div class="modal-footer">
                                                            
                                                              <div class="text-center">
                                                                   
                                                                 </div>
                                                          </div> -->
-                                                        </div>
+                                                       <!--  </div>
                                                         </div>
                                                         </div> 
 
@@ -419,7 +357,7 @@
 
 
                                                      <p><?php endforeach; ?></p>
-
+ -->
 
                           </tbody>
     </table>
@@ -431,11 +369,11 @@
    
     <div class="sh">
                                                 Service History
-                                                <button class="btn float-end ex ex1 border">Export</button>
+                                                <!-- <button class="btn float-end ex ex1 border">Export</button> -->
                                               </div>
 
 
-                                               <table id="example2" class="display float-end" style="width:100%">
+                                               <table id="example7" class="display float-end" style="width:100%">
 
                                                 <thead>
             <tr>
@@ -446,9 +384,9 @@
             </tr>
         </thead>
         <tbody>
-             <p><?php foreach($_SESSION['servicehistory2'] as  $values): ?></p>
+             <!-- <p><?php foreach($_SESSION['servicehistory2'] as  $values): ?></p> -->
                                                      <!-- <p><?php $hi =  $values->ServiceRequestId; ?></p> -->
-                                                         <tr data-bs-toggle="modal" data-bs-target="#modalcontainer22<?php echo $values->ServiceRequestId;?>">
+                                                        <!--  <tr data-bs-toggle="modal" data-bs-target="#modalcontainer22<?php echo $values->ServiceRequestId;?>">
                                                             <td>323443</td>
                                                       <td>
                                                         <div> <img src="http://localhost/Home_DB/public/assets/images/upcomingServices/cal.png" alt=""> <?php $dateArray = explode(" ", $values->ServiceStartDate); print_r($dateArray[0]);?></div>
@@ -457,7 +395,7 @@
                                                       <td> 
                                                         <span class="txt" >   &nbsp&nbsp&nbsp<?php echo $values->First_name;?><?php echo $values->Last_name;?></span> 
                                                         <div> <img src="http://localhost/Home_DB/public/assets/images/UpcomingServices/home.png" alt=""> <?php echo $values->AddressLine1;?>&nbsp<?php echo $values->AddressLine2;?><?php echo $values->City;?>&nbsp<?php echo $values->State;?><?php echo $values->PostalCode;?></div>
-                                                    </td>
+                                                    </td> -->
                                                      <!--    <td class="txt2">
                                                         €<?php echo $values->TotalCost;?>
                                                       </td> -->
@@ -472,7 +410,7 @@
 
 
 
-                                                     <p><?php endforeach; ?></p>
+                                                     <!-- <p><?php endforeach; ?></p> -->
 
 
                           </tbody>
@@ -485,11 +423,11 @@
 
     <div class="sh">
                                                 Service History
-                                                <button class="btn float-end ex ex1 border">Export</button>
+                                                <!-- <button class="btn float-end ex ex1 border">Export</button> -->
                                               </div>
 
 
-                                               <table id="example3" class="display float-end" style="width:100%">
+                                               <table id="example6" class="display float-end" style="width:100%">
 
                                                 <thead>
             <tr>
@@ -502,9 +440,9 @@
             </tr>
         </thead>
         <tbody>
-             <p><?php foreach($_SESSION['userRating'] as  $values): ?></p>
+             <!-- <p><?php foreach($_SESSION['userRating'] as  $values): ?></p> -->
                                                      <!-- <p><?php $hi =  $values->ServiceRequestId; ?></p> -->
-                                                         <tr data-bs-toggle="modal" data-bs-target="#modalcontainer22<?php echo $values->ServiceRequestId;?>">
+                                                       <!--   <tr data-bs-toggle="modal" data-bs-target="#modalcontainer22<?php echo $values->ServiceRequestId;?>">
                                                       <td>
                                                         <div> <img src="http://localhost/Home_DB/public/assets/images/upcomingServices/cal.png" alt=""> <?php $dateArray = explode(" ", $values->ServiceStartDate); print_r($dateArray[0]);?></div>
                                                         <div><img src="http://localhost/Home_DB/public/assets/images/upcomingServices/time.png"> <?php $dateArray = explode(" ", $values->ServiceStartDate); print_r($dateArray[1]);?></div>
@@ -524,14 +462,14 @@
                                                                 <span><?php echo $values->ratings/10; ?></span>  
                                                       </div>
                                                     </td>
-                                                    <td>55</td>
+                                                    <td>55</td> -->
                                                      <!--    <td class="txt2">
                                                         €<?php echo $values->TotalCost;?>
                                                       </td> -->
                                                       <!-- <td><button class="border gbtn comp<?php echo $values->Status;?> status1"  ><?php echo $values->Status;?></button></td>
                                                       <p id="color1"></p>
                                                       <td><button data-bs-toggle="modal"  data-bs-target="#shistory<?php echo $hi;?>" class="btn btn1 border">Rate SP</button></td> -->
-                                                    </tr>
+                                                    <!-- </tr> -->
 
                                                  
 
@@ -539,7 +477,7 @@
 
 
 
-                                                     <p><?php endforeach; ?></p>
+                                                     <!-- <p><?php endforeach; ?></p> -->
 
 
                           </tbody>
@@ -550,78 +488,24 @@
 
      <div class="tab-pane fade" id="v-pills-messages2" role="tabpanel" aria-labelledby="v-pills-messages2-tab">
     
-           <table id="" class="display float-end" style="width:100%"> 
+           <table id="userblc" class="display float-end" style="width:100%"> 
+            <thead>
+              <tr>
+                <th></th>
+              </tr>
+            </thead>
         <tbody>
-                                               
-                      <div class=" icons spu first-row dp1">
-                                    <div >
-                                                    <p><?php foreach($_SESSION['userlist'] as  $values): ?></p>
-                                                     
-                                                    <form action="<?php echo BASEURL; ?>/functions/blockonly" id="okdok" method="POST">
-
-                                                       <span class="col-sm-2 float-start card text-center">
-
-                                            <div class="col-auto card-body">
-                                               <input type="hidden" value="<?php echo $values->UserId;?>" name="useridblc">
-                                                <span>
-                                                    <div >
-                                                    <img class="img1"
-                                                        src="http://localhost/Home_DB/public/assets/images/book-service/forma-1-copy-19.png"
-                                                        alt="">
-                                                </div>
-                                                </span>
-                                                </div>
-
-
-                                                
-                                                <div class="div1">
-                                            <?php echo $values->First_name;?>&nbsp<?php echo $values->Last_name;?>
-                                        </div>
-
-                                        
-                                                                 <input type="hidden" name="spidblc" value="<?php echo $values->Serviceproviderid;?>">
-<!--  -->
-                                        <!-- <input type="hidden" name="targetid" id="targetid" value="<?php echo $values->Userid;?>"> -->
-                                                        <!-- <input type="hidden" name="userid" id="userid" value="<?php echo $values->UserId;?>"> -->
-                                                        <div class="call1">
-                                                      <?php if (!$values->isblockd == 1): ?>
-                                                        <span>
-                                                      <button class="border gbtn ohk5 selectsp1" type="submit" name="block" >Block</button>
-                                                    </span>
-                                                      <?php endif; ?>
-                                                      <?php if ($values->isblockd == 1): ?>
-                                                        <span>
-                                                      <button class="border gbtn ohk5 selectsp1 " type="submit" name="unblock" >unBlock</button>
-                                                    </span>
-                                                      <?php endif; ?>
-                                                     </div>
-                                       
-                                </span>
-
-                                                      <tr>
-                                                     
-                                                    </tr>
-                                                    
-                                                    </form>
-                                                    <p><?php endforeach; ?></p>
-                                                    
-                                                     </div>
-                                          
-                                          </div>
-
-
-
-
-
-                                                         
-
-
-                                                    
-        
+       
         </tbody>
       
     </table>
     </div>
+
+    <div class="tab-pane fade" id="v-pills-messages3" role="tabpanel" aria-labelledby="v-pills-messages3-tab">
+      
+      <?php include 'index.php'; ?>
+    </div>
+
 
     
                                            <div class="tab-pane fade" id="v-pills-helo" role="tabpanel" aria-labelledby="v-pills-helo-tab">
@@ -754,21 +638,11 @@
 
                                                                                         <div class="col-lg-10">
                                                                                             <label for="" class="form-control-label">Gender</label>
-                                                                                           <!--  <div class="form-check">
-          <label class="form-check-label" id="imp12">
-            <input class="form-check-input radio-inline" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-            Option one</label>
-            <label class="form-check-label imp12 imp100">
-            <input class="form-check-input radio-inline" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-            Option two</label>
-            <label class="form-check-label disabled imp12 imp100">
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled>
-            Option three</label>
-        </div> -->
+                                                                               
           <div class=" justify-content-center icons first-row dp1">
                             <div class="row justify-content-center">
                                 <div class="col-sm-2">
-                                    <li class="list1"><input name="extras[]" type="radio"
+                                    <li class="list2"><input name="extras[]" type="radio"
                                             value="http://localhost/Home_DB/public/assets/images/book-service/1.png"
                                             class="Ellipse-667 avtar" id="cb1" />
                                         <label for="cb1" class="lb1"><img id="img1" 
@@ -778,7 +652,7 @@
                                     </li>
                                 </div>
                                 <div class="col-sm-2">
-                                    <li class="list1"><input type="radio"
+                                    <li class="list2"><input type="radio"
                                             value="Inside fridge" name="extras[]"
                                             class="Ellipse-667 avtar" id="cb2" />
                                         <label for="cb2" class="lb1"><img id="img2"
@@ -789,7 +663,7 @@
                                 </div>
 
                                 <div class="col-sm-2">
-                                    <li class="list1"><input type="radio" value="Inside oven"
+                                    <li class="list2"><input type="radio" value="Inside oven"
                                             name="extras[]" class="Ellipse-667 avtar"
                                             id="cb3" />
                                         <label for="cb3" class="lb1"><img id="img3"
@@ -799,7 +673,7 @@
                                     </li>
                                 </div>
                                 <div class="col-sm-2">
-                                    <li class="list1"><input type="radio"
+                                    <li class="list2"><input type="radio"
                                             value="Laundry wash & dry" name="extras[]"
                                             class="Ellipse-667 avtar" id="cb4" />
                                         <label for="cb4" class="lb1"><img id="img4"
@@ -809,7 +683,7 @@
                                     </li>
                                 </div>
                                 <div class="col-sm-2">
-                                    <li class="list1"><input type="radio" name="extras[]"
+                                    <li class="list2"><input type="radio" name="extras[]"
                                             class="Ellipse-667 avtar" id="cb5"
                                             value="Interior windows" />
                                         <label for="cb5" class="lb1"><img id="img5"
@@ -828,19 +702,19 @@
                                                                                       <p><?php foreach($_SESSION['row'] as  $values): ?></p>
                                                                                       <div class="col-md-4">
                                                                                             <label for="city" class="form-control-label">Street name</label>
-                                                                                          <input type="text" id="streetname" class="form-control" placeholder="City" name="streetname" value="<?php echo $values->AddressLine1;?>" aria-label="City">
+                                                                                          <input type="text" id="streetfor" class="form-control" placeholder="City" name="streetname" value="<?php echo $values->AddressLine1;?>" aria-label="City">
                                                                                         </div>
                                                                                         <div class="col-md-4">
                                                                                             <label for="" class="form-control-label">House number</label>
-                                                                                          <input type="text" name="Housenum" id="Housenum" value="<?php echo $values->AddressLine2;?>" class="form-control" placeholder="State" aria-label="State">
+                                                                                          <input type="text" name="Housenumfor" id="Housenumfor" value="<?php echo $values->AddressLine2;?>" class="form-control" placeholder="State" aria-label="State">
                                                                                         </div>
                                                                                         <div class="col-md-4">
                                                                                             <label for="" class="form-control-label">Postal code</label>
-                                                                                          <input type="" name="postalcode" id="postalcode" value="<?php echo $values->PostalCode;?>" class="form-control" placeholder="Zip" aria-label="Zip">
+                                                                                          <input type="" name="postalcode" id="postalcodefor" value="<?php echo $values->PostalCode;?>" class="form-control" placeholder="Zip" aria-label="Zip">
                                                                                         </div>
                                                                                         <div class="col-md-4">
                                                                                             <label for="city" class="form-control-label">City</label>
-                                                                                          <input type="text" id="city" class="form-control" placeholder="City" name="city" value="<?php echo $values->City;?>" aria-label="City">
+                                                                                          <input type="text" id="cityfor" class="form-control" placeholder="City" name="city" value="<?php echo $values->City;?>" aria-label="City">
                                                                                         </div>
                                                                                         <p><?php endforeach; ?></p>
                                                                                         <hr class="line2">
@@ -939,39 +813,7 @@
     
 </div>
 
-    <script>
-        $(document).ready(function() {
-    $('#example').DataTable( {
-        "order": [[ 3, "desc" ]],
-         dom: 'Bfrtip',
-        buttons: [
-            'excel'
-        ],
-    } );
-     $('#example1').DataTable( {
-        "order": [[ 3, "desc" ]],
-         dom: 'Bfrtip',
-        buttons: [
-            'excel'
-        ],
-    } );
-     $('#example2').DataTable( {
-        "order": [[ 2, "desc" ]],
-         dom: 'Bfrtip',
-        buttons: [
-            'excel'
-        ],
-    } );
-
-      $('#example3').DataTable( {
-        "order": [[ 2, "desc" ]],
-         dom: 'Bfrtip',
-        buttons: [
-            'excel'
-        ],  
-    } );
-} );
-    </script>
+   
 
 
      <section class="f1">
